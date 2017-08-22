@@ -1,0 +1,121 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+
+
+int validateDate(char *str)
+{
+    int enterDate,enterMonth,enterYear;
+    int dayDiff=0,monthDiff=0,yearDiff=0,flag=0,vflag=1;
+	time_t t=time(NULL);
+	struct tm tm=*localtime(&t);
+    int year,month,date,hour,minute,seconds;
+    enterDate=dateval(str);
+	if(enterDate>31)
+	{
+	    vflag=0;
+    }
+
+	enterMonth=monthval(str);
+	if(enterMonth>12)
+	{
+		vflag=0;
+	}
+
+	enterYear=yearval(str);
+	if(enterYear>2018)
+	{
+		vflag=0;
+	}
+    
+    year=tm.tm_year+1900;
+    month=tm.tm_mon+1;
+    date=tm.tm_mday;
+    hour=tm.tm_hour;
+    minute=tm.tm_min;
+    seconds=tm.tm_sec;
+    if(enterDate>=date)
+    {
+        dayDiff=enterDate-date;
+    }
+    else
+    {
+        enterDate=enterDate+30;
+        enterMonth=enterMonth-1;
+        dayDiff=enterDate-date;
+    }
+    if(enterMonth>=month)
+    {
+        monthDiff=enterMonth-month;
+    }
+    else
+    {
+        enterMonth=enterMonth+12;
+        enterYear=enterYear-1;
+        monthDiff=enterMonth-month;
+    }
+    yearDiff=enterYear-year;
+    if(dayDiff<0 || monthDiff<0 || yearDiff<0)
+    {
+        flag=0;
+    }
+    else
+    {
+        flag=1;
+    }
+    if(!vflag==0)
+        return flag;
+    else
+        return 0;
+}
+
+int main()
+{
+	char str[11];	
+labelDate:printf("\nEnter date (dd/mm/yyyy): ");
+	scanf("%s",str);
+	if( validateDate(str) )
+		printf("valid");
+	else
+    {
+        printf("invalid");
+        goto labelDate;
+    }
+
+    printf("\n %s",str);
+    return 0;
+}
+int monthval(char *str)
+{
+	char str1[5];
+	int i,j,month;
+	for(i=3,j=0;i<5;j++,i++)
+	{
+		str1[j]=str[i];
+	}
+	month=atoi(str1);
+	return month;
+}
+int dateval(char *str)
+{
+	char str1[5];
+	int i,j,date;
+	for(i=0;i<2;i++)
+	{
+		str1[i]=str[i];
+	}
+	date=atoi(str1);
+	return date;
+}
+int yearval(char *str)
+{
+	char str1[5];
+	int i,j,year;
+	for(i=6,j=0;i<10;j++,i++)
+	{
+		str1[j]=str[i];
+	}
+	year=atoi(str1);
+	return year;
+}

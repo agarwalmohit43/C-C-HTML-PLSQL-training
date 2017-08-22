@@ -1,0 +1,97 @@
+void registration(struct travel *travels)
+{
+	/*int ch, i, number, pAge, num = 0;
+	char ch1;*/
+	FILE *fp1;
+	FILE *fp;
+	
+	int custid=0;
+	struct user puser1;
+	struct user pUser;
+	char uName[20], pwd[20];int i,valid=0;char c,st[10];
+
+	//pUser=(struct user *)malloc(sizeof(struct user));
+	//puser1=(struct user *)malloc(sizeof(struct user));
+	customerDetails(travels);
+	
+	if ( ( fp=fopen("user1.txt", "a+")) == NULL)
+	{
+		if ( ( fp=fopen("user1.txt", "w+")) == NULL)
+		{
+			printf ("Could not open file\n");
+			exit ( 1);
+		}
+	}
+	do
+	{
+		printf("Choose A Username: ");
+		scanf("%s",pUser.username);
+		fp1=fopen("user.txt","r");
+		if(fp1==NULL)
+		{
+			printf("couldn't open");
+			exit(0);
+		}
+
+		{
+			printf("Choose A Username: ");
+			scanf("%s", pUser.username);
+			fp1 = fopen("user1.txt", "r");
+			if (fp1 == NULL)
+			{
+				printf("couldn't open");
+				exit(0);
+			}
+
+			no = 0;
+			while (!feof(fp))
+			{
+				if (fgetc(fp) == '\n')
+				{
+					no++;
+				}
+			}
+
+
+			fseek(fp1, 0, SEEK_SET);
+			for (i = 0; i < no; i++)
+			{
+				fscanf(fp1, "%d", &puser1.cid);
+				fseek(fp1, 1, SEEK_CUR);
+				fscanf(fp1, "%[^,]s", &puser1.username);
+				fseek(fp1, 1, SEEK_CUR);
+				fscanf(fp1, "%[^,]s", &puser1.password);
+				fseek(fp1, 1, SEEK_CUR);
+				fscanf(fp1, "%d\n", &puser1.type);
+				printf("\n%s\n", puser1.username);
+				if (puser1.username == pUser.username)
+				{
+					printf("it already exists");
+					exit(0);
+				}
+
+			}
+
+			pUser.cid = ++no;
+			printf("Choose A Password: ");
+			scanf("%s", pUser.password);
+			valid = check(pUser.password);
+		} while (valid != 1);
+		//fwrite(pUser, sizeof(struct user), 1, fp);
+		fclose(fp1);
+		fp1 = fopen("user1.txt", "a");
+		pUser.type = 0;
+		fprintf(fp1, "%d,%s,%s,%d\n", pUser.cid, pUser.username, pUser.password, pUser.type);
+	fclose(fp);
+	fclose(fp1);
+
+	fp1 = fopen("travel.txt", "a");
+
+	if (fp1 == NULL)
+	{
+		printf("\n File cannot be opened!");
+	}
+
+	fprintf(fp1, "%d,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", pUser.cid, travels->passengerName, travels->passengerGender, travels->passengerAge, travels->passengerEmail, travels->validPan, travels->validAadhaar, travels->validPassport, travels->mobileNumber, travels->passengerAddress);
+	fclose(fp1);
+}
