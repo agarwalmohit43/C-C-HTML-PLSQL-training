@@ -1,0 +1,153 @@
+userid:  Testuser73
+password: 8985339031
+path:cd /home/testuser73/files
+
+*****************************************************************************************************
+*File name  :Que3
+*Author     :
+*Description:Write a recursive menu driven shell with following menu
+*Date       :
+*****************************************************************************************************
+
+
+-bash-3.2$ cat Que3
+ch="y"
+while [ ch="y" -o ch="Y" ]
+do
+   echo "******************menu*******************"
+   echo "1.create a file"
+   echo "2.Display a File"
+   echo "3.Uppercase"
+   echo "4.Search user"
+   echo "5.Delete User"
+   echo "6.Exit"
+   echo "************end of the menu***************"
+     echo "enter your choice"
+     read choice
+     case $choice in
+        #command to copy the etc/passwd file into user.txt file
+      1)cat /etc/passwd > user.txt
+         #command to display the user.txt content
+        cat user.txt;;
+        #command to display the username and userid of user.txt file
+      2)cut -d ":" -f1,3 user.txt;;
+        #command to convert the user.txt data into uppercase
+      3)tr "[a-z]" "[A-Z]" < user.txt;;
+        #Accept the userid from user and search in the file
+      4)echo "enter the name to search"
+        read name
+          awk -v username="$name" -F ":" '
+          {
+             if($3~username)
+             {
+                #print if the file is found in the user.txt
+                print
+             }
+             else
+             {
+                echo "user id not found"
+             }
+          }' user.txt;;
+         #Accept the groupid from user and delete that particular record
+      5)echo "enter the group id to delete"
+        read id
+          awk -v groupid="$id" -F ":" '
+          {
+             if($4~groupid)
+             {
+                #delete the record using sed command
+                sed -i d $0
+                #printing the deleted record
+                print
+             }
+          }' user.txt;;
+         #Exit the program whenever user wants to exit
+      6)exit;;
+    esac
+echo "do you want to continue[y/n]?"
+read ch
+done
+
+--------------------------------------------------------------------------------
+output:
+enter your choice
+1
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/etc/news:
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+
+
+enter your choice
+2
+root:0
+bin:1
+daemon:2
+adm:3
+lp:4
+sync:5
+shutdown:6
+halt:7
+mail:8
+news:9
+uucp:10
+operator:11
+games:12
+gopher:13
+ftp:14
+nobody:99
+distcache:94
+nscd:28
+vcsa:69
+pcap:77
+ntp:38
+dbus:81
+apache:48
+
+
+enter your choice
+3
+ROOT:X:0:0:ROOT:/ROOT:/BIN/BASH
+BIN:X:1:1:BIN:/BIN:/SBIN/NOLOGIN
+DAEMON:X:2:2:DAEMON:/SBIN:/SBIN/NOLOGIN
+ADM:X:3:4:ADM:/VAR/ADM:/SBIN/NOLOGIN
+LP:X:4:7:LP:/VAR/SPOOL/LPD:/SBIN/NOLOGIN
+SYNC:X:5:0:SYNC:/SBIN:/BIN/SYNC
+SHUTDOWN:X:6:0:SHUTDOWN:/SBIN:/SBIN/SHUTDOWN
+HALT:X:7:0:HALT:/SBIN:/SBIN/HALT
+MAIL:X:8:12:MAIL:/VAR/SPOOL/MAIL:/SBIN/NOLOGIN
+NEWS:X:9:13:NEWS:/ETC/NEWS:
+
+
+
+enter your choice
+4
+enter the name to search
+680
+testuser18:x:680:682::/home/testuser18:/bin/bash
+do you want to continue[y/n]?
+y
+
+
+enter your choice
+5
+enter the group id to delete
+680
+testuser99:x:678:680::/home/testuser99:/bin/bash
+do you want to continue[y/n]?
+y
+
+
+enter your choice
+6
+
+
+

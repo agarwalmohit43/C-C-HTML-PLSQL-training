@@ -1,0 +1,14 @@
+       #!/bin/bash
+       LIMIT=20 # Upper limit
+       echo "Printing even numbers from 1 to 20 "
+       a=0
+       while [ $a -le "$LIMIT" ]
+       do
+               let a=a+1
+               REM=`expr $a % 2`
+               if [ $REM -ne 0 ]
+               then
+                      continue # Skip rest of this particular loop iteration.
+              fi 
+              echo "$a"
+      done

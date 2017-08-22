@@ -1,0 +1,101 @@
+//4.1
+[user6@NDAUnix ven]$ man ls > lsdoc
+
+//4.2
+[user6@NDAUnix ven]$ more lsdoc
+LS(1)                            User Commands                           LS(1)
+
+
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about  the FILEs (the current directory by default).
+       Sort entries alphabetically if none of -cftuvSUX nor --sort.
+
+       Mandatory arguments to long options are  mandatory  for  short  options
+       too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print octal escapes for nongraphic characters
+
+       --block-size=SIZE
+              use SIZE-byte blocks.  See SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+
+--More--(11%)
+
+//4.3
+
+[user6@NDAUnix ven]$ head -10 lsdoc
+
+LS(1)                            User Commands                           LS(1)
+
+
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+[user6@NDAUnix ven]$
+
+
+//4.4
+[user6@NDAUnix ven]$ tail -7 lsdoc
+              info coreutils 'ls invocation'
+
+       should give you access to the complete manual.
+
+
+
+GNU coreutils 8.4                October 2013                            LS(1)
+[user6@NDAUnix ven]$
+
+//4.5
+[user6@NDAUnix ven]$ rm lsdoc
+
+//4.6
+[user6@NDAUnix ven]$ cat friends.txt
+VEN|846539|19/01/1993
+ben|846539|01/08/1994
+len|846539|02/02/1997
+gwen|846539|01/08/1994
+ten|846539|05/07/1999
+wen|846539|06/08/1998
+vVEN|846539|04/05/1991
+bben|846539|03/08/1992
+gwen|846539|02/08/1996
+tten|846539|01/08/1997
+[user6@NDAUnix ven]$ sort -t"|" -k3.2 friends.txt | cut -d"|" -f3 | uniq -c|wc -l
+9
+[user6@NDAUnix ven]$
+
+//4.7
+[user6@NDAUnix ven]$ grep -i "^V" friends.txt
+VEN|846539|19/01/1993
+vVEN|846539|04/05/1991
+[user6@NDAUnix ven]$
+       
+
+
+
+
+
+

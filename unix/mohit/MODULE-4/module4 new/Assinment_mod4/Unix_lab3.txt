@@ -1,0 +1,83 @@
+1. Give the execute permission for the user for a file chap1:
+
+
+-bash-3.2$ chmod u+x chap1
+-bash-3.2$ ls -l chap1
+-rwxr--r-- 1 testuser68 testuser68 3 May 31 16:05 chap1
+
+
+__________________________________________________________________________________________________________________________
+
+
+2. Give the execute permission for user, group and others for a add.c:
+
+-bash-3.2$ chmod ugo=x add.c
+-bash-3.2$ ls -l add.c
+---x--x--x 1 testuser68 testuser68 0 Jun  1 08:10 add.c
+
+OR
+ 
+-bash-3.2$ chmod a+x add.c
+-bash-3.2$ ls -l add.c
+---x--x--x 1 testuser68 testuser68 0 Jun  1 08:10 add.c
+
+__________________________________________________________________________________________________________________________
+
+
+3. Remove the execute permission from user, give read permission to group and others for file aa.c
+
+
+-bash-3.2$ chmod u-x aa.c
+-bash-3.2$ ls -l aa.c
+-rw-r--r-- 1 testuser68 testuser68 0 Jun  1 08:15 aa.c
+-bash-3.2$ chmod go=r aa.c
+-bash-3.2$ ls -l aa.c
+-rw-r--r-- 1 testuser68 testuser68 0 Jun  1 08:15 aa.c
+
+__________________________________________________________________________________________________________________________
+
+
+4. Give execute permission for user for a.c, kk.c, nato and my file using single command:
+
+
+-bash-3.2$ touch a.c kk.c nato myfile
+-bash-3.2$ ls
+aa.c  a.c  add.c  chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  friends  kk.c  myfile  nato  newfriend  users
+-bash-3.2$ chmod u+x a.c kk.c nato myfile
+-bash-3.2$ ls -l a.c kk.c nato myfile
+-rwxr--r-- 1 testuser68 testuser68 0 Jun  1 08:20 a.c
+-rwxr--r-- 1 testuser68 testuser68 0 Jun  1 08:20 kk.c
+-rwxr--r-- 1 testuser68 testuser68 0 Jun  1 08:20 myfile
+-rwxr--r-- 1 testuser68 testuser68 0 Jun  1 08:20 nato
+
+__________________________________________________________________________________________________________________________
+
+
+5. Change the directory to root directory. Check the system directories, like bin, etc, usr etc:
+
+
+-bash-3.2$ cd /
+-bash-3.2$ ls
+bin  boot  dev  etc  filelist.txt  home  lib  lost+found  media  misc  mnt  net  opt  proc  rakhee  root  sbin  selinux  srv  sys  tftpboot  tmp  usr  var
+-bash-3.2$ cd /bin
+-bash-3.2$ ls
+alsacard    chown                 dbus-uuidgen   egrep    gzip      loadkeys         more           ps               sed        taskset        umount
+alsaunmute  cp                    dd             env      hostname  loadkeys.static  mount          pwd              setfont    tcptraceroute  uname
+arch        cpio                  df             ex       igawk     logger           mountpoint     raw              setserial  tcsh           unicode_start
+awk         csh                   dmesg          false    ipcalc    login            mv             red              sh         touch          unicode_stop
+basename    cut                   dnsdomainname  fgrep    kbd_mode  ls               netstat        redhat_lsb_init  sleep      tracepath      unlink
+bash        date                  doexec         gawk     kill      mail             nice           rm               sort       tracepath6     usleep
+c           dbus-cleanup-sockets  domainname     gettext  ksh       mailx            nisdomainname  rmdir            stty       traceroute     vi
+cat         dbus-daemon           dumpkeys       grep     ksh93     mkdir            pgawk          rpm              su         traceroute6    view
+chgrp       dbus-monitor          echo           gtar     link      mknod            ping           rvi              sync       tracert        ypdomainname
+chmod       dbus-send             ed             gunzip   ln        mktemp           ping6          rview            tar        true           zcat
+
+
+-bash-3.2$ cd /usr
+-bash-3.2$ ls
+bin  etc  games  include  java  kerberos  lib  libexec  local  sbin  share  src  tmp  X11R6
+
+-bash-3.2$ cd /etc
+-bash-3.2$ ls
+
+__________________________________________________________________________________________________________________________

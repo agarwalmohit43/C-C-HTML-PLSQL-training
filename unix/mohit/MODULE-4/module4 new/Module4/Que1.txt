@@ -1,0 +1,163 @@
+userid:  Testuser73
+password: 8985339031
+
+path:cd /home/testuser73/files
+
+******************************************
+*File name  :Que1
+*Author     :
+*Description:Commands 
+*Date       :
+******************************************
+
+
+****************************************************
+a) cp /home/testuser73/files /home
+
+****************************************************
+
+b)-bash-3.2$ tail -n 1 employee.dat
+
+output:
+ParthMilindRepe, pm827629, finance, 65781, 25.8.2014
+
+****************************************************
+
+c)-bash-3.2$ grep -w HR employee.dat
+
+output:
+PanchamiPradeep, pp827617, HR, 32145, 1.1.2014
+
+
+****************************************************
+
+d)-bash-3.2$ grep -w Ilearn employee.dat >trainer.dat
+  -bash-3.2$ cat trainer.dat
+
+output:
+LarryWall, lw827560, Ilearn, 32000, 22.11.2011
+PoojaThakare, pt827578, Ilearn, 60000, 6.12.2008
+
+****************************************************
+
+
+e)-bash-3.2$ cut -d "," -f5 employee.dat |sort -k2
+
+output based on day sorting
+ 01.1.2014
+ 03.4.2000
+ 06.12.2008
+ 19.2.2014
+ 22.11.2011
+ 25.8.2014
+
+-bash-3.2$ cut -d "," -f5 employee.dat |sort -t "." -k2,2
+
+output based on month sorting
+ 01.01.2014
+ 19.02.2014
+ 03.04.2000
+ 25.08.2014
+ 22.11.2011
+ 06.12.2008
+
+-bash-3.2$ cut -d "," -f5 employee.dat |sort -t "." -k3,3
+
+output based on year sorting
+ 03.04.2000
+ 06.12.2008
+ 22.11.2011
+ 01.01.2014
+ 19.02.2014
+ 25.08.2014
+
+****************************************************
+
+
+f)-bash-3.2$ grep "2014" employee.dat|wc -l
+
+output:
+3
+
+****************************************************
+
+g)-bash-3.2$  egrep '^.a|^.o'  employee.dat | cut -d "," -f1
+
+output:
+LarryWall
+PoojaThakare
+PanchamiPradeep
+ParthMilindRepe
+
+
+****************************************************
+
+h)-bash-3.2$ awk '$4>50000 {print}' employee.dat
+
+output:
+PoojaThakare, pt827578, Ilearn, 60000, 06.12.2008
+ParthMilindRepe, pm827629, finance, 65781, 25.08.2014
+
+
+****************************************************
+
+i)-bash-3.2$ awk -F "," '
+   BEGIN{}
+   {
+   sum=sum+$4;
+   }
+   END{
+   printf "sum is %d\n",sum}' employee.dat
+
+output:
+sum is 273686
+
+****************************************************
+
+j)
+-bash-3.2$ wc -l employee.dat
+
+output:
+6 employee.dat
+
+****************************************************
+
+k)-bash-3.2$ awk -F "," '
+  BEGIN{}
+  {
+    if(length($1)>10 && length($1)<15)
+    {
+      print
+    }
+  }
+  END{}' employee.dat
+
+output:
+VijiThankappan, vt827571, V&V, 45000, 03.04.2000
+PoojaThakare, pt827578, Ilearn, 60000, 06.12.2008
+
+****************************************************
+
+l)-bash-3.2$ cut -d "," -f3 employee.dat | sort -u
+
+output
+ finance
+ HR
+ Ilearn
+ V&V
+
+****************************************************
+
+
+m)-bash-3.2$ cut -d "," -f1,4 employee.dat > salary.dat
+  -bash-3.2$ cat salary.dat
+
+output:
+------------------------------------
+LarryWall, 32000
+VijiThankappan, 45000
+PoojaThakare, 60000
+TejashreeGhanashyamKhandelwal, 38760
+PanchamiPradeep, 32145
+ParthMilindRepe, 65781
+

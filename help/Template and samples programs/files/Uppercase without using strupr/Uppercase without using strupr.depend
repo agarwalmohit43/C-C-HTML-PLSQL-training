@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1444791562 source:c:\codeblocks\files\uppercase without using strupr\main.c
+	<stdio.h>
+	<stdlib.h>
+

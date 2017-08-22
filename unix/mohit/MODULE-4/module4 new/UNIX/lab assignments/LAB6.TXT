@@ -1,0 +1,67 @@
+****************************************************
+QUE1.a:
+****************************************************
+
+-bash-3.2$ sed  -n -e '2p' -e '/Pune$/p' Employee.dat
+John    34228   GRIT    Hyderabad
+Albert  32342   GRIT    Pune
+Richard 23232   ACS     Pune
+
+****************************************************
+QUE1.b:
+****************************************************
+-bash-3.2$ sed  -n '1,5p' Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hyderabad
+Pete    22321   GE      Banglore
+Albert  32342   GRIT    Pune
+Mathew  23222   PACE    Mumbai
+
+****************************************************
+QUE1.c:
+****************************************************
+-bash-3.2$ cat>subfile
+s/Pune/Chennai
+
+
+-bash-3.2$ sed -f subfile Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hyderabad
+Pete    22321   GE      Banglore
+Albert  32342   GRIT    Chennai
+Mathew  23222   PACE    Mumbai
+Richard 23232   ACS     Chennai
+
+****************************************************
+QUE1.d:
+****************************************************
+-bash-3.2$ sed -e 's/e/UNIX/g' Employee.dat
+JamUNIXs        76382   PACE    ChUNIXnnai
+John    34228   GRIT    HydUNIXrabad
+PUNIXtUNIX      22321   GE      BanglorUNIX
+AlbUNIXrt       32342   GRIT    PunUNIX
+MathUNIXw       23222   PACE    Mumbai
+Richard 23232   ACS     PunUNIX
+
+****************************************************
+QUE1.e:
+****************************************************
+-bash-3.2$ sed '/^$/d' Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hyderabad
+Pete    22321   GE      Banglore
+Albert  32342   GRIT    Pune
+Mathew  23222   PACE    Mumbai
+Richard 23232   ACS     Pune
+
+****************************************************
+QUE1.f:
+****************************************************
+-bash-3.2$ sed -e '3,5d' Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hyderabad
+Richard 23232   ACS     Pune
+
+****************************************************
+QUE2:
+****************************************************

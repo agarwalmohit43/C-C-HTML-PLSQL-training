@@ -1,0 +1,70 @@
+userid:  Testuser73
+password: 8985339031
+path:cd /home/testuser73/files
+
+******************************************
+*File name  :Que2
+*Author     :
+*Description:Write menu driven shell script to show sysytem configuration 
+*Date       :
+******************************************
+
+-bash-3.2$ cat Que2
+ch="y"
+while [ ch="y" -o ch="Y" ]
+do
+        echo "********************menu****************************"
+        echo "1.currently logged user and their logname"
+        echo "2.current shell"
+        echo "3.home directory"
+        echo "4.working directory"
+        echo "5.currently logged number of users"
+        echo "6.exit"
+        echo "*************end of menu*****************************"
+        echo "enter your choice"
+        read choice
+          case $choice in
+               #knowing the details of currently logged user and their loginname
+             1)who am i;;
+               #Knowing the current shell
+             2)ps -l;;
+               #Knowing the home directory
+             3)cd /home/;;
+               #knowing the current working directory
+             4)pwd;;
+               #knowing the currntly logged number of users
+             5)who|wc -l;;
+               #exit from program
+             6)exit;;
+          esac
+        echo -e "Do you want to continue[y/n]?: \c"
+        read ch
+        done
+
+
+----------------------------------------------------------------------------
+output:
+
+enter your choice
+1
+testuser73 pts/37       2016-06-07 10:41 (punhwd11933.igatecorp.com)
+Do you want to continue[y/n]?: y
+enter your choice
+2
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S   652 24102 24101  0  75   0 -  1191 wait   pts/37   00:00:00 bash
+0 S   652 29350 24102  0  75   0 -  1145 wait   pts/37   00:00:00 sh
+0 R   652 29361 29350  0  75   0 -  1076 -      pts/37   00:00:00 ps
+Do you want to continue[y/n]?: y
+enter your choice
+3
+Do you want to continue[y/n]?: y
+
+enter your choice
+4
+/home
+Do you want to continue[y/n]?: y
+enter your choice
+5
+36
+

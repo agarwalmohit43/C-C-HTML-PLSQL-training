@@ -1,0 +1,36 @@
+
+void sort(struct linkedlist *ptr)  
+{  
+ int flag=1,didswap=1;  
+ struct customer *prev,*temp;  
+ struct customer *curr;  
+ curr=ptr->first;  
+ prev=ptr->first;  
+ for(;didswap;)  
+ {  
+  flag=1;  
+  didswap=0;  
+  prev=ptr->first;  
+  for(curr=ptr->first;curr->next!=NULL;)  
+  {  
+   if((curr->unitConsumed)<(curr->next->unitConsumed))  
+   {  
+    if(flag)  
+    {ptr->first=curr->next;}  
+    else  
+    {prev->next=curr->next;}  
+    temp=curr->next->next;  
+    curr->next->next=curr;  
+    prev=curr->next;  
+    curr->next=temp;  
+    didswap=1;  
+   }  
+   else  
+   {  
+    prev=curr;  
+    curr=curr->next;  
+   }  
+   flag=0;  
+  }  
+ }  
+}  

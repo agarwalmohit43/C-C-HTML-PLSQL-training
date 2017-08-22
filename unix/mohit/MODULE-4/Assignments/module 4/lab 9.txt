@@ -1,0 +1,302 @@
+4. Try the below exercise and check the output.
+
+
+[user6@NDAUnix ~]$ continent="Africa"
+[user6@NDAUnix ~]$ echo $continent
+Africa
+[user6@NDAUnix ~]$ sh
+sh-3.2$ echo $continent
+
+sh-3.2$ continent="Asia"
+sh-3.2$ echo $continent
+Asia
+sh-3.2$ exit
+[user6@NDAUnix ~]$ echo $continent
+Africa
+[user6@NDAUnix ~]$ sh
+sh-3.2$ echo $continent
+
+sh-3.2$ exit
+
+
+____________________________________________________________________________________________________________________________
+
+
+
+5. Try the below exercise and check the output. (Export variables)
+
+[user6@NDAUnix ~]$ continent="Africa"
+[user6@NDAUnix ~]$ export continent
+[user6@NDAUnix ~]$ echo $continent
+Africa
+[user6@NDAUnix ~]$ sh
+sh-3.2$ echo $continent
+Africa
+sh-3.2$ continent="Asia"
+sh-3.2$ echo $continent
+Asia
+sh-3.2$
+sh-3.2$ exit
+[user6@NDAUnix ~]$ echo $continent
+Africa
+
+____________________________________________________________________________________________________________________________
+
+
+9. Pass three numbers as command line arguments and display the largest number in the given three numbers.
+
+
+[user6@NDAUnix ~]$ cat Que9.sh
+if [ $1 -gt $2 -a $1 -gt $3 ]; then
+  echo "$1 is greater"
+elif [ $2 -gt $1 -a $2 -gt $3 ]
+then
+  echo "$2 is greater"
+else
+  echo "$3 is greater"
+fi
+echo "End of prog"
+
+[user6@NDAUnix ~]$ vi Que9.sh
+[user6@NDAUnix ~]$ sh Que9.sh 10 20 30
+30 is greater
+End of prog
+
+_____________________________________________________________________________________________________________________________
+
+
+10. Write a shell script which will accept a pattern and a file name. The pattern will be searched in the file provided. 
+    Display appropriate messages and perform necessary validations on file.
+
+
+if test $# -eq 0;
+        then
+                echo "wrong usage"
+elif test $# -eq 2;
+        then
+                grep "$1" $2 || echo "$1 not found in $2"
+else
+        "less arguments"
+fi
+
+output:
+
+[user6@NDAUnix ~]$ sh ques10.sh "file" ques7.sh
+file=`ls -l`
+echo "$file"
+[user6@NDAUnix ~]$ sh ques10.sh "hd" ques7.sh
+hd not found in ques7.sh
+
+
+_____________________________________________________________________________________________________________________________
+
+11. To create a menu program for a) creating a file, b) Creating a directory, c) copying a file, d) moving a file.
+
+
+
+[user6@NDAUnix ~]$ vi ques11.sh
+ch="y"
+while [ $ch = "y" -o $ch = "Y" ]
+do
+        tput clear
+        echo "\n*****MENU*****"
+        echo "1.Create a file"
+        echo "2.Create a directory"
+        echo "3.Copy file"
+        echo "4.Move file"
+        echo -e "\nEnter your choice: "
+        read choice
+        case $choice in
+        1)      echo "Enter name of file you want to create: "
+                read file
+                if [ -f $file ]
+                then
+                echo "File already exists"
+                else
+                echo "$file"
+                fi
+                ;;
+
+        2)      echo "Enter name of directory you to want to create: "
+                read directory
+                if [ -d $directory ]
+                then
+                echo "Directory already exists"
+                else
+                mkdir $directory
+                fi
+                ;;
+
+        3)      echo "Enter source filename: "
+                read source
+                echo "Enter destination filename: "
+                read destination
+                cp $source $destination
+                ;;
+
+        4)      echo "Enter filename which you want to move: "
+                read source1
+                echo "Enter destination filename: "
+                read destination1
+                mv $source1 $destination1
+                ;;
+
+        *)      echo "Invalid choice"
+                ;;
+        esac
+        echo -e "Do you want to continue[y/n]?: \c "
+        read ch
+done
+
+
+_____________________________________________________________________________________________________________________________
+
+13. Write a shell script to store names of four employees and check whether those
+    employees are currently logged in or not. Display appropriate message.
+
+
+
+[user6@NDAUnix ~]$ vi ques13.sh
+echo -e "Enter filename: \c"
+        read file
+echo -e "Enter Name of 4 users  : \c"
+        read name1
+        read name2
+        read name3
+        read name4
+        if [ $1~/$name1/ -a $1~/$name2/ -a $1~/$name3/ -a $1~/$name4/ ]
+        then
+                echo "Users are logged-in"
+        else
+                echo "Users are not logged-in"
+        fi
+
+
+
+output:
+
+Enter filename: sweta.txt
+Enter Name of 4 users  : user6
+testuser66
+testuser73
+testuser68
+Users are logged-in
+-bash-3.2$
+
+_____________________________________________________________________________________________________________________________
+
+
+14.Accept the user's first and last name and the echo the entire name along with some
+   suitable comment.
+
+
+[user6@NDAUnix ~]$ cat ques14.sh
+echo -e "Enter first and last name of user  : \c"
+        read firstName
+        read lastName
+        echo "The first name is $firstName and "
+        echo "The last name is $lastName"
+
+[user6@NDAUnix ~]$
+
+output:
+
+Enter first and last name of user  : sweta
+singh
+The first name is sweta and
+The last name is singh
+
+
+
+_____________________________________________________________________________________________________________________________
+
+
+15. List all files that have been modified today.
+
+
+[user6@NDAUnix ~]$ vi ques15.sh
+modified=`find -mtime -1 -print`
+echo "The files which are modified todays are \n"
+echo "$modified"
+
+
+output:
+
+[user6@NDAUnix ~]$ sh ques15.sh
+The files which are modified todays are
+.
+./ques14.sh
+./ques13.sh
+./.ques13.sh.swp
+./ques12.sh
+./ques11.sh
+./ques6.sh
+./ques8.sh
+./ques16.sh
+./sweta.txt
+./chhotu
+./ques9.sh
+./ques15.sh
+./ques10.sh
+./ques7.sh
+./.ques6.sh.swp
+
+
+
+_____________________________________________________________________________________________________________________________
+
+
+16. Display long listing of only the regular files in the current directory.
+
+[user6@NDAUnix ~]$ ls -l | awk '{if($1!~/x/)print}'
+total 100
+-rw-r--r-- 1 testuser72 testuser72  177 Jun  5 15:48 ques10.sh
+-rw-r--r-- 1 testuser72 testuser72 1479 Jun  5 15:55 ques11.sh
+-rw-r--r-- 1 testuser72 testuser72  258 Jun  5 15:58 ques12.sh
+-rw-r--r-- 1 testuser72 testuser72  319 Jun  5 16:05 ques13.sh
+-rw-r--r-- 1 testuser72 testuser72  187 Jun  5 16:07 ques14.sh
+-rw-r--r-- 1 testuser72 testuser72  102 Jun  5 16:14 ques15.sh
+-rw-r--r-- 1 testuser72 testuser72    0 Jun  5 16:11 ques16.sh
+-rw-r--r-- 1 testuser72 testuser72  424 Jun  5 14:54 ques6.sh
+-rw-r--r-- 1 testuser72 testuser72   26 Jun  5 15:45 ques7.sh
+-rw-r--r-- 1 testuser72 testuser72  187 Jun  5 15:18 ques8.sh
+-rw-r--r-- 1 testuser72 testuser72  207 Jun  5 15:25 ques9.sh
+-rw-r--r-- 1 testuser72 testuser72   26 Jun  5 15:54 sweta.txt
+
+
+_____________________________________________________________________________________________________________________________
+
+
+18. Let the script display its name and its PID.
+
+[user6@NDAUnix ~]$ cat ques18.sh
+echo "Name and PID of user :"
+ps -f |cut -c1-15
+
+output
+
+Name and PID of user :
+UID        PID
+651       8948
+651       9597
+651       9598
+651       9599
+
+_____________________________________________________________________________________________________________________________
+
+
+19. Get the concatenated o/p of 2 files into a third file: Take 3 command line arguments:
+    The first argument is the name of a destination file, and the other two arguments are
+    names of files whose contents are to be placed in the destination file.
+
+
+dest_file=$1
+file1=$2
+file2=$3
+
+echo "Copy the contents of files into destination file"
+cp $file1 $dest_file
+echo "file copied"
+cp $file2 $dest_file
+
+_____________________________________________________________________________________________________________________________

@@ -1,0 +1,30 @@
+1. Find out the PID of the processes that are activated by you:
+
+[user6@NDAUnix ~]$ ps
+  PID TTY          TIME CMD
+47601 pts/17   00:00:00 ps
+53779 pts/17   00:00:00 bash
+
+___________________________________________________________________
+2. Find out the information about all the processes that are currently active:
+
+[user6@NDAUnix ~]$ ps -F
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+user6   47639 53779  0 27551  1004   0 12:04 pts/17   00:00:00 ps -F
+user6   53779 53778  0 27118  1932   1 08:51 pts/17   00:00:00 -bash
+
+____________________________________________________________________
+
+3. Start a different process in the background. Find out the status of the background process using the PID of the same:
+
+[user6@NDAUnix ~]$ cat > f2&
+[1] 47662
+[user6@NDAUnix ~]$ ps -P
+  PID PSR TTY          TIME CMD
+47662   0 pts/17   00:00:00 cat
+47687   1 pts/17   00:00:00 ps
+53779   0 pts/17   00:00:00 bash
+
+[1]+  Stopped                 cat > f2
+
+___________________________________________________________________

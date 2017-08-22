@@ -1,0 +1,646 @@
+1. To display the current working directory:
+
+-bash-3.2$ pwd
+/home/testuser68
+
+_____________________________________________________________________________________________________________________________________
+
+
+2. Display the path to and name of your HOME directory:
+
+-bash-3.2$ cd
+-bash-3.2$ pwd
+/home/testuser68
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+3. Display the login name using which you have logged into the system:
+
+-bash-3.2$ logname
+testuser68
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+4. Display the hidden files of your current directory:
+
+-bash-3.2$ touch .secretfile
+-bash-3.2$ ls
+-bash-3.2$ ls -a
+.  ..  .secretfile
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+5. List the names of all the files in your home directory:
+
+-bash-3.2$ touch file1.txt file2.txt
+-bash-3.2$ ls
+file1.txt  file2.txt
+-bash-3.2$ ls -a
+.  ..  file1.txt  file2.txt  .secretfile
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+6. Using the long listing format to display the file in your directory:
+
+-bash-3.2$ ls -l
+total 8
+-rw-r--r-- 1 testuser68 testuser68 0 May 31 15:56 file1.txt
+-rw-r--r-- 1 testuser68 testuser68 0 May 31 15:56 file2.txt
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+7. List the files beginning with chap followed by any number or any lower case alphabet:
+
+-bash-3.2$ touch chap1 chap2 chap3 chap4 chapa chapb chapc
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+8. Give appropriate command to create a directory called C_prog under your home directory:
+
+-bash-3.2$ mkdir C_prog
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  C_prog  file1.txt  file2.txt
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+9. Create the following directory under your home directory:
+
+-bash-3.2$ mkdir newdir newdirectory
+-bash-3.2$ ls -1
+chap1
+chap2
+chap3
+chap4
+chapa
+chapb
+chapc
+C_prog
+file1.txt
+file2.txt
+newdir
+newdirectory
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+10. List the names of all the files, including the content of the sub-directories under your home directory:
+
+
+-bash-3.2$ ls -R
+.:
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  C_prog  file1.txt  file2.txt  newdir  newdirectory
+
+./C_prog:
+
+./newdir:
+
+./newdirectory:
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+11. Remove directory called new directory from your working directory:
+
+
+-bash-3.2$ rmdir newdirectory
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  C_prog  file1.txt  file2.txt  newdir
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+12. Create the directory called temp under your home directory:
+
+
+-bash-3.2$ mkdir temp
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  C_prog  file1.txt  file2.txt  newdir  temp
+
+
+OR
+
+-bash-3.2$ ls -R
+.:
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  C_prog  file1.txt  file2.txt  newdir  temp
+
+./C_prog:
+
+./newdir:
+
+./temp:
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+
+13. Remove the directory called newdir under your home directory and verify the above with the help of directory listing command:
+
+
+-bash-3.2$ rmdir newdir
+-bash-3.2$ ls -l
+total 56
+-rw-r--r-- 1 testuser68 testuser68    3 May 31 16:05 chap1
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap2
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap3
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap4
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapa
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapb
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapc
+drwxr-xr-x 2 testuser68 testuser68 4096 May 31 16:08 C_prog
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file1.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file2.txt
+drwxr-xr-x 2 testuser68 testuser68 4096 May 31 16:20 temp
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+14. Create another directorynew under the temp directory:
+
+-bash-3.2$ mkdir temp/directorynew
+-bash-3.2$ cd temp
+-bash-3.2$ ls
+directorynew
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+15. Change the directory to your home directory:
+
+-bash-3.2$ cd /home
+-bash-3.2$ pwd
+/home
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+16. From your home directory, change the directory to directorynew using relative and absolute path:
+
+
+absolute path:
+
+-bash-3.2$ cd /home/testuser68/temp/directorynew/
+-bash-3.2$ pwd
+/home/testuser68/temp/directorynew
+
+relative path:
+
+-bash-3.2$ cd temp/directorynew
+-bash-3.2$ pwd
+/home/testuser68/temp/directorynew
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+17. Remove the directory called c_prog, which is in your home directory:
+
+-bash-3.2$ rmdir C_prog
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  temp
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+18. change to the directory /etc and display the files present in it:
+
+
+-bash-3.2$ cd /etc
+-bash-3.2$ pwd
+/etc
+-bash-3.2$ ls
+a2ps.cfg               cron.daily        gconf                 issue.net       minicom.users   pinforc         resolv.conf              ssh
+a2ps-site.cfg          cron.deny         gcrypt                java            mke2fs.conf     pki             resolv.conf.predhclient  stunnel
+acpi                   cron.hourly       gdm                   jvm             modprobe.conf   pm              rhgb                     subversion
+adjtime                cron.monthly      ghostscript           jvm-commmon     modprobe.conf~  ppp             rmt                      sudoers
+alchemist              crontab           gnome-vfs-2.0         jwhois.conf     modprobe.d      prelink.cache   rpc                      sysconfig
+aliases                cron.weekly       gnome-vfs-mime-magic  kdump.conf      motd            prelink.conf    rpm                      sysctl.conf
+aliases.db             csh.cshrc         gpm-root.conf         krb5.conf       mtab            prelink.conf.d  rwtab                    syslog.conf
+alsa                   csh.login         gre.d                 ldap.conf       mtools.conf     printcap        rwtab.d                  termcap
+alternatives           cups              group                 ld.so.cache     multipath.conf  profile         samba                    tux.mime.types
+anacrontab             dbus-1            group-                ld.so.conf      Muttrc          profile.d       sane.d                   udev
+asound.state           default           grub.conf             ld.so.conf.d    Muttrc.local    protocols       sasl2                    updatedb.conf
+at.deny                depmod.d          gshadow               lftp.conf       netplug         quotagrpadmins  scrollkeeper.conf        vimrc
+audisp                 desktop-profiles  gshadow-              libaudit.conf   netplug.d       quotatab        scsi_id.config           virc
+audit                  dev.d             gssapi_mech.conf      libuser.conf    NetworkManager  racoon          securetty                warnquota.conf
+autofs_ldap_auth.conf  dhcp6c.conf       gtk-2.0               localtime       nscd.conf       rc              security                 webalizer.conf
+auto.master            DIR_COLORS        hal                   login.defs      nsswitch.conf   rc0.d           selinux                  wgetrc
+auto.misc              DIR_COLORS.xterm  host.conf             logrotate.conf  ntp             rc1.d           services                 wpa_supplicant
+auto.net               dnsmasq.conf      hosts                 logrotate.d     ntp.conf        rc2.d           sestatus.conf            wvdial.conf
+auto.smb               dnsmasq.d         hosts.allow           logwatch        openldap        rc3.d           setroubleshoot           X11
+avahi                  dumpdates         hosts.deny            lsb-release.d   opt             rc4.d           setuptool.d              xdg
+bashrc                 enscript.cfg      hp                    ltrace.conf     pam.d           rc5.d           sgml                     xinetd.conf
+blkid                  environment       httpd                 lvm             pam_pkcs11      rc6.d           shadow                   xinetd.d
+bluetooth              esd.conf          idmapd.conf           mail            pam_smb.conf    rc.d            shadow-                  xml
+bonobo-activation      exports           init.d                mailcap         pango           rc.local        shells                   yp.conf
+capi.conf              fb.modes          initlog.conf          mail.rc         passwd          rc.sysinit      skel                     yum
+cdrecord.conf          filesystems       inittab               makedev.d       passwd-         readahead.d     slrn.rc                  yum.conf
+changepass.sh          firmware          inputrc               man.config      passwd.OLD      reader.conf     smartd.conf              yum.repos.d
+cipe                   fonts             iproute2              maven           pcmcia          reader.conf.d   smrsh
+conman.conf            foomatic          isdn                  mgetty+sendfax  php.d           redhat-lsb      sound
+cron.d                 fstab             issue                 mime.types      php.ini         redhat-release  squid
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+19. List the names of all the files that begin with a dot in the /usr/bin directory:
+
+
+-bash-3.2$ cd /usr/bin
+-bash-3.2$ pwd
+/usr/bin
+
+Too many files...
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+20. Create file first.unixwith the following contents:
+
+-bash-3.2$ cat>first.unix
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+-bash-3.2$ cat first.unix
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+21. Copy the first.unix in your home directory to first.unics:
+
+
+-bash-3.2$ cp first.unix first.unics
+-bash-3.2$ cat first.unics
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  first.unics  first.unix  temp
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+22. List the content of first.unix and first.unics with a single command:
+
+-bash-3.2$ cat first.unix first.unics
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+23. Create a new directory under the temp directory:
+
+-bash-3.2$ mkdir temp/newdirectory
+-bash-3.2$ cd temp
+-bash-3.2$ ls
+directorynew  newdirectory
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+24. From your home directory, copy all the files to the directory created under the temp sub directory:
+
+
+-bash-3.2$ cp chap* temp/newdirectory
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  first.unics  first.unix  temp
+-bash-3.2$ cd temp
+-bash-3.2$ ls
+directorynew  newdirectory
+-bash-3.2$ cd newdirectory
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  first.unics  first.unix
+-bash-3.2$ pwd
+/home/testuser68/temp/newdirectory
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+25. Move the file first.unix to the directory temp as second.unix:
+
+
+-bash-3.2$ mv first.unix temp/second.unix
+-bash-3.2$ cd temp
+-bash-3.2$ ls
+directorynew  newdirectory  second.unix
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+26. Remove the files called first.unics from the home directory:
+
+-bash-3.2$ rm first.unics
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  temp
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+27. Change your directory to temp and issue the command rm *. What do you observe:
+
+-bash-3.2$ cd temp
+-bash-3.2$ pwd
+/home/testuser68/temp
+-bash-3.2$ rm *
+rm: cannot remove `directorynew': Is a directory
+rm: cannot remove `newdirectory': Is a directory
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+28. Move all the files whose names end with a,c and o to the HOME directory:
+
+-bash-3.2$ mv *a *c *o /home/testuser68/
+mv: cannot stat `*o': No such file or directory
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapb  file1.txt  file2.txt  first.unics  first.unix
+
+/home/testuser68
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt  temp
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+29. copy all files that end with a 'UNIX' to the temp directory:
+
+-bash-3.2$ cat>fileUNIX
+-bash-3.2$ ls
+chap1  chap3  chapa  chapc file2.txt  temp chap2  chap4  chapb  file1.txt  fileUNIX
+-bash-3.2$ cp *UNIX temp
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt file2.txt  temp fileUNIX 
+-bash-3.2$ cd temp
+-bash-3.2$ ls
+directorynew  fileUNIX  newdirectory
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+30. Issuing the single command, remove all the files from the directory temp and the directory itself:
+
+-bash-3.2$ pwd
+/home/testuser68
+-bash-3.2$ rm -r temp
+-bash-3.2$ ls
+chap1  chap2  chap3  chap4  chapa  chapb  chapc  file1.txt  file2.txt
+-bash-3.2$ cd temp
+-bash: cd: temp: No such file or directory
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+31. Try command cp and mv with invalid number of arguments and note the results:
+
+-bash-3.2$ pwd
+/home/testuser68
+-bash-3.2$ cp saba
+cp: missing destination file operand after `saba'
+Try `cp --help' for more information.
+-bash-3.2$ mv saba
+mv: missing destination file operand after `saba'
+Try `mv --help' for more information.
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+32. Use cat command to create a file friends,with the following data:
+
+-bash-3.2$ cat>friends
+Madhu   6966456 09/07/68
+Jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+33. Display the content of the file friends:
+
+-bash-3.2$ cat friends
+Madhu   6966456 09/07/68
+Jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+34. Copy contents of friends to newfriend without using the cp command:
+
+-bash-3.2$ cat friends>newfriend
+-bash-3.2$ cat newfriend
+Madhu   6966456 09/07/68
+Jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+35. Display the contents of file friends and newfriend in a single command:
+
+-bash-3.2$ cat friends newfriend
+Madhu   6966456 09/07/68
+Jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+Madhu   6966456 09/07/68
+Jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+36. Find all user currently working on the system and store the output in a file named as users:
+
+-bash-3.2$ who>users
+-bash-3.2$ cat users
+root     :0           2016-02-26 09:30
+testuser74 pts/1        2016-05-31 17:37 (punhwd11932.igatecorp.com)
+testuser35 pts/2        2016-05-31 17:57 (10.207.222.175)
+testuser61 pts/3        2016-05-31 17:44 (punhwd12412.igatecorp.com)
+testuser77 pts/4        2016-05-31 18:13 (punhwd11946.igatecorp.com)
+testuser40 pts/5        2016-05-31 10:19 (igatevdi005.igatecorp.com)
+testuser56 pts/6        2016-05-31 18:20 (punhwd11927.igatecorp.com)
+testuser29 pts/7        2016-05-31 17:32 (igtearlvdi0225.igatecorp.com)
+testuser70 pts/8        2016-05-31 18:22 (punhwd11928.igatecorp.com)
+testuser15 pts/10       2016-05-31 18:05 (igtearlvdi0240.igatecorp.com)
+testuser75 pts/11       2016-05-31 18:16 (punhwd11949.igatecorp.com)
+testuser76 pts/12       2016-05-31 18:25 (punhwd14965.igatecorp.com)
+testuser78 pts/13       2016-05-31 17:45 (punhwd11945.igatecorp.com)
+testuser20 pts/14       2016-05-31 17:52 (igtearlvdi0089.igatecorp.com)
+testuser16 pts/15       2016-05-31 17:50 (igtearlvdi0234.igatecorp.com)
+testuser24 pts/16       2016-05-31 18:00 (igtearlvdi0226.igatecorp.com)
+testuser68 pts/17       2016-05-31 17:58 (punhwd11921.igatecorp.com)
+testuser63 pts/18       2016-05-31 18:20 (10.220.203.57)
+testuser36 pts/19       2016-05-31 17:35 (igtearlvdi0220.igatecorp.com)
+testuser60 pts/20       2016-05-31 10:02 (igatevdi005.igatecorp.com)
+testuser19 pts/21       2016-05-31 18:25 (igtearlvdi0233.igatecorp.com)
+testuser34 pts/22       2016-05-31 18:28 (igtearlvdi0120.igatecorp.com)
+testuser38 pts/23       2016-05-31 17:51 (igtearlvdi0224.igatecorp.com)
+testuser60 pts/24       2016-05-31 17:58 (punhwd11915.igatecorp.com)
+testuser45 pts/25       2016-05-31 18:29 (igtearlvdi0219.igatecorp.com)
+testuser67 pts/26       2016-05-31 17:52 (punhwd11922.igatecorp.com)
+testuser79 pts/27       2016-05-31 17:59 (punhwd11947.igatecorp.com)
+testuser8 pts/28       2016-05-31 17:53 (igtearlvdi0216.igatecorp.com)
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+37. Append contents of friends file to the file, users:
+
+-bash-3.2$ cat friends>>users
+-bash-3.2$ cat users
+root     :0           2016-02-26 09:30
+testuser74 pts/1        2016-05-31 17:37 (punhwd11932.igatecorp.com)
+testuser35 pts/2        2016-05-31 17:57 (10.207.222.175)
+testuser61 pts/3        2016-05-31 17:44 (punhwd12412.igatecorp.com)
+testuser77 pts/4        2016-05-31 18:13 (punhwd11946.igatecorp.com)
+testuser40 pts/5        2016-05-31 10:19 (igatevdi005.igatecorp.com)
+testuser56 pts/6        2016-05-31 18:20 (punhwd11927.igatecorp.com)
+testuser29 pts/7        2016-05-31 17:32 (igtearlvdi0225.igatecorp.com)
+testuser70 pts/8        2016-05-31 18:22 (punhwd11928.igatecorp.com)
+testuser15 pts/10       2016-05-31 18:05 (igtearlvdi0240.igatecorp.com)
+testuser75 pts/11       2016-05-31 18:16 (punhwd11949.igatecorp.com)
+testuser76 pts/12       2016-05-31 18:25 (punhwd14965.igatecorp.com)
+testuser78 pts/13       2016-05-31 17:45 (punhwd11945.igatecorp.com)
+testuser20 pts/14       2016-05-31 17:52 (igtearlvdi0089.igatecorp.com)
+testuser16 pts/15       2016-05-31 17:50 (igtearlvdi0234.igatecorp.com)
+testuser24 pts/16       2016-05-31 18:00 (igtearlvdi0226.igatecorp.com)
+testuser68 pts/17       2016-05-31 17:58 (punhwd11921.igatecorp.com)
+testuser63 pts/18       2016-05-31 18:20 (10.220.203.57)
+testuser36 pts/19       2016-05-31 17:35 (igtearlvdi0220.igatecorp.com)
+testuser60 pts/20       2016-05-31 10:02 (igatevdi005.igatecorp.com)
+testuser19 pts/21       2016-05-31 18:25 (igtearlvdi0233.igatecorp.com)
+testuser34 pts/22       2016-05-31 18:28 (igtearlvdi0120.igatecorp.com)
+testuser38 pts/23       2016-05-31 17:51 (igtearlvdi0224.igatecorp.com)
+testuser60 pts/24       2016-05-31 17:58 (punhwd11915.igatecorp.com)
+testuser45 pts/25       2016-05-31 18:29 (igtearlvdi0219.igatecorp.com)
+testuser67 pts/26       2016-05-31 17:52 (punhwd11922.igatecorp.com)
+testuser79 pts/27       2016-05-31 17:59 (punhwd11947.igatecorp.com)
+testuser8 pts/28       2016-05-31 17:53 (igtearlvdi0216.igatecorp.com)
+Madhu   6966456 09/07/68
+Jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+38. Display current system date and time and record your observations. How is the time displayed:
+
+-bash-3.2$ date
+Tue May 31 18:37:32 IST 2016
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+39. Display the calender for the month and year of your birth:
+
+-bash-3.2$ cal 8 1992
+    August 1992
+Su Mo Tu We Th Fr Sa
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31
+
+_____________________________________________________________________________________________________________________________________
+
+
+
+40. Try following commands and record your observations:
+
+-bash-3.2$ date "+ %"
+ %
+-bash-3.2$ date "+%m"
+05
+-bash-3.2$ date "+%D"
+05/31/16
+-bash-3.2$ date "+%/%Training Activity"
+%/18:42:43raining Activity
+-bash-3.2$ date "+%Training Activity"
+18:43:09raining Activity
+-bash-3.2$ date "+%r"
+06:43:33 PM
+
+_____________________________________________________________________________________________________________________________________
+
+
+

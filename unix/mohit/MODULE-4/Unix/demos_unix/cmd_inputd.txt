@@ -1,0 +1,5 @@
+		#!/bin/bash
+		echo "Program : $0"
+    		echo "Number of arguments specified is $#"
+     		echo "The arguments are $*"
+     		grep $1 $2

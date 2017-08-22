@@ -1,0 +1,119 @@
+---------------------------------------------------------------------------------------
+1
+
+BEGIN{printf"\n\t Average of Unix Students\n\n"
+}
+$3=="Unix"{
+kount++;tot=tot+$4
+}
+END{printf"The average marks of Unix Students is %d \n",tot/kount
+}
+
+-bash-3.2$ awk -f avg.awk result
+
+         Average of Unix Students
+
+The average marks of Unix Students is 56
+
+
+-bash-3.2$ cat avg.awk
+
+BEGIN{printf"\n\t Average of Unix Students\n\n"
+}
+$3=="Unix"{
+kount++;tot=tot+$4
+}
+END{printf"The average marks of Unix Students is %d \n",tot/kount
+}
+
+
+
+-bash-3.2$ awk '$3=="Unix" {print}' result | sort -n -k4 |tail -n 2
+E009    Aisa    Unix    60
+E007    Jenny   Unix    85
+
+
+Top 2 in DSA:
+
+-bash-3.2$ awk '$3=="DSA" {print}' result | sort -n -k4 |tail -n 2
+E003    James   DSA     80
+E010    Lisa    DSA     80
+
+
+---------------------------------------------------------------------------------------
+2
+
+-bash-3.2$ awk '{print $1,$4,$2}' Employeeawk.txt|sort -k2,2
+E010 10 Sagnika
+E009 100 Anuja
+E002 20 Nilesh
+E001 30 Nilesh
+E003 40 Raji
+E004 50 Priya
+E005 60 Reva
+E006 70 Chandu
+E007 80 Roja
+E008 90 Mouni
+---------------------------------------------------------------------------------------
+4
+======================================================================================
+a
+
+-bash-3.2$ awk -F "|" '{print}' roaster.txt | wc -l
+11
+
+b
+
+-bash-3.2$ awk -F "|" {print} roaster.txt| sort -k1,1
+11|Fitzgerald,Larry|WR6'04"|229|08/31/1983|10|Pittsburgh
+20|Anderson, Damien|RB 5'10"|212|07/17/1979|3|Northwestern
+30|Ayanbadejo, Oba|FB 6'02"|235|03/05/1975|5|San Diego
+35|Carter,Dyshod|DB5'10"|197|06/18/1978|2|Kansas State
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+63|Garcia,Frank|G6'02"|302|01/28/1972|10|Washington
+64|Grace,Steven|C6'03"|295|02/13/1979|3|Arizona
+81|Boldin,Anquan|WR6'01"|215|10/03/1980|2|FloridaState
+84|Hamilton,Lawrence|WR6'03"|205|08/31/1980|2|StephenF.Austin
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+92|Berry,Bert|DE6'03"|250|08/15/1975|7|NotreDame
+
+c
+
+-bash-3.2$ awk -F "|" '{print}' roaster.txt| sort -t "," -k2,2
+81|Boldin,Anquan|WR6'01"|215|10/03/1980|2|FloridaState
+92|Berry,Bert|DE6'03"|250|08/15/1975|7|NotreDame
+20|Anderson, Damien|RB 5'10"|212|07/17/1979|3|Northwestern
+35|Carter,Dyshod|DB5'10"|197|06/18/1978|2|Kansas State
+63|Garcia,Frank|G6'02"|302|01/28/1972|10|Washington
+11|Fitzgerald,Larry|WR6'04"|229|08/31/1983|10|Pittsburgh
+84|Hamilton,Lawrence|WR6'03"|205|08/31/1980|2|StephenF.Austin
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+30|Ayanbadejo, Oba|FB 6'02"|235|03/05/1975|5|San Diego
+64|Grace,Steven|C6'03"|295|02/13/1979|3|Arizona
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+
+d
+
+
+-bash-3.2$ awk -F "|" '{print}' roaster.txt | sort -r -t "|" -k4,4 | head -5
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+63|Garcia,Frank|G6'02"|302|01/28/1972|10|Washington
+64|Grace,Steven|C6'03"|295|02/13/1979|3|Arizona
+92|Berry,Bert|DE6'03"|250|08/15/1975|7|NotreDame
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+
+
+e
+
+
+-bash-3.2$ awk -F "|" '$7=="Wisconsin"{print $0}' roaster.txt
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+
+
+
+
+---------------------------------------------------------------------------------------
+5
+
+
+---------------------------------------------------------------------------------------

@@ -1,0 +1,167 @@
+root(/)-kernel
+bin-shell
+
+shell:
+1.bourne shell->/bin/sh
+2.korne shell->/bin/ksh
+3.c shell->/bin/sch
+4.bourne again shell->/bin/bash
+
+commands running way:
+1.simple write the command ex: cal
+2.cmd +-options(s/m)
+3.cmd arg(s)
+4.cmd +-options arg(s)
+
+COMMANDS:
+1.passwd		-> change the password
+2.clear			-> clear the screen
+3.pwd			-> print working directory
+4.who			-> who are working on system(logged in user)
+5.tty			-> terminal filename (under dev on which file i m working)
+6.who am i		-> returns anout myself login details
+7.whoami		-> will give only login name
+
+calendar:
+8.cal			-> calendar of the current month
+9.cal 2016		-> calendar for whole year
+10.cal 03 2016	-> March calendar
+
+Date:
+11.date			-> Date of the current month with time and standard time
+12.date +%D 	-> Date in ex:10/10/16
+13.date +%T		-> 10:10:24
+14.date +%d		-> 10
+15.date +%m		-> 10
+16.date +%y		-> 16
+17.date +%Y		-> 2016
+18.date +%a		-> Mon
+19.date +%A		-> Monday
+20.date +%b		-> Oct
+21.date +%B		-> October
+22.date +"%d %b %y"->ex:10 Oct 16
+*23.man date	-> Date documentation(q for quit)
+24.date -d "04/23/2015" +"%d-%b-%Y" -> display date
+25.date -s "04/23/2015" +"%d-%b-%Y" -> set the date(*date: cannot set date: Operation not permitted)
+
+Make Directory and directory details
+26.mkdir capg_1  -> make directory with name ex:capg_1
+27.mkdir capg_1/mydir1 capg_1/mydir2 	-> under capg_1-> creating second directory
+28.mkdir -p capg_1/mydir1 capg_1/mydir2 -> -p for removing prompt
+29.ls capg_1	-> contents of capg_1
+30.ls /bin		-> bin commands
+31.ls /home		-> login directories
+32.ls /dev		-> devices
+
+Retlative path->always start from current directory
+33.cd capg_1	-> change current directory to capg_1
+34.cd ..		-> back to immediate parent directory
+35.cd ../mydir1 -> back to and forward to mydir1
+
+Absolute path
+36.cd /home/system11/capg_1/mydir2 ->always start from parent
+37.rmdir mydir1	-> remove/delete empty directory
+
+Return home
+38.cd			-> home
+
+39.ls			-> shows all files
+40.ls -a		-> shows all files that are hidden(. indicates hidden) also
+41.ls -r		-> reverse file order arrangement
+42.ls -R		-> shows directory available at current position and their sub categories
+43.ls -l		-> show the complete details of file (ex: drwxrwxr-x 3 system11 system11 4096 Oct 10 10:37 capg_1)
+44.ls -l /dev |more -> shows file from dev driectory
+
+File Types
+1.Directory(d)
+2.Regular(-)
+3.deivce   ->a.character(-)
+		   ->b.block(b)
+4.Piped(p) ->interprocess communication
+5.Socket(s)->socket programmming
+6.Link(l)
+
+File Users
+1.Owner/User
+2.Group Owner
+3.Others
+
+/*
+d->directory 3->Links  UID       GID        Date on which created
+drwxrwxr-x 3 system11 system11 4096 Oct 10 10:37 capg_1
+*/
+
+45.touch file1	-> modifyng timestamp
+46.cat 			-> processing input/output
+47.cat > mydata -> store data in file
+48.cat mydata	-> show contents of mydata
+49.cat mydata mydata2-> shows content of mydata,mydata2
+50.chfn			-> change finger information(ex: system11:x:1269:1270:MOHIT,Capgemini,8981871984,9051144448:/home/system11:/bin/bash)
+51.ps			-> show process
+52.ps -f		-> process details with pid,uid
+53.unmae		-> operating system name
+54.cat /etc/passwd  -> show whole user with directory
+55.more /etc/passwd -> same but page wise(ctrl+f for forward,ctrl+b for backward)
+56.head /etc/passwd -> shows first 10 lines (for 15 lines head -15 /etc/passwd)
+57.tail /etc/passwd -> shows last 10 lines  (for 15 lines tail -15 /etc/passwd)
+58.cat -n mydata -> shows contents with line numbers
+59.nl mydata	 -> shows contents with line numbers
+60.cp mydata mydata2 -> copies data from mydata to mydata2.
+61.mv mydata data	-> for rename
+62.mv mydata2 capg1	-> for moving file (if the last argument is current firectory name then move will be carried out)
+63.cp -i mydata capg_1 -> -i for prompt overwrite or not
+64.cp -R capg1 backup 	-> for backup
+65.rm capg_1		-> Remove files
+
+*tail -n +position filename		-> it will display all the lines after that position (tail -n +1 abc -: will return all the lines after 1st line)
+WILDCARDS
+[-] -> range
+[]  -> character
+?   -> carry one character
+*	-> anu number of characer
+\	-> regular
+
+IO REDIRECTION
+I/P		O/P
+stdin	stdout
+file	file
+piped	peped
+
+stdin->Process->stdout
+(>)output redirection
+(>>)append
+(2>)descriptor
+
+ls mydata2 1>> output 2>>errlog
+
+Filters->which accept standard input and result standard output
+Ex: head,tail,wc(word count)
+wc -> rows	 words	character
+	   4       8       46
+66.wc -l/-w/-c mydata2	-> shows no. of line/word/character and file name
+67.wc -l < mydata2	-> only no. of lines
+Command piping
+68.who | wc -l	-> (inter process communication) count total no. of user at once istead of(who > abc,wc -l abc)
+* (output command | accept command)->piped right/left side rule
+
+69.vi mohit -> creates file now u can write  after that press esc type (:wq->write quit)
+Cut
+70.cut -d":" -f1,2 mohit 		-> display content emp code nd name
+71.cut -d":" -f1 mohit|cut -c2- ->diplay emp code by removing e in this 2 stand for(from which_character/where we need to show)
+72.pwd | cut -d"/" -f3 			-> shows current directory only
+Translate
+73.tr ":" " " < mohit 			-> remove : give space but this doesnot changes file structure
+74.tr "[a-z]" "[A-Z]" < mydata	-> converts from lower case to upper case
+
+75.cut -d":" -f1-5 mohit | tr ":" " " -> remove : to space
+76.who | tr -s " " |cut -d" " -f1,4   -> (-s) sqeuzeing
+77.echo "Weeelcome" | tr -s "e"		  -> removes occurence of e repeated continuosly
+78.ls -l | tr -s " " | cut -d" " -f1,9 -> display 1st column and last column from log
+
+79.sort 				-> sort according to characters.
+80.sort -n  			-> sort according to numbers
+81.sort mohit -o mohit  -> sort and make changes to file
+82.sort -t":" -k2  mohit 		-> sort according to column then we use (-k)
+83.cmp data1 data2  -> compare contents of both file(results:EOF(when data are same only one file contains more line),diff(what bytes are different))
+84.uniq -u/-d mohit -> result unique data if -u and result duplicate data if -d
+85.paste names city -> used for merging and display( Mohit   Mumbai )

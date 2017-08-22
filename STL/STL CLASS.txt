@@ -1,0 +1,41 @@
+STL: STANDARD TEMPLATE LIBRARY
+4 CATEGORIES
+
+1. CONTAINERS: HOLD OBJECT
+2. ITERATORS: USE TO TRAVERSE THROUGH CONTAINER 
+/* 
+1. Iterator doesnot depend on container 
+2. it is same for all
+3. it is a class
+*/
+3. ALGORITHM: DIFFERENT WAYS
+4. FUNCTION OBJECT OR FUNTERS: OBJECT OF THAT CLASS FOR WHICH PARENTHESIS IS OVERLOADED EX: operator() 
+
+CONTAINERS->begin(),end()
+CONTAINERS CATEGORIES 
+1. SEQUENTIAL: ex vector(LIFO but can insert/remove in between),list
+2. ASSOCIATIVE: ex set,multiset,map,multimap
+3. CONTAINER ADAPTER: ex stack,queue,dequeue
+
+
+/*vector
+capapcity:no of element present
+size:by default 4 hota hai and jab full ho jaye tab automatic phr se size allocate hota hai 
+*/
+
+
+
+List->algorithm
+1.min_element
+2.max_element
+3.find
+4.distance
+5.count
+6.count_if
+
+iterator:
+1.input iterator->istream iterator
+2.out iterator->ostream iterator
+3.forward iterator
+4.bi directional iterator (ex: abi jo use kiye class container iterator)
+5.Ramdom access iterator(sabka superset->ex: pointer)

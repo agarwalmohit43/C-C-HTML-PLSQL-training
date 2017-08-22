@@ -1,0 +1,813 @@
+1. Redirect the content of the help document is, into a file called lsdoc:
+
+[system11@NDAUnix ~]$ info ls>lsdoc
+info: Writing node (coreutils.info.gz)ls invocation...
+info: Writing node (coreutils.info.gz)Which files are listed...
+info: Writing node (coreutils.info.gz)What information is listed...
+info: Writing node (coreutils.info.gz)Sorting the output...
+info: Writing node (coreutils.info.gz)Details about version sort...
+info: Writing node (coreutils.info.gz)General output formatting...
+info: Writing node (coreutils.info.gz)Formatting file timestamps...
+info: Writing node (coreutils.info.gz)Formatting the file names...
+info: Done.
+
+______________________________________________________________________
+2. Display the content of the lsdoc page wise:
+
+[system11@NDAUnix ~]$ more lsdoc
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Director
+y listing
+
+10.1 `ls': List directory contents
+==================================
+
+The `ls' program lists information about files (of any type, including
+directories).  Options and file arguments can be intermixed
+arbitrarily, as usual.
+
+   For non-option command-line arguments that are directories, by
+default `ls' lists the contents of directories, not recursively, and
+omitting files with names beginning with `.'.  For other non-option
+arguments, by default `ls' lists just the file name.  If no non-option
+argument is specified, `ls' operates on the current directory, acting
+as if it had been invoked with a single argument of `.'.
+
+   By default, the output is sorted alphabetically, according to the
+locale settings in effect.(1) If standard output is a terminal, the
+output is in columns (sorted vertically) and control characters are
+output as question marks; otherwise, the output is listed one per line
+and control characters are output as-is.
+
+________________________________________________________________________
+
+3. Display only the first 4 lines of lsdoc file:
+
+[system11@NDAUnix ~]$ more lsdoc
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Director
+y listing
+
+10.1 `ls': List directory contents
+==================================
+
+The `ls' program lists information about files (of any type, including
+directories).  Options and file arguments can be intermixed
+arbitrarily, as usual.
+
+________________________________________________________________________
+4. Display only the last 7 lines of the file lsdoc:
+
+[system11@NDAUnix ~]$ tail -n 7 lsdoc
+     default may change to `shell' in a future version of this package.
+
+`--show-control-chars'
+     Print nongraphic characters as-is in file names.  This is the
+     default unless the output is a terminal and the program is `ls'.
+
+______________________________________________________________________
+5. Remove the file lsdoc:
+
+[system11@NDAUnix ~]$ rm lsdoc
+[system11@NDAUnix ~]$ ls
+aa.c  add.c  file3    kk.c    nato              temp  user6
+a.c   file1  friends  myfile  shellprogramming  trg1  users
+
+______________________________________________________________________
+6. There will be B'day celeberation from the friends file, find how many B'day parties will be held. 
+If two of the friends have the B'date on the same day, then we will be having one party on that day.
+
+[system11@NDAUnix ~]$ cut -f3 friends | sort -t"/" -n -k3|uniq| wc -l
+6
+
+________________________________________________________________________
+
+7. Display the lines starting with Ma, in the file friends:
+
+grep Ma friends
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+
+________________________________________________________________________
+8.Display the lines starting with Ma, ending with i or ending with id, in the file friends:
+
+[system11@NDAUnix ~]$ egrep "^Ma[a-z]*[i|id$]"  friends
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+[system11@NDAUnix ~]$ cut -f1 friends | grep "id$"
+David
+[system11@NDAUnix ~]$ cut -f1 friends | grep "i$"
+Simmi
+
+_____________________________________________________________________
+9. Print all the files and the directory files from the current directory across all the sub directories, along with its path:
+
+[system11@NDAUnix ~]$ ls -R -l
+.:
+total 40
+-rw-rw-r-- 1 user6 user6   44 Jul 11 09:02 aa.c
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 a.c
+---x--x--x 1 user6 user6   42 Jul 11 09:01 add.c
+----r--r-- 1 user6 user6   12 Jul  8 18:50 file1
+drwxrwxrwx 2 user6 user6 4096 Jul  4 12:05 file3
+-rw-rw-r-- 1 user6 user6  159 Jul 11 09:15 friends
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 kk.c
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 myfile
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 nato
+drwxrwxr-x 2 user6 user6 4096 Jul  8 16:07 shellprogramming
+drwxrwxr-x 4 user6 user6 4096 Jul  9 09:59 temp
+drwxrwxr-x 2 user6 user6 4096 Jul  9 09:19 trg1
+drwxrwxr-x 2 user6 user6 4096 Jul  9 10:56 user6
+-rwxrw-r-- 1 user6 user6   36 Jul 11 08:52 users
+
+./file3:
+total 4
+-rw-rw-r-- 1 user6 user6 20 Jul  4 12:05 myfile
+
+./shellprogramming:
+total 0
+
+./temp:
+total 8
+drwxrwxr-x 2 user6 user6 4096 Jul  9 09:44 directorynew
+drwxrwxr-x 2 user6 user6 4096 Jul  9 09:59 newdirectory
+
+./temp/directorynew:
+total 0
+
+./temp/newdirectory:
+total 0
+
+./trg1:
+total 0
+
+./user6:
+total 16
+-rw-rw-r-- 1 user6 user6  349 Jul  9 10:52 friends.txt
+-rw-rw-r-- 1 user6 user6  316 Jul  5 14:03 mynewfile
+-rw-rw-r-- 1 user6 user6  349 Jul  9 10:54 newfriends.txt
+-rw-rw-r-- 1 user6 user6 1095 Jul  9 10:56 users
+
+____________________________________________________________________
+10. Print only the directory files:
+
+[system11@NDAUnix ~]$ ls * | grep "d*"
+aa.c
+a.c
+add.c
+file1
+friends
+kk.c
+myfile
+nato
+users
+
+file3:
+myfile
+
+shellprogramming:
+
+temp:
+directorynew
+newdirectory
+
+trg1:
+
+user6:
+friends.txt
+mynewfile
+newfriends.txt
+users
+
+______________________________________________________________________
+
+11. Display the files starting with chap, along with its path:
+
+[system11@NDAUnix ~]$ ls -l | grep users
+-rwxrw-r-- 1 user6 user6   36 Jul 11 08:52 users
+
+__________________________________________________________________
+
+12. Sort the file friendsin ascending order of names:
+
+[system11@NDAUnix ~]$ sort friends
+Ajay    5546785 01/04/66
+David   8281292 09/09/60
+Jamil   2345215 08/09/67
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+Navin   2224311 30/05/68
+Simmi   7864563 12/12/70
+
+______________________________________________________________________
+
+13. Display the content of the file friends in uppercase letter:
+
+[system11@NDAUnix ~]$ tr "[a-z]" "[A-Z]" < friends
+MADHU   6966456 09/07/68
+JAMIL   2345215 08/09/67
+AJAY    5546785 01/04/66
+MANO    7820022 09/07/68
+DAVID   8281292 09/09/60
+SIMMI   7864563 12/12/70
+NAVIN   2224311 30/05/68
+
+_____________________________________________________________________
+
+14. Store the contents of your home directory in a file called dir:
+
+[system11@NDAUnix ~]$ ls -l>dir
+[system11@NDAUnix ~]$ cat dir
+total 72
+-rw-rw-r-- 1 user6 user6   44 Jul 11 09:02 aa.c
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 a.c
+---x--x--x 1 user6 user6   42 Jul 11 09:01 add.c
+-rw-rw-r-- 1 user6 user6  560 Jul 11 10:27 casedemo.sh
+-rw-rw-r-- 1 user6 user6   54 Jul 11 11:08 dat
+-rw-rw-r-- 1 user6 user6    0 Jul 11 11:25 dir
+-rw-rw-r-- 1 user6 user6   83 Jul 11 11:05 emp
+----r--r-- 1 user6 user6   12 Jul  8 18:50 file1
+drwxrwxrwx 2 user6 user6 4096 Jul  4 12:05 file3
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:37 filename
+-rw-rw-r-- 1 user6 user6  268 Jul 11 10:28 file.sh
+-rw-rw-r-- 1 user6 user6   49 Jul 11 09:56 fordemo.sh
+-rw-rw-r-- 1 user6 user6  159 Jul 11 09:15 friends
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 kk.c
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 myfile
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 nato
+-rw-rw-r-- 1 user6 user6    0 Jul 11 10:28 operators
+-rw-rw-r-- 1 user6 user6  172 Jul 11 10:35 Operators
+-rw-rw-r-- 1 user6 user6    1 Jul 11 10:29 operators.sh
+drwxrwxr-x 2 user6 user6 4096 Jul  8 16:07 shellprogramming
+drwxrwxr-x 4 user6 user6 4096 Jul  9 09:59 temp
+drwxrwxr-x 2 user6 user6 4096 Jul  9 09:19 trg1
+-rw-rw-r-- 1 user6 user6  252 Jul 11 11:21 until.sh
+drwxrwxr-x 2 user6 user6 4096 Jul  9 10:56 user6
+-rwxrw-r-- 1 user6 user6   36 Jul 11 08:52 users
+
+______________________________________________________________________
+
+15. From the above file dir, display the file permissions and the name of the file only:
+
+[system11@NDAUnix ~]$ cut -c1-10,53-60 dir
+total 72
+-rw-rw-r--
+-rw-rw-r--
+---x--x--x
+-rw-rw-r--o.sh
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+----r--r--
+drwxrwxrwx
+-rw-rw-r--e
+-rw-rw-r--
+-rw-rw-r--.sh
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--rs
+-rw-rw-r--rs
+-rw-rw-r--rs.sh
+drwxrwxr-xogrammin
+drwxrwxr-x
+drwxrwxr-x
+-rw-rw-r--h
+drwxrwxr-x
+-rwxrw-r--
+
+_________________________________________________________________
+
+16. From the same dir file, store only the file names in a file called files:
+
+[system11@NDAUnix ~]$ cut -c54-60 dir > files
+[system11@NDAUnix ~]$ cat files
+
+
+
+
+.sh
+
+
+
+
+
+
+
+sh
+
+
+
+
+s
+s
+s.sh
+grammin
+
+
+____________________________________________________________________
+17. From the same dir file, store only the permissions of files in a files called perms.
+
+[system11@NDAUnix ~]$ cut -c-10 dir > perms
+[system11@NDAUnix ~]$ cat perms
+total 72
+-rw-rw-r--
+-rw-rw-r--
+---x--x--x
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+----r--r--
+drwxrwxrwx
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+drwxrwxr-x
+drwxrwxr-x
+drwxrwxr-x
+-rw-rw-r--
+drwxrwxr-x
+-rwxrw-r--
+
+____________________________________________________________________
+
+18. From the same dir file, store only the file sizes in a file called sizes:
+
+[system11@NDAUnix ~]$ cut -c36-39 dir>sizes
+[system11@NDAUnix ~]$ cat sizes
+
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+  8
+  4
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+  8
+  9
+  9
+ 11
+  9
+ 11
+
+_______________________________________________________________________
+19. Display the file names, sizes and permissions from your directory
+
+[system11@NDAUnix ~]$ cat files perms sizes
+
+
+
+
+.sh
+
+
+
+
+
+
+
+sh
+
+
+
+
+s
+s
+s.sh
+grammin
+
+
+
+
+
+total 72
+-rw-rw-r--
+-rw-rw-r--
+---x--x--x
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+----r--r--
+drwxrwxrwx
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+drwxrwxr-x
+drwxrwxr-x
+drwxrwxr-x
+-rw-rw-r--
+drwxrwxr-x
+-rwxrw-r--
+
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+  8
+  4
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11
+  8
+  9
+  9
+ 11
+  9
+ 11
+
+__________________________________________________________________
+20. Display the number of users working on the system:
+
+[system11@NDAUnix ~]$ who | wc -l
+35
+
+__________________________________________________________________
+21. Find out the smallest file in our directory:
+
+[system11@NDAUnix ~]$ ls -lSr | head -n 16
+total 88
+-rw-rw-r-- 1 user6 user6    0 Jul 11 10:28 operators
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 nato
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 myfile
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 kk.c
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:37 filename
+-rw-rw-r-- 1 user6 user6    0 Jul 11 09:03 a.c
+-rw-rw-r-- 1 user6 user6    1 Jul 11 10:29 operators.sh
+----r--r-- 1 user6 user6   12 Jul  8 18:50 file1
+-rwxrw-r-- 1 user6 user6   36 Jul 11 08:52 users
+---x--x--x 1 user6 user6   42 Jul 11 09:01 add.c
+-rw-rw-r-- 1 user6 user6   44 Jul 11 11:26 files
+-rw-rw-r-- 1 user6 user6   44 Jul 11 09:02 aa.c
+-rw-rw-r-- 1 user6 user6   49 Jul 11 09:56 fordemo.sh
+-rw-rw-r-- 1 user6 user6   54 Jul 11 11:08 dat
+-rw-rw-r-- 1 user6 user6   83 Jul 11 11:05 emp
+
+_________________________________________________________________
+22. Display the total number of lines present in the file friends: 
+
+[system11@NDAUnix ~]$ wc -l friends
+7 friends
+
+____________________________________________________________________
+23.
+
+[system11@NDAUnix ~]$ cat emp.lst >> employee
+[system11@NDAUnix ~]$ cat employee
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1003|James|G.M|System|12-08-87|90000
+1004|Williams|Manager|Testing|24-07-89|55000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+
+
+[system11@NDAUnix ~]$ cat>dept.lst
+20|James|1002
+20|Allen|1003
+30|Williams|1003
+40|Jenary|1001
+50|John|1004[system11@NDAUnix ~]$ cat dept.lst
+20|James|1002
+20|Allen|1003
+30|Williams|1003
+40|Jenary|1001
+50|John|1004
+
+
+[system11@NDAUnix ~]$ cat>desig.lst
+HR|Madhu
+GM|Kenery
+[system11@NDAUnix ~]$ cat design.lst
+cat: design.lst: No such file or directory
+[system11@NDAUnix ~]$ cat desig.lst
+HR|Madhu
+GM|Kenery
+
+________________________________________________________________
+23.1. Find the record lengths of each file:
+
+[system11@NDAUnix ~]$ wc -c emp.lst dept.lst desig.lst
+213 emp.lst
+ 72 dept.lst
+ 19 desig.lst
+304 total
+
+_____________________________________________________________________
+23.2. Display only the date of birth and salary of the last employee record:
+
+ [system11@NDAUnix ~]$ cut -d "|" -f5,6 emp.lst | tail -1
+18-04-90|40000
+
+____________________________________________________________________
+23.3. Extract only employee names and designations:
+
+[system11@NDAUnix ~]$ cut -d "|" -f2,3 emp.lst > cfile1
+[system11@NDAUnix ~]$ cat cfile1
+Allen|Manager
+John|Director
+James|G.M
+Williams|Manager
+Jenary|Engineer
+
+___________________________________________________________________
+23.4. Extract empid, dept, dob, and salary, and save output as cfile2:
+
+[system11@NDAUnix ~]$ cut -d "|" -f1,4,5,6 emp.lst > cfile2
+[system11@NDAUnix ~]$ cat cfile2
+1001|System|10-06-88|60000
+1002|Java|22-03-89|80000
+1003|System|12-08-87|90000
+1004|Testing|24-07-89|55000
+1005|Mainframe|18-04-90|40000`
+___________________________________________________________________
+23.5. Fix the files cfile1 and cfile2 laterally, along with delimiter:
+
+[system11@NDAUnix ~]$ paste -d "|" cfile1 cfile2
+Allen|Manager|1001|System|10-06-88|60000
+John|Director|1002|Java|22-03-89|80000
+James|G.M|1003|System|12-08-87|90000
+Williams|Manager|1004|Testing|24-07-89|55000
+Jenary|Engineer|1005|Mainframe|18-04-90|40000`:wq
+|
+
+______________________________________________________________________
+23.6. Sort the emp.lst file in reverse order of Emp.names:
+
+[system11@NDAUnix ~]$ sort -r -t "|" -k2,2 emp.lst
+1004|Williams|Manager|Testing|24-07-89|55000
+1002|John|Director|Java|22-03-89|80000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000`:wq
+1003|James|G.M|System|12-08-87|90000
+1001|Allen|Manager|System|10-06-88|60000
+
+_______________________________________________________________________
+23.7. Sort the emp.lst file on the salary field, and store the result 
+
+[system11@NDAUnix ~]$ sort -n -t "|" -k6,6 emp.lst>srtf
+[system11@NDAUnix ~]$ cat srtf
+
+1005|Jenary|Engineer|Mainframe|18-04-90|40000`:wq
+1004|Williams|Manager|Testing|24-07-89|55000
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1003|James|G.M|System|12-08-87|90000
+
+_______________________________________________________________________
+23.8. Sort the emp.lst file on designation followed by name:
+
+[system11@NDAUnix ~]$ sort -t "|" -k3,3 emp.lst
+
+1002|John|Director|Java|22-03-89|80000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000`:wq
+1003|James|G.M|System|12-08-87|90000
+1001|Allen|Manager|System|10-06-88|60000
+1004|Williams|Manager|Testing|24-07-89|55000
+
+_____________________________________________________________________
+23.9. Sort the emp.lst file on the year of birth:
+
+[system11@NDAUnix ~]$ sort -n -t "|" -k5.7,5.8 emp.lst
+
+1003|James|G.M|System|12-08-87|90000
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1004|Williams|Manager|Testing|24-07-89|55000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000`:wq
+
+_____________________________________________________________________
+23.10. Find out the various designations in the employee file. Eliminate duplicate listing of designations:
+
+[system11@NDAUnix ~]$ cut -d "|" -f3 emp.lst | sort -u
+
+Director
+Engineer
+G.M
+Manager
+
+_____________________________________________________________________
+23.11. Find the non-repeated designation in the employee file:
+
+[system11@NDAUnix ~]$ cut -d "|" -f3 emp.lst | sort | uniq -u
+
+Director
+Engineer
+G.M
+
+_____________________________________________________________________
+23.12. Find the number of employees with various designations in the employee file:
+
+[system11@NDAUnix ~]$ cut -d "|" -f3 emp.lst | sort | uniq -c
+      1
+      1 Director
+      1 Engineer
+      1 G.M
+      2 Manager
+
+_______________________________________________________________________
+23.13. Create a listing of the year in which employee were born in, along with number of employees born in that year:
+
+[system11@NDAUnix ~]$  cut -d "|" -f5 emp.lst | sort | uniq -c
+      1
+      1 10-06-88
+      1 12-08-87
+      1 18-04-90
+      1 22-03-89
+      1 24-07-89
+
+_______________________________________________________________________
+23.14. Use nl command to create a code table for designations to include designation code:
+
+ nl -w3 -v 100 -i5 emp.lst
+100     1001|Allen|Manager|System|10-06-88|60000
+105     1002|John|Director|Java|22-03-89|80000
+110     1003|James|G.M|System|12-08-87|90000
+115     1004|Williams|Manager|Testing|24-07-89|55000
+120     1005|Jenary|Engineer|Mainframe|18-04-90|40000`:wq
+
+
+_________________________________________________________________________
+24.
+
+[system11@NDAUnix ~]$ cat>puneoffice
+2000|Dwivedi|HR|11-02-87|60000
+4001|Trivedi|Admin|14-03-85|80000
+2004|Chaturvedi|Director|16-11-83|90000
+2067|Devgupta|Manager|30-08-89|40000
+2089|Sengupta|G.M|20-08-88|55000
+[system11@NDAUnix ~]$ cat puneoffice
+2000|Dwivedi|HR|11-02-87|60000
+4001|Trivedi|Admin|14-03-85|80000
+2004|Chaturvedi|Director|16-11-83|90000
+2067|Devgupta|Manager|30-08-89|40000
+2089|Sengupta|G.M|20-08-88|55000
+
+________________________________________________________________________
+25. Write a command sequence that prints out date information in this order: time , day of week, day number, month, year.
+
+[system11@NDAUnix ~]$ date "+%T %a %d %b %Y"
+11:47:35 Mon 11 Jul 2016
+
+
+___________________________________________________________________
+26. Write a command sequence that prints the names of the files in the current directory in the descending order of number of links: 
+
+[system11@NDAUnix ~]$ ls -l | cut -c12-13,50-63 | sort -r -t " " -k1,1
+4
+2 lprogramming
+2 3
+2 11
+2
+1 .sh
+1 s
+1 s
+1 s
+1 s
+1 oyee
+1 office
+1 nds
+1 name
+1 .lst
+1 lst
+1 l.sh
+1 le
+1 g.lst
+1 emo.sh
+1 e2
+1 e1
+1 demo.sh
+1 c
+1 ators.sh
+1 ators
+1 ators
+1 1
+1
+1
+1
+1
+1
+1
+1
+1
+
+_____________________________________________________________________
+27. Write a command sequence that prints only names of files in current working directory in alphabetical order:
+
+[system11@NDAUnix ~]$ ls -l | cut -c53-65 | sort -t " " -k1,1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e
+e
+h
+ice
+ogramming
+o.sh
+rs
+rs
+rs.sh
+.sh
+st
+t
+
+_________________________________________________________________
+28. Write a command sequence to print names and sizes of all the files in current working directory in order of size:
+
+[system11@NDAUnix ~]$ ls -lS | grep -v '^d' |cut -c53-65,36-39
+
+ 11
+ 11 o.sh
+ 11
+ 11
+ 11 h
+ 11 e
+ 11
+ 11
+ 11 ice
+ 11 rs
+ 11
+ 11
+ 11
+ 11
+ 11
+ 11 t
+ 11
+ 11 .sh
+ 11
+ 11
+ 11
+ 11
+ 11 st
+  8
+ 11 rs.sh
+ 11
+ 11 e
+ 11
+ 11
+ 11
+ 11 rs
+
+_____________________________________________________________________
+29. Determine the latest file updated by the user:
+
+
+[system11@NDAUnix ~]$ ls -l -t | head -n 2 | tail -n 1
+-rw-rw-r-- 1 user6 user6  175 Jul 11 11:46 puneoffice
+

@@ -1,0 +1,890 @@
+****************************************************
+QUE2:
+****************************************************
+2. Display the path to and name of your HOME directory.
+ 
+cd /home/user6/trg1
+[user6@NDAUnix trg1]$ pwd
+/home/user6/trg1
+
+****************************************************
+QUE3:
+****************************************************
+3. Display the login name using which you have logged into the system
+
+ cd /
+[user6@NDAUnix /]$ logname
+user6
+
+****************************************************
+QUE4
+****************************************************
+4. Display the hidden files of your current directory.
+
+ls -a
+.             dev                                  misc              selinux
+..            etc                                  mnt               srv
+.autofsck     home                                 net               sys
+.autorelabel  initramfs-2.6.32-431.el6.x86_64.img  opt               tmp
+bin           lib                                  proc              usr
+boot          lib64                                root              var
+cgroup        lost+found                           sbin
+.dbus         media                                scvmmagent_linux
+
+****************************************************
+QUE5
+****************************************************
+5. List the names of all the files in your home directory.
+
+ cd /home
+[user6@NDAUnix home]$ ls
+admin                     lateral16  lateral33  shraddha  user20  user38
+anjana                    lateral17  lateral34  Team1     user21  user39
+bhushan                   lateral18  lateral35  Team2     user22  user4
+demo_project_repository   lateral19  lateral36  Team3     user23  user40
+demo_project_repository1  lateral2   lateral37  Team4     user24  user41
+demo_project_repository2  lateral20  lateral38  Team5     user25  user42
+demo_project_repository3  lateral21  lateral39  Team6     user26  user43
+demo_project_repository4  lateral22  lateral4   user1     user27  user44
+demo_project_repository5  lateral23  lateral40  user10    user28  user45
+demo_project_repository6  lateral24  lateral5   user6    user29  user5
+demo_project_repository7  lateral25  lateral6   user12    user3   user6
+files                     lateral26  lateral7   user13    user30  user7
+harish                    lateral27  lateral8   user14    user31  user8
+lateral10                 lateral28  lateral9   user15    user32  user9
+lateral11                 lateral29  Pradipto   user16    user33  vinay
+lateral12                 lateral3   rahul      user17    user34  vinod
+lateral13                 lateral30  rathna     user18    user35  vishal
+lateral14                 lateral31  sachin     user19    user36  Vishal
+lateral15                 lateral32  shashank   user2     user37
+
+****************************************************
+QUE6
+****************************************************
+6. Using the long listing format to display the files in your directory.
+
+ls -l
+total 452
+drwx------. 22 admin     admin     4096 Jul  8 19:41 admin
+drwx------   5 anjana    anjana    4096 Jan 22 10:38 anjana
+drwx------   6 bhushan   bhushan   4096 Jun  3 16:51 bhushan
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 demo_project_repository
+drwxrwxrwx   3 root      root      4096 Jul  4 10:51 demo_project_repository1
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 demo_project_repository2
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 demo_project_repository3
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 demo_project_repository4
+drwxrwxrwx   3 root      root      4096 Jul  4 10:51 demo_project_repository5
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 demo_project_repository6
+drwxrwxrwx   2 root      root      4096 Jun  3 12:47 demo_project_repository7
+drwxr-xr-x   2 root      root      4096 May  3 09:03 files
+drwx------   4 harish    harish    4096 Jan 15 15:24 harish
+drwxrw----   5 lateral10 lateral10 4096 May  3 10:16 lateral10
+drwxrw----   5 lateral11 lateral11 4096 Jan 21 12:59 lateral11
+drwxrw----  11 lateral12 lateral12 4096 May 23 19:44 lateral12
+drwxrw----   4 lateral13 lateral13 4096 Jan 15 12:09 lateral13
+drwxrw----   5 lateral14 lateral14 4096 Jan 22 12:13 lateral14
+drwxrw----   4 lateral15 lateral15 4096 Jan 15 12:09 lateral15
+drwxrw----   4 lateral16 lateral16 4096 Jan 15 12:09 lateral16
+drwxrw----   4 lateral17 lateral17 4096 Jan 15 12:09 lateral17
+drwxrw----   4 lateral18 lateral18 4096 Jan 15 12:09 lateral18
+drwxrw----   4 lateral19 lateral19 4096 Jan 15 12:09 lateral19
+drwxrw----  32 lateral2  lateral2  4096 Jul  8 19:49 lateral2
+drwxrw----   6 lateral20 lateral20 4096 Jan 22 10:41 lateral20
+drwxrw----   5 lateral21 lateral21 4096 Jan 22 12:49 lateral21
+drwxrw----   4 lateral22 lateral22 4096 Jan 15 12:09 lateral22
+drwxrw----   4 lateral23 lateral23 4096 Jan 15 12:09 lateral23
+drwxrw----   4 lateral24 lateral24 4096 Jan 15 12:09 lateral24
+drwxrw----   4 lateral25 lateral25 4096 Jan 20 20:23 lateral25
+drwxrw----   4 lateral26 lateral26 4096 Jan 15 12:09 lateral26
+drwxrw----   6 lateral27 lateral27 4096 Jan 22 11:47 lateral27
+drwxrw----   4 lateral28 lateral28 4096 Jan 15 12:09 lateral28
+drwxrw----   4 lateral29 lateral29 4096 Jan 15 12:09 lateral29
+drwxrw----   6 lateral3  lateral3  4096 Jan 22 12:26 lateral3
+drwxrw----   5 lateral30 lateral30 4096 Jan 22 11:53 lateral30
+drwxrw----   4 lateral31 lateral31 4096 Jan 15 12:09 lateral31
+drwxrw----   4 lateral32 lateral32 4096 Jan 15 12:09 lateral32
+drwxrw----   5 lateral33 lateral33 4096 Jan 22 11:55 lateral33
+drwxrw----   4 lateral34 lateral34 4096 Jan 15 12:09 lateral34
+drwxrw----   5 lateral35 lateral35 4096 Jan 22 14:37 lateral35
+drwxrw----   9 lateral36 lateral36 4096 Feb 29 11:28 lateral36
+drwxrw----   4 lateral37 lateral37 4096 Jan 15 12:09 lateral37
+drwxrw----   4 lateral38 lateral38 4096 Jan 15 12:09 lateral38
+drwxrw----   4 lateral39 lateral39 4096 Feb  8 18:19 lateral39
+drwxrw----   6 lateral4  lateral4  4096 Jan 22 14:43 lateral4
+drwxrw----   5 lateral40 lateral40 4096 Jan 22 14:17 lateral40
+drwxrw----   4 lateral5  lateral5  4096 Jan 15 12:09 lateral5
+drwxrw----   4 lateral6  lateral6  4096 Jan 15 12:09 lateral6
+drwxrw----   4 lateral7  lateral7  4096 Jan 15 12:09 lateral7
+drwxrw----   7 lateral8  lateral8  4096 Jan 22 15:36 lateral8
+drwxrw----   4 lateral9  lateral9  4096 Jan 15 12:09 lateral9
+drwx------   4 Pradipto  Pradipto  4096 Dec 22  2015 Pradipto
+drwx------  16 rahul     rahul     4096 Jun 14 12:08 rahul
+drwx------   8 rathna    rathna    4096 Dec 15  2015 rathna
+drwx------   4 sachin    sachin    4096 May 27 16:48 sachin
+drwx------   4 shashank  shashank  4096 May  3 19:36 shashank
+drwx------  15 shraddha  shraddha  4096 Jun 15 15:41 shraddha
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 Team1
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 Team2
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 Team3
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 Team4
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 Team5
+drwxrwxrwx   2 root      root      4096 Jul  4 10:51 Team6
+drwxrw----   7 user1     user1     4096 Jul  9 09:23 user1
+drwxrw----   6 user10    user10    4096 Jul  8 18:42 user10
+drwxrw----  11 user6    user6    4096 Jul  9 09:19 user6
+drwxrw----   7 user12    user12    4096 Jul  9 09:24 user12
+drwxrwxrwx   6 user13    user13    4096 Jul  8 16:46 user13
+drwxrw----  12 user14    user14    4096 Jul  8 18:10 user14
+drwxrw----   7 user15    user15    4096 Jul  8 16:47 user15
+drwxrw----   6 user16    user16    4096 Jul  8 17:35 user16
+drwxrw----   6 user17    user17    4096 Jul  8 16:42 user17
+drwxrw----  12 user18    user18    4096 Jul  8 16:44 user18
+drwxrw----  11 user19    user19    4096 Jul  8 16:48 user19
+drwxrw----   9 user2     user2     4096 Jul  8 19:34 user2
+drwxrw----   8 user20    user20    4096 Jul  9 09:26 user20
+drwxrw----   6 user21    user21    4096 Jul  8 17:08 user21
+drwxrw----   7 user22    user22    4096 Jul  9 09:28 user22
+drwxrw----   4 user23    user23    4096 Jul  8 16:44 user23
+drwxrw----   7 user24    user24    4096 Jul  9 09:25 user24
+drwxrw----   9 user25    user25    4096 Jul  9 09:22 user25
+drwxrw----  11 user26    user26    4096 Jul  8 20:17 user26
+drwxrw----   9 user27    user27    4096 Jul  8 18:17 user27
+drwxrw----   6 user28    user28    4096 Jul  9 09:22 user28
+drwxrw----   4 user29    user29    4096 Jul  9 09:27 user29
+drwxrw----   5 user3     user3     4096 Jul  8 17:03 user3
+drwxrw----  14 user30    user30    4096 Jul  9 09:20 user30
+drwxrw----   7 user31    user31    4096 Jul  8 16:53 user31
+drwxrw----   5 user32    user32    4096 Jul  1 11:15 user32
+drwxrw----   4 user33    user33    4096 Jun 29 11:19 user33
+drwxrw----   4 user34    user34    4096 Jul  1 08:58 user34
+drwxrw----   4 user35    user35    4096 Jun 29 11:19 user35
+drwxrw----   5 user36    user36    4096 Jul  1 11:35 user36
+drwxrw----   5 user37    user37    4096 Jun 30 15:09 user37
+drwxrw----   4 user38    user38    4096 Jul  1 09:09 user38
+drwxrw----   7 user39    user39    4096 Jul  1 11:26 user39
+drwxrw----   9 user4     user4     4096 Jul  9 08:59 user4
+drwx------   5 user40    user40    4096 Jun 30 12:06 user40
+drwx------   4 user41    user41    4096 Jun 30 14:01 user41
+drwx------   4 user42    user42    4096 Jun 30 14:01 user42
+drwx------   4 user43    user43    4096 Jun 30 14:01 user43
+drwx------   4 user44    user44    4096 Jun 30 14:02 user44
+drwx------   4 user45    user45    4096 Jun 30 14:13 user45
+drwxrw----   9 user5     user5     4096 Jul  8 16:42 user5
+drwxrw----   5 user6     user6     4096 Jul  9 09:09 user6
+drwxrw----   3 user7     user7     4096 Jul  8 17:34 user7
+drwxrw----   6 user8     user8     4096 Jul  8 19:41 user8
+drwxrw----   8 user9     user9     4096 Jul  8 19:50 user9
+drwx------   4 vinay     vinay     4096 Dec 28  2015 vinay
+drwx------   4 vinod     vinod     4096 Feb  5 13:02 vinod
+drwx------  29 vishal    vishal    4096 Jul  4 11:58 vishal
+drwx------   4 Vishal    Vishal    4096 Dec 22  2015 Vishal
+
+****************************************************
+QUE7
+****************************************************
+7. List the files beginning with chap followed by any number or any lower case alphabet.
+(Example, it should display all files whose names are like chap1, chap2, chap3 …….,
+chapa,ahapb,chapc,……..)
+
+ cat >file1.txt
+this is my file one
+^C
+[user6@NDAUnix ~]$ cat > file2.txt
+this is my second file
+^C
+[user6@NDAUnix ~]$ cat >file3.txt
+this is my third file
+^C
+[user6@NDAUnix ~]$ ls -o
+total 184
+-rw-rw-r-- 1 user6  497 Jul  8 14:23 average.awk
+-rw-rw-r-- 1 user6  250 Jul  7 14:24 changed
+-rw-rw-r-- 1 user6  178 Jul  8 15:24 company.awk
+-rw-rw-r-- 1 user6  357 Jul  7 19:04 cpyfile
+-rw-rw-r-- 1 user6   41 Jul  8 12:21 Details
+-rw-rw-r-- 1 user6  321 Jul  5 17:49 Edetails
+-rw-rw-r-- 1 user6  321 Jul  7 14:25 employee
+-rw-rw-r-- 1 user6  170 Jul  8 16:05 Employee
+-rw-rw-r-- 1 user6    4 Jul  7 15:47 Employee.dat
+-rw-rw-r-- 1 user6  331 Jul  7 11:36 employee.temp
+-rw-rw-r-- 1 user6   64 Jul  5 15:09 file
+----r--r-- 1 user6   12 Jul  8 18:50 file1
+-rw-rw-r-- 1 user6   20 Jul  9 09:31 file1.txt
+-rw-rw-r-- 1 user6   12 Jul  8 18:50 file2
+-rw-rw-r-- 1 user6   23 Jul  9 09:31 file2.txt
+drwxrwxrwx 2 user6 4096 Jul  4 12:05 file3
+-rw-rw-r-- 1 user6   22 Jul  9 09:31 file3.txt
+-rw-rw-r-- 1 user6 1388 Jul  8 15:18 final
+-rw-rw-r-- 1 user6  263 Jul  8 10:56 first.awk
+-rw-rw-r-- 1 user6  358 Jul  8 18:39 fourth.sh
+-rw-rw-r-- 1 user6  250 Jul  7 11:25 friends.txt.temp
+-rw-rw-r-- 1 user6   31 Jul  8 12:21 java.txt
+-rw-rw-r-- 1 user6  202 Jul  7 14:36 Moviesdb.txt
+-rw-rw-r-- 1 user6   74 Jul  5 16:33 myfile.txt
+drwxrwxr-x 2 user6 4096 Jul  8 19:37 newdirectory
+-rw-rw-r-- 1 user6    0 Jul  8 16:13 newfile.txt
+-rw-rw-r-- 1 user6  250 Jul  8 16:40 newfriends.txt
+-rw-rw-r-- 1 user6  188 Jul  8 16:28 newshell
+-rw-rw-r-- 1 user6   10 Jul  7 09:52 pattern
+-rw-rw-r-- 1 user6    0 Jul  4 11:42 ramesh
+-rw-rw-r-- 1 user6    0 Jul  4 11:42 ramu
+-rw-rw-r-- 1 user6  200 Jul  8 15:37 record.awk
+-rw-rw-r-- 1 user6  357 Jul  7 19:00 result
+-rw-rw-r-- 1 user6  336 Jul  8 12:14 second.awk
+-rw-rw-r-- 1 user6  174 Jul  8 16:24 shellprgm.awk
+drwxrwxr-x 2 user6 4096 Jul  8 16:07 shellprogramming
+-rw-rw-r-- 1 user6 2305 Jul  8 15:05 sorting.data
+-rw-rw-r-- 1 user6   14 Jul  7 12:47 students
+-rw-rw-r-- 1 user6  146 Jul  8 14:14 subject
+-rw-rw-r-- 1 user6   15 Jul  7 12:11 test.sh
+-rw-rw-r-- 1 user6   20 Jul  4 11:47 text2
+-rw-rw-r-- 1 user6   22 Jul  4 11:50 text3
+-rw-rw-r-- 1 user6   10 Jul  4 12:18 text4
+-rw-rw-r-- 1 user6   59 Jul  8 11:48 third.awk
+-rw-rw-r-- 1 user6  193 Jul  8 16:32 third.sh
+-rw-rw-r-- 1 user6    0 Jul  4 11:43 tiger
+drwxrwxr-x 2 user6 4096 Jul  9 09:19 trg1
+-rw-rw-r-- 1 user6   45 Jul  8 12:21 unix.txt
+drwxrwxr-x 2 user6 4096 Jul  5 13:58 user6
+-rw-rw-r-- 1 user6    2 Jul  7 12:26 wclist
+
+
+****************************************************
+QUE8
+****************************************************
+mkdir C_prog
+-bash-3.2$ ls
+C_prog  file1.txt  file2.txt  file3.txt 
+
+****************************************************
+QUE9
+****************************************************
+
+[user6@NDAUnix ~] mkdir newdir
+[user6@NDAUnix ~] mkdir newdirectory
+[user6@NDAUnix ~] ls
+[user6@NDAUnix ~]C_prog  file1.txt  file2.txt  file3.txt   newdir  newdirectory
+
+
+****************************************************
+QUE10
+****************************************************
+ ls -R
+.:
+average.awk    file              java.txt        record.awk        text4
+changed        file1             Moviesdb.txt    result            third.awk
+company.awk    file1.txt         myfile.txt      second.awk        third.sh
+C_prog         file2             newdir          shellprgm.awk     tiger
+cpyfile        file2.txt         newdirectory    shellprogramming  trg1
+Details        file3             newfile.txt     sorting.data      unix.txt
+Edetails       file3.txt         newfriends.txt  students          user6
+employee       final             newshell        subject           wclist
+Employee       first.awk         pattern         test.sh
+Employee.dat   fourth.sh         ramesh          text2
+employee.temp  friends.txt.temp  ramu            text3
+
+./C_prog:
+
+./file3:
+myfile
+
+./newdir:
+
+./newdirectory:
+
+./shellprogramming:
+
+./trg1:
+
+./user6:
+mynewfile
+
+****************************************************
+QUE11
+****************************************************
+
+ rm -r newdirectory
+[user6@NDAUnix ~]$ ls
+average.awk    file              java.txt        result            third.awk
+changed        file1             Moviesdb.txt    second.awk        third.sh
+company.awk    file1.txt         myfile.txt      shellprgm.awk     tiger
+C_prog         file2             newdir          shellprogramming  trg1
+cpyfile        file2.txt         newfile.txt     sorting.data      unix.txt
+Details        file3             newfriends.txt  students          user6
+Edetails       file3.txt         newshell        subject           wclist
+employee       final             pattern         test.sh
+Employee       first.awk         ramesh          text2
+Employee.dat   fourth.sh         ramu            text3
+employee.temp  friends.txt.temp  record.awk      text4
+[user6@NDAUnix ~]$C_prog  file1.txt  file2.txt  file3.txt   newdir 
+
+
+****************************************************
+QUE12
+****************************************************
+ cd
+[user6@NDAUnix ~]$ mkdir temp
+[user6@NDAUnix ~]$ ls
+average.awk    file              java.txt        result            text4
+changed        file1             Moviesdb.txt    second.awk        third.awk
+company.awk    file1.txt         myfile.txt      shellprgm.awk     third.sh
+C_prog         file2             newdir          shellprogramming  tiger
+cpyfile        file2.txt         newfile.txt     sorting.data      trg1
+Details        file3             newfriends.txt  students          unix.txt
+Edetails       file3.txt         newshell        subject           user6
+employee       final             pattern         temp              wclist
+Employee       first.awk         ramesh          test.sh
+Employee.dat   fourth.sh         ramu            text2
+employee.temp  friends.txt.temp  record.awk      text3
+
+****************************************************
+QUE13
+****************************************************
+ rm -r newdir
+[user6@NDAUnix ~]$ ls
+average.awk    file              java.txt        second.awk        third.awk
+changed        file1             Moviesdb.txt    shellprgm.awk     third.sh
+company.awk    file1.txt         myfile.txt      shellprogramming  tiger
+C_prog         file2             newfile.txt     sorting.data      trg1
+cpyfile        file2.txt         newfriends.txt  students          unix.txt
+Details        file3             newshell        subject           user6
+Edetails       file3.txt         pattern         temp              wclist
+employee       final             ramesh          test.sh
+Employee       first.awk         ramu            text2
+Employee.dat   fourth.sh         record.awk      text3
+employee.temp  friends.txt.temp  result          text4
+
+****************************************************
+QUE14
+****************************************************
+ mkdir directorynew
+[user6@NDAUnix temp]$
+[user6@NDAUnix temp]$ ls
+directorynew
+[user6@NDAUnix temp]$ pwd
+/home/user6/temp
+[user6@NDAUnix temp]$
+
+****************************************************
+QUE15
+****************************************************
+ cd /home
+[user6@NDAUnix home]$ ls
+admin                     lateral16  lateral33  shraddha  user20  user38
+anjana                    lateral17  lateral34  Team1     user21  user39
+bhushan                   lateral18  lateral35  Team2     user22  user4
+demo_project_repository   lateral19  lateral36  Team3     user23  user40
+demo_project_repository1  lateral2   lateral37  Team4     user24  user41
+demo_project_repository2  lateral20  lateral38  Team5     user25  user42
+demo_project_repository3  lateral21  lateral39  Team6     user26  user43
+demo_project_repository4  lateral22  lateral4   user1     user27  user44
+demo_project_repository5  lateral23  lateral40  user10    user28  user45
+demo_project_repository6  lateral24  lateral5   user6    user29  user5
+demo_project_repository7  lateral25  lateral6   user12    user3   user6
+files                     lateral26  lateral7   user13    user30  user7
+harish                    lateral27  lateral8   user14    user31  user8
+lateral10                 lateral28  lateral9   user15    user32  user9
+lateral11                 lateral29  Pradipto   user16    user33  vinay
+lateral12                 lateral3   rahul      user17    user34  vinod
+lateral13                 lateral30  rathna     user18    user35  vishal
+lateral14                 lateral31  sachin     user19    user36  Vishal
+lateral15                 lateral32  shashank   user2     user37
+
+****************************************************
+QUE16
+****************************************************
+Absolute path:
+
+[user6@NDAUnix home]$ cd /home/user6/temp/directorynew
+[user6@NDAUnix directorynew]$ pwd
+/home/user6/temp/directorynew
+
+Relative path:
+
+[user6@NDAUnix directorynew]$ cd ../directorynew
+[user6@NDAUnix directorynew]$ pwd
+/home/user6/temp/directorynew
+
+****************************************************
+QUE17
+****************************************************
+
+[user6@NDAUnix ~]$ rm -r C_prog
+[user6@NDAUnix ~]$ ls
+average.awk    file       friends.txt.temp  record.awk        text2
+changed        file1      java.txt          result            text3
+company.awk    file1.txt  Moviesdb.txt      second.awk        text4
+cpyfile        file2      myfile.txt        shellprgm.awk     third.awk
+Details        file2.txt  newfile.txt       shellprogramming  third.sh
+Edetails       file3      newfriends.txt    sorting.data      tiger
+employee       file3.txt  newshell          students          trg1
+Employee       final      pattern           subject           unix.txt
+Employee.dat   first.awk  ramesh            temp              user6
+employee.temp  fourth.sh  ramu              test.sh           wclist
+
+****************************************************
+QUE18
+****************************************************
+
+[user6@NDAUnix ~]$ cd
+[user6@NDAUnix ~]$ cd /etc
+[user6@NDAUnix etc]$ ls -f
+.                   aliases                    pinforc
+..                  auto.master                hosts.deny
+bonobo-activation   dnsmasq.conf               default
+hosts.allow         logrotate.conf             ntp.conf
+bashrc              auto.smb                   sudo.conf
+issue               yum.conf                   rc1.d
+login.defs          resolv.conf.save           blkid
+virc                drirc                      libvirt
+rc2.d               ghostscript                ConsoleKit
+odbcinst.ini        quotagrpadmins             terminfo
+grub.conf           issue.net                  jvm
+hp                  gconf                      rsyslog.conf
+cron.deny           libibverbs.d               shadow
+warnquota.conf      man.config                 cgconfig.conf
+crypttab            sgml                       localtime
+mcelog              ssh                        autofs_ldap_auth.conf
+ppp                 ipsec.secrets              logrotate.d
+statetab.d          vsftpd                     xdg
+mailcap             plymouth                   openwsman
+system-release      xinetd.d                   X11
+pulse               profile.d                  multipath
+services            idmapd.conf                dnsmasq.d
+pam.d               protocols                  wvdial.conf
+numad.conf          PackageKit                 request-key.conf
+sane.d              makedev.d                  setuptool.d
+rc0.d               ld.so.conf                 sfcb
+sestatus.conf       oddjobd.conf               sysctl.conf
+libuser.conf        amanda                     acpi
+ksmtuned.conf       mail                       sudoers.d
+libreport           redhat-release             dracut.conf
+fonts               polkit-1                   DIR_COLORS.lightbgcolor
+rc.d                ibm_hosts                  rc
+init                yum.repos.d                updatedb.conf
+xinetd.conf         compat-openmpi-x86_64      Trolltech.conf
+mail.rc             jvm-commmon                group
+pkcs11              request-key.d              csh.cshrc
+rc5.d               crontab                    DIR_COLORS.256color
+httpd               gdm                        mtools.conf
+lsb-release.d       alternatives               ltrace.conf
+sudo-ldap.conf      host.conf                  gnome-vfs-2.0
+auto.net            gimp                       pear.conf
+cgrules.conf        pbm2ppa.conf               yum
+dovecot             php.d                      inittab
+skel                pango                      oddjobd.conf.d
+printcap            rwtab.d                    rc.sysinit
+aliases.db          selinux                    ssl
+hba.conf            inputrc                    pm-utils-hd-apm-restore.conf
+asound.conf         filesystems                mime.types
+shadow-             certmonger                 subversion
+popt.d              securetty                  gnupg
+latrace.d           gtk-2.0                    shells
+rpc                 rc.local                   hal
+
+****************************************************
+QUE19
+****************************************************
+
+[user6@NDAUnix etc]$ ls .*
+.pwd.lock
+
+.:
+abrt                       init                          prelink.conf
+acpi                       init.d                        prelink.conf.d
+adjtime                    inittab                       printcap
+aliases                    inputrc                       profile
+aliases.db                 ipa                           profile.d
+alsa                       iproute2                      protocols
+alternatives               ipsec.conf                    pulse
+amanda                     ipsec.d                       qpid
+anacrontab                 ipsec.secrets                 quotagrpadmins
+asound.conf                iscsi                         quotatab
+at.deny                    issue                         rc
+audisp                     issue.net                     rc0.d
+audit                      java                          rc1.d
+autofs_ldap_auth.conf      jvm                           rc2.d
+auto.master                jvm-commmon                   rc3.d
+auto.misc                  kdump-adv-conf                rc4.d
+auto.net                   kdump.conf                    rc5.d
+auto.smb                   krb5.conf                     rc6.d
+avahi                      ksmtuned.conf                 rc.d
+bash_completion.d          latrace.conf                  rc.local
+bashrc                     latrace.d                     rc.sysinit
+blkid                      ld.so.cache                   readahead.conf
+bonobo-activation          ld.so.conf                    redhat-lsb
+cas.conf                   ld.so.conf.d                  redhat-release
+certmonger                 libaudit.conf                 request-key.conf
+cgconfig.conf              libibverbs.d                  request-key.d
+cgrules.conf               libreport                     resolv.conf
+cgsnapshot_blacklist.conf  libuser.conf                  resolv.conf.bak
+chkconfig.d                libvirt                       resolv.conf.save
+compat-openmpi-psm-x86_64  localtime                     rhsm
+compat-openmpi-x86_64      login.defs                    rpc
+ConsoleKit                 logrotate.conf                rpm
+cron.d                     logrotate.d                   rsyslog.conf
+cron.daily                 lsb-release                   rsyslog.d
+cron.deny                  lsb-release.d                 rwtab
+cron.hourly                ltrace.conf                   rwtab.d
+cron.monthly               lvm                           samba
+crontab                    magic                         sane.d
+cron.weekly                mail                          sasl2
+crypttab                   mailcap                       scl
+csh.cshrc                  mail.rc                       securetty
+csh.login                  makedev.d                     security
+cups                       man.config                    selinux
+dbus-1                     maven                         services
+default                    mcelog                        sestatus.conf
+depmod.d                   mime.types                    setuptool.d
+dhcp                       minicom.users                 sfcb
+DIR_COLORS                 mke2fs.conf                   sgml
+DIR_COLORS.256color        modprobe.d                    shadow
+DIR_COLORS.lightbgcolor    modulefiles                   shadow-
+dirsrv                     motd                          shells
+dnsmasq.conf               mtab                          skel
+dnsmasq.d                  mtools.conf                   smartd.conf
+dovecot                    multipath                     snmp
+dracut.conf                my.cnf                        sos.conf
+dracut.conf.d              nanorc                        sound
+drirc                      netconfig                     ssh
+elinks.conf                NetworkManager                ssl
+environment                networks                      sssd
+ethers                     nfsmount.conf                 statetab
+event.d                    nsswitch.conf                 statetab.d
+exports                    ntp                           subversion
+favicon.png                ntp.conf                      sudo.conf
+fcoe                       numad.conf                    sudoers
+festival                   odbc.ini                      sudoers.d
+filesystems                odbcinst.ini                  sudo-ldap.conf
+fonts                      oddjob                        sysconfig
+foomatic                   oddjobd.conf                  sysctl.conf
+fprintd.conf               oddjobd.conf.d                system-release
+fstab                      openldap                      system-release-cpe
+gai.conf                   openwsman                     target
+gconf                      opt                           termcap
+gcrypt                     PackageKit                    terminfo
+gdm                        pam.d                         tgt
+ghostscript                pango                         tomcat6
+gimp                       passwd                        Trolltech.conf
+gnome-vfs-2.0              passwd-                       udev
+gnupg                      pbm2ppa.conf                  updatedb.conf
+group                      pcmcia                        vimrc
+group-                     pear                          virc
+grub.conf                  pear.conf                     vsftpd
+gshadow                    php.d                         warnquota.conf
+gshadow-                   php.ini                       webalizer.conf
+gssapi_mech.conf           pinforc                       wgetrc
+gtk-2.0                    pkcs11                        wpa_supplicant
+hal                        pki                           wvdial.conf
+hba.conf                   plymouth                      X11
+host.conf                  pm                            xdg
+hosts                      pm-utils-hd-apm-restore.conf  xinetd.conf
+hosts.allow                pnm2ppa.conf                  xinetd.d
+hosts.bak                  polkit-1                      xml
+hosts.deny                 popt.d                        yp.conf
+hp                         portreserve                   yum
+httpd                      postfix                       yum.conf
+ibm_hosts                  ppp                           yum.repos.d
+idmapd.conf                prelink.cache
+
+..:
+bin     home                                 media  proc              srv
+boot    initramfs-2.6.32-431.el6.x86_64.img  misc   root              sys
+cgroup  lib                                  mnt    sbin              tmp
+dev     lib64                                net    scvmmagent_linux  usr
+etc     lost+found                           opt    selinux           var
+
+.java:
+
+****************************************************
+QUE20
+****************************************************
+
+[user6@NDAUnix ~]$ cat > first.unix
+Hi! Good Morning everybody
+Welcome to the First exercise on UNIX
+Hope you enjoy doing the assignments.
+^C
+[user6@NDAUnix ~]$ cat first.unix
+Hi! Good Morning everybody
+Welcome to the First exercise on UNIX
+Hope you enjoy doing the assignments.
+[user6@NDAUnix ~]$
+
+****************************************************
+QUE21
+****************************************************
+[user6@NDAUnix ~]$ cp first.unix first.unics
+[user6@NDAUnix ~]$ ls
+average.awk    file1        friends.txt.temp  result            text4
+changed        file1.txt    java.txt          second.awk        third.awk
+company.awk    file2        Moviesdb.txt      shellprgm.awk     third.sh
+cpyfile        file2.txt    myfile.txt        shellprogramming  tiger
+Details        file3        newfile.txt       sorting.data      trg1
+Edetails       file3.txt    newfriends.txt    students          unix.txt
+employee       final        newshell          subject           user6
+Employee       first.awk    pattern           temp              wclist
+Employee.dat   first.unics  ramesh            test.sh
+employee.temp  first.unix   ramu              text2
+file           fourth.sh    record.awk        text3
+
+****************************************************
+QUE22
+****************************************************
+
+[user6@NDAUnix ~]$ cat first.unix first.unics
+Hi! Good Morning everybody
+Welcome to the First exercise on UNIX
+Hope you enjoy doing the assignments.
+Hi! Good Morning everybody
+Welcome to the First exercise on UNIX
+Hope you enjoy doing the assignments.
+
+****************************************************
+QUE23
+****************************************************
+
+[user6@NDAUnix ~]$ cd
+[user6@NDAUnix ~]$ cd temp
+[user6@NDAUnix temp]$ mkdir newdirectory
+[user6@NDAUnix temp]$ ls
+directorynew  newdirectory
+[user6@NDAUnix temp]$ pwd
+/home/user6/temp
+
+****************************************************
+QUE24
+****************************************************
+
+[user6@NDAUnix /]$ cd /home/user6/temp
+[user6@NDAUnix temp]$ cd * temp/newdirectory
+
+****************************************************
+QUE25
+****************************************************
+
+[user6@NDAUnix ~]mv first.unics temp/second.txt
+[user6@NDAUnix ~] ls
+file1.txt  file2.txt  file3.txt  file.unix   temp 
+[user6@NDAUnix ~] cd temp
+[user6@NDAUnix ~] ls
+directorynew  newdirectory  second.txt
+
+****************************************************
+QUE26
+****************************************************
+[user6@NDAUnix ~] rm file.unix
+[user6@NDAUnix ~] ls
+file1.txt  file2.txt  file3.txt  temp  
+
+****************************************************
+QUE27
+****************************************************
+[user6@NDAUnix ~] rm *
+rm: cannot remove `directorynew': Is a directory
+rm: cannot remove `newdirectory': Is a directory
+
+****************************************************
+QUE28
+****************************************************
+[user6@NDAUnix ~] cd trg1
+[user6@NDAUnix ~] ls
+a     chapa  chapo     employee.txt  friends.txt  newfriend      user_info
+chap  chapc  date_man  emp.txt       loginshell   newfriend.txt  username
+
+[user6@NDAUnix ~]cd /home/testuser73/temp
+[user6@NDAUnix ~] ls
+a  chapa  chapc  chapo  directorynew  newdirectory  user_info
+
+****************************************************
+QUE29
+****************************************************
+[user6@NDAUnix ~] cp *unix ../
+[user6@NDAUnix ~]ls
+file1.txt  file2.txt  file3.txt  file.unix  first.unics
+[user6@NDAUnix ~] cd /home/testuser73/temp
+[user6@NDAUnix ~] ls
+a  chapa  chapc  chapo  directorynew  file.unix  newdirectory  user_info
+
+****************************************************
+QUE30
+****************************************************
+ cd /home/user6/temp;
+ pwd
+/home/user6/temp
+[user6@NDAUnix ~] rm -r ../temp
+[user6@NDAUnix ~] ls
+[user6@NDAUnix ~] cd /home/user6
+[user6@NDAUnix ~] ls
+command.txt  date_man  file1.txt  file2.txt  file3.txt  temp
+
+****************************************************
+QUE31
+****************************************************
+[user6@NDAUnix ~] cp file1.txt file2.txt file3.txt
+cp: target `file3.txt' is not a directory
+[user6@NDAUnix ~] cp file1.txt file2.txt command.txt
+cp: target `command.txt' is not a directory
+[user6@NDAUnix ~] cp file1.txt
+cp: missing destination file operand after `file1.txt'
+Try `cp --help' for more information.
+[user6@NDAUnix ~] mv file1.txt
+mv: missing destination file operand after `file1.txt'
+Try `mv --help' for more information.
+[user6@NDAUnix ~]
+
+****************************************************
+QUE32
+****************************************************
+[user6@NDAUnix ~]  cat>friends.txt
+Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+^C
+[user6@NDAUnix user6]$
+
+
+****************************************************
+QUE33
+****************************************************
+
+[user6@NDAUnix user6] cat friends.txt
+Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+****************************************************
+QUE34
+****************************************************
+[user6@NDAUnix user6]$ cat friends.txt > newfriends.txt
+[user6@NDAUnix user6]$ cat newfriends.txt
+Navin   2224311 30/05/68Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+
+****************************************************
+QUE35
+****************************************************
+
+ cat friends.txt newfriends.txt
+Navin   2224311 30/05/68Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+Navin   2224311 30/05/68Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+****************************************************
+QUE36
+****************************************************
+ cut -d ":" -f1 /etc/passwd > users
+[user6@NDAUnix user6]$ cat users
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+halt
+mail
+uucp
+operator
+games
+gopher
+ftp
+
+****************************************************
+QUE37
+****************************************************
+37. Append contents of friends file to the file, users:
+
+[user6@NDAUnix ~]$ cat friends>>users
+[user6@NDAUnix ~]$ cat users
+this is my file
+one
+2
+3
+four
+fve
+
+****************************************************
+QUE38
+****************************************************
+38. Display current system date and time and record your observations. How is the time displayed:
+
+[user6@NDAUnix ~]$ date
+Mon Jul 11 08:54:39 IST 2016
+
+****************************************************
+QUE39
+****************************************************
+
+
+39. Display the calender for the month and year of your birth:
+
+[user6@NDAUnix ~]$ cal 8 1992
+     August 1992
+Su Mo Tu We Th Fr Sa
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31
+
+****************************************************
+QUE40
+****************************************************
+
+40. Try following commands and record your observations:
+
+[user6@NDAUnix ~]$ date "+ %"
+ %
+[user6@NDAUnix ~]$ date "+%m"
+07
+[user6@NDAUnix ~]$ date "+%D"
+07/11/16
+[user6@NDAUnix ~]$ date "+%/%Training Activity"
+%/08:56:46raining Activity
+[user6@NDAUnix ~]$ date "+%Training Activity"
+08:57:01raining Activity
+[user6@NDAUnix ~]$ date "+%r"
+08:57:19 AM
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+

@@ -1,0 +1,176 @@
+1. Create a record:
+ 
+-bash-3.2$ cat Emp.txt
+E001    Nilesh  Unix    30
+E002    Anuj    DSA     20
+E003    Ankur   Unix    40
+E004    Madhu   DSA     20
+E005    Mona    Unix    30
+E006    Neena   DSA     10
+E007    Pooja   Unix    40
+E008    Rahul   DSA     50
+E009    Geeta   Unix    20
+E010    Simmi   DSA     50
+
+
+
+-bash-3.2$ cat avg.awk
+BEGIN{printf"\n\t Average of UNIX students\n\n"
+}
+$3=="Unix"{
+kount++;tot=tot+$4
+}
+END{printf"The average marks of unix students is %d \n",tot/kount
+}
+
+-bash-3.2$ awk -f avg.awk Emp.txt
+
+         Average of UNIX students
+
+The average marks of unix students is 32
+
+
+Top 2 in Unix:
+
+-bash-3.2$ awk '$3=="Unix" {print}' Emp.txt | sort -n -k4 | tail -n 2
+E003    Ankur   Unix    40
+E007    Pooja   Unix    40
+
+
+Top 2 in DSA:
+
+-bash-3.2$ awk '$3=="DSA" {print}' Emp.txt | sort -n -k4 | tail -n 2
+E008    Rahul   DSA     50
+E010    Simmi   DSA     50
+
+________________________________________________________________________________________________________________________
+
+
+2.Write a script to get the report of the user logged on to the system in the following formats:
+
+
+-bash-3.2$ cat login
+root     :0           2016-02-26 09:30
+testuser66 pts/1        2016-06-04 15:44 (punhwd11923.igatecorp.com)
+testuser70 pts/2        2016-06-04 15:45 (punhwd11928.igatecorp.com)
+testuser68 pts/3        2016-06-04 15:51 (punhwd11921.igatecorp.com)
+testuser97 pts/4        2016-06-04 15:14 (punhwd11916.igatecorp.com)
+testuser90 pts/7        2016-06-04 15:05 (10.220.200.117)
+testuser67 pts/10       2016-06-04 15:01 (punhwd11922.igatecorp.com)
+
+awk '
+BEGIN {
+        printf "CAPGEMINI\n"
+        printf "Username Logged-in-Time Terminal\n"
+        printf "---------------------------------\n"
+}
+{
+        print $1,$4,$2
+
+}
+' login
+
+CAPGEMINI
+Username Logged-in-Time Terminal
+---------------------------------
+root 09:30 :0
+testuser67 15:01 pts/10
+testuser90 15:05 pts/7
+testuser97 15:14 pts/4
+testuser66 15:44 pts/1
+testuser70 15:45 pts/2
+testuser68 15:51 pts/3
+
+________________________________________________________________________________________________________________________
+
+3.Consider a text file containing the records (colon separated fields): 
+
+-bash-3.2$ cat Emp.dat
+Madhu:1001:UNIX:35:50:70
+Nilesh:1002:DSA:45:50:90
+Bindu:1003:CPP:25:50:50
+Vidhi:1004:UNIX:12:50:24
+Chirag:1005:DSA:11:50:22
+
+
+-bash-3.2$ awk -F ":" '$3=="UNIX"{print $1,$4,$5}' Emp.dat
+Madhu 35 50
+Vidhi 12 50
+
+________________________________________________________________________________________________________________________
+
+
+4. Consider the Arizona roaster as an input data file for this exercise. Using any combination of the text-processing utilities listed below, 
+   write a one-line shell command that performs each of the following tasks:
+
+
+
+-bash-3.2$ cat Roaster.txt
+20|Anderson,Damien|RB5'10"|212|07/17/1979|3|Northwestern
+30|Ayanbadejo,Oba|FB6'02"|235|03/05/1975|5|SanDiego
+92|Berry,Bert|DE6'03"|250|08/15|1975|7|NotreDame
+81|Boldin,Anquan|WR6'01"|215|10/03/1980|2|FloridaState
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+35|Carter,Dyshod|DB5'10"|197|06/18/1978|2|KansasState
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+11|Fitzgerald,Larry|WR6'04"|229|08/31/1983|10|Pittsburgh
+63|Gracia,Frank|G6'02"|302|01/28/1972|10|Washington
+84|Hamilton,Lawrence|WR6'03"|205|08/31/1980|2|StephenF.Austin
+ 
+
+i)
+
+-bash-3.2$ awk -F "|" '{print}' Roaster.txt| wc -l
+11
+
+
+ii)
+
+-bash-3.2$ awk -F "|" {print} Roaster.txt| sort -k1,1
+11|Fitzgerald,Larry|WR6'04"|229|08/31/1983|10|Pittsburgh
+20|Anderson, Damien|RB 5'10"|212|07/17/1979|3|Northwestern
+30|Ayanbadejo, Oba|FB 6'02"|235|03/05/1975|5|San Diego
+35|Carter,Dyshod|DB5'10"|197|06/18/1978|2|Kansas State
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+63|Garcia,Frank|G6'02"|302|01/28/1972|10|Washington
+64|Grace,Steven|C6'03"|295|02/13/1979|3|Arizona
+81|Boldin,Anquan|WR6'01"|215|10/03/1980|2|FloridaState
+84|Hamilton,Lawrence|WR6'03"|205|08/31/1980|2|StephenF.Austin
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+92|Berry,Bert|DE6'03"|250|08/15/1975|7|NotreDame
+
+
+iii)
+
+-bash-3.2$ awk -F "|" '{print}' Roaster.txt| sort -t "," -k2,2
+81|Boldin,Anquan|WR6'01"|215|10/03/1980|2|FloridaState
+92|Berry,Bert|DE6'03"|250|08/15/1975|7|NotreDame
+20|Anderson, Damien|RB 5'10"|212|07/17/1979|3|Northwestern
+35|Carter,Dyshod|DB5'10"|197|06/18/1978|2|Kansas State
+63|Garcia,Frank|G6'02"|302|01/28/1972|10|Washington
+11|Fitzgerald,Larry|WR6'04"|229|08/31/1983|10|Pittsburgh
+84|Hamilton,Lawrence|WR6'03"|205|08/31/1980|2|StephenF.Austin
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+30|Ayanbadejo, Oba|FB 6'02"|235|03/05/1975|5|San Diego
+64|Grace,Steven|C6'03"|295|02/13/1979|3|Arizona
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+
+
+iv)
+
+
+-bash-3.2$ awk -F "|" '{print}' Roaster.txt | sort -r -t "|" -k4,4 | head -5
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+63|Garcia,Frank|G6'02"|302|01/28/1972|10|Washington
+64|Grace,Steven|C6'03"|295|02/13/1979|3|Arizona
+92|Berry,Bert|DE6'03"|250|08/15/1975|7|NotreDame
+52|Fisher,Levar|OLB6'01"|235|07/02/1979|3|NorthCarolina
+
+
+v)
+
+
+-bash-3.2$ awk -F "|" '$7=="Wisconsin"{print $0}' Roaster.txt
+91|Bryant,Wendell|DT6'04"|303|09/12/1980|3|Wisconsin
+
+________________________________________________________________________________________________________________________

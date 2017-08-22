@@ -1,0 +1,74 @@
+6.1 Create a file "Employee.dat":
+
+[system11@NDAUnix ~]$ cat>Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hydrabad
+Peter   22321   GE      Banglore
+Albert  32342   GRIT    Pune
+Mathew  23222   PACE    Mumbai
+Richad  23232   ACS     Pune
+[system11@NDAUnix ~]$
+
+________________________________________________________________
+a. Write a sed command to print only the lines starting at line 2 and ending with the letters "Pune":
+
+[system11@NDAUnix ~]$ sed -n -e '2p' -e '/Pune$/p' Employee.dat
+John    34228   GRIT    Hydrabad
+Albert  32342   GRIT    Pune
+Richad  23232   ACS     Pune
+
+__________________________________________________________________
+
+b. Write a sed command that will display the top 5 lines from the file:
+
+[system11@NDAUnix ~]$ sed -n '1,5p' Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hydrabad
+Peter   22321   GE      Banglore
+Albert  32342   GRIT    Pune
+Mathew  23222   PACE    Mumbai
+
+_____________________________________________________________________
+c. Write a sed command that will susitute the word "Chennai" for "Pune" used in all instance of the word:
+
+[system11@NDAUnix ~]$ sed -n 's/Chennai/Pune/p' Employee.dat
+James   76382   PACE    Pune
+
+______________________________________________________________________
+d. Write a sed command that will replace occurence of the character e with the string UNIX in all lines:
+
+[system11@NDAUnix ~]$ sed -e 's/e/UNIX/g' Employee.dat
+JamUNIXs   76382   PACE    ChUNIXnnai
+John    34228   GRIT    Hydrabad
+PUNIXtUNIXr   22321   GE      BanglorUNIX
+AlbUNIXrt  32342   GRIT    PunUNIX
+MathUNIXw  23222   PACE    Mumbai
+Richad  23232   ACS     PunUNIX
+
+__________________________________________________________________
+e. Write a sed command to delete blank lines:
+
+[system11@NDAUnix ~]$ sed '/^$/d' Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hydrabad
+Peter   22321   GE      Banglore
+Albert  32342   GRIT    Pune
+Mathew  23222   PACE    Mumbai
+Richad  23232   ACS     Pune
+
+___________________________________________________________________
+f. Write a sed command to delete lines from 3 to 5:
+
+[system11@NDAUnix ~]$ sed '3,5d' Employee.dat
+James   76382   PACE    Chennai
+John    34228   GRIT    Hydrabad
+Richad  23232   ACS     Pune
+
+______________________________________________________________
+6.2. Create a new file PACE.dat which has only the lines that contain the word "PACE" from Employee.dat:
+
+[system11@NDAUnix ~]$ sed -n '1p;5p' Employee.dat > PACE.dat
+[system11@NDAUnix ~]$ cat PACE.dat
+James   76382   PACE    Chennai
+Mathew  23222   PACE    Mumbai
+

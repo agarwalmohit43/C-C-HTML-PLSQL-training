@@ -1,0 +1,15 @@
+       #!/bin/bash
+       A=500
+       B=20
+       echo "Two values are $A and $B"
+       echo -e "Enter your choice \n 1)Addition\n2)Subtraction\n3)Multiplication \n4)Division\n"
+       read CH
+       if [ $CH -eq 1 ] ; then
+               echo "Addition is `expr $A + $B`"
+       elif [ $CH -eq 2 ] ; then
+               echo "Subtraction is `expr $A - $B`"
+       elif [ $CH -eq 3 ] ; then
+              echo "Multiplication is `expr $A \* $B`"
+       elif [ $CH -eq 4 ] ; then
+              echo "Division is `expr $A / $B`"
+       fi

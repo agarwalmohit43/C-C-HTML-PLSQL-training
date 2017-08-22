@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1443932387 source:c:\codeblocks\files\compare two string\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

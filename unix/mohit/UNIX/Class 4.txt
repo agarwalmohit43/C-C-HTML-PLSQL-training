@@ -1,0 +1,486 @@
+Shell variable
+1.Built in 		-> $(starts with $ ex: $0,$1,$2,$#,$?,$!)
+2.Enviroment	
+3.User Defined
+set 			-> used to pass cmd line argument
+[system11@NDAUnix ~]$ set hello 12 23 35 43
+[system11@NDAUnix ~]$ echo $0
+-bash
+[system11@NDAUnix ~]$ echo $1
+hello
+[system11@NDAUnix ~]$ echo $2
+12
+[system11@NDAUnix ~]$ echo $3
+23
+[system11@NDAUnix ~]$ echo $4
+35
+[system11@NDAUnix ~]$ echo $5
+43
+[system11@NDAUnix ~]$ echo $#
+5
+[system11@NDAUnix ~]$ echo $@	-> @ gives one by one values
+hello 12 23 35 43
+[system11@NDAUnix ~]$ echo $*	-> pass the cmd line argument values as complete string at once
+hello 12 23 35 43
+
+$?			-> if the command is not executed succesfully it returns non zero values else returns 0
+ex:
+[system11@NDAUnix ~]$ ls def
+ls: cannot access def: No such file or directory
+[system11@NDAUnix ~]$ echo $?
+2
+
+
+[system11@NDAUnix ~]$ echo -e "Hello\nWorld"	-> -e used to represent escape sequence
+Hello
+World
+
+Read
+[system11@NDAUnix ~]$ read name
+MOHIT AGARWAL
+[system11@NDAUnix ~]$ echo $name
+MOHIT AGARWAL
+[system11@NDAUnix ~]$ read a b
+10 20
+[system11@NDAUnix ~]$ echo -e $a "\t" $b
+10       20
+[system11@NDAUnix ~]$ read -p "Enter Values:" a b	-> -p (prompts)
+Enter Values:10 20
+[system11@NDAUnix ~]$ echo -e $a "\t" $b
+10       20
+
+
+Child Shell
+[system11@NDAUnix ~]$ sh
+sh-4.1$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+system11  1133 58255  0 09:45 pts/17   00:00:00 sh
+system11  3484  1133  1 09:45 pts/17   00:00:00 ps -f
+system11 58255 58205  0 09:17 pts/17   00:00:00 -bash
+
+
+Passing values to child shell using export
+[system11@NDAUnix ~]$ x=100
+[system11@NDAUnix ~]$ y=200
+[system11@NDAUnix ~]$ echo $x $y
+100 200
+[system11@NDAUnix ~]$ export x y
+[system11@NDAUnix ~]$ sh
+sh-4.1$ echo $x $y
+100 200
+sh-4.1$ bash
+[system11@NDAUnix ~]$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+system11  3345 58255  0 09:50 pts/17   00:00:00 sh
+system11 22126  3345  0 09:51 pts/17   00:00:00 bash
+system11 36981 22126  3 09:51 pts/17   00:00:00 ps -f
+system11 58255 58205  0 09:17 pts/17   00:00:00 -bash
+[system11@NDAUnix ~]$ echo -e $x"\t"$y
+100     200
+[system11@NDAUnix ~]$ unset x y				-> unset use to delete variable it can unset only user defined variable
+[system11@NDAUnix ~]$ echo -e $x"\t"$y
+
+
+[system11@NDAUnix ~]$ set hello mohit agarwal	->when we use bash then the user defined variable is not passed to bash
+[system11@NDAUnix ~]$ echo -e $1"\t"$2
+hello   mohit
+[system11@NDAUnix ~]$ bash
+[system11@NDAUnix ~]$ echo $1
+
+[system11@NDAUnix ~]$
+
+Alias
+[system11@NDAUnix ~]$ alias cls="clear"
+[system11@NDAUnix ~]$ cls
+
+[system11@NDAUnix ~]$ alias			-> to vies alias
+alias cls='clear'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias manemc='clear'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+.bash get executed when we login
+.bashrc get executed everytime after child shell is created
+shell script -> when we want to perform repeatedly code then we write shell script
+
+
+[system11@NDAUnix shelld]$ vi shellscr
+[system11@NDAUnix shelld]$ chmod +x shellscr	-> permission for execution
+Contents of shellscr
+#!/bin/sh										-> shibang line
+#shell demonstration script
+#shibang										-> if we want to use any shell script to run by specific shell (ex:bourne,cshell etc)
+clear
+read -p "Enter Directory Name: " dname
+echo "Contents of Directory $dname :"
+ls $dname
+
+
+[system11@NDAUnix shelld]$ ./shellscr		-> for execution
+Enter Directory Name: /
+Contents of Directory / :
+bin   cgroup  etc   initramfs-2.6.32-431.el6.x86_64.img  lib64       media  mnt  opt   root  scvmmagent_linux  srv  tmp  var
+boot  dev     home  lib                                  lost+found  misc   net  proc  sbin  selinux           sys  usr
+
+[system11@NDAUnix shelld]$ sh ./shellscr	-> explicit child shell creation under bourne shell
+
+
+
+Practice Shell
+#!/bin/sh
+clear
+read -p "Enter File Name: " fname
+echo  -e "Content of File $fname \n\n"
+cat $fname
+echo -e "\n\nTotal Number Of lines: \c"
+wc -l < $fname
+
+
+Set of operators:
+
+-a		-> and
+-o		-> or
+-d		-> directory exists
+Numeric
+-eq  	-> equality
+-lt     -> less than
+-gt		-> greater than
+-le/-ge -> less/greater than equal to
+-ne		-> not equal
+
+String
+$s1 = $s2 (compare with space)
+$s1!=$s2
+
+File operators
+-e 		-> File exists
+-f		-> File exists as regular file
+-d		-> File exists as directory file
+-r		-> File exists and readable
+-w		-> File exists and writeable
+-x		-> File exists and executable
+-s		-> File exists and empty file
+
+Other Operators
+-z		-> Null values
+-n		-> not null
+
+Test Cmd
+test -e $fname -> Checks file exists
+
+Control Statement
+Conditional
+if	-> simple,multiple,nested
+
+simple
+if test condition	-> if then is to be written in same line then use (;)after condition
+then
+	#true part
+else
+	#false part
+fi
+
+if [ condition ]	-> test subsitituted with [ ]
+then
+	#true part
+else
+	#false part
+fi
+
+example:
+read -p "Enter Directory Name: " dname
+if test -z "$dname"
+then
+    echo "Directory Name not entered...!!"
+    exit
+fi
+if test -d $dname
+then
+	echo "Contents of Directory $dname :"
+	ls $dname
+else
+    echo "$dname directory does not exists..!!"
+fi
+
+multiple
+if test condition
+then
+	#true part
+else if test condition		-> we can use elif instead of else if (elif -> else if) we use elif to reduce no. of fi at the end as there is one if after using elif
+then
+	#true part
+else
+	#true part
+fi
+fi				-> total number of fi depends on total no. of if
+
+Nested If
+if [ condition ]
+then
+	if[ condition ]
+	then
+		#true
+	else
+		#false
+	fi
+else
+	#false
+fi
+
+Positional parameter
+
+[system11@NDAUnix shelld]$ set mohit ilu 1 2 3
+[system11@NDAUnix shelld]$ echo $*
+mohit ilu 1 2 3
+[system11@NDAUnix shelld]$ shift
+[system11@NDAUnix shelld]$ echo $*
+ilu 1 2 3
+[system11@NDAUnix shelld]$ shift
+[system11@NDAUnix shelld]$ echo $*
+1 2 3
+
+example with cmd line argument
+  shellscr
+  1 #!/bin/sh
+  2 #shell demonstration script
+  3 #shibang
+  4 clear
+  5 #read -p "Enter Directory Name: " dname
+  6 #using command line
+  7 dname=$1
+  8 if [ $# -ne 1 ]
+  9 then
+ 10         echo "Argument Expected"
+ 11         exit
+ 12 fi
+ 13
+ 14 if [ -z $dname ]
+ 15 then
+ 16         echo "Directory Name not entered...!!"
+ 17         exit
+ 18 fi
+ 19 if test -d $dname
+ 20 then
+ 21 echo "Contents of Directory $dname :"
+ 22 ls $dname
+ 23 else
+ 24         echo "$dname directory does not exists..!!"
+ 25 fi
+ [system11@NDAUnix shelld]$ ./shellscr /
+ 
+ Conditional esac(as switch case)
+  shellscr2
+  1 #case....esac
+  2 clear
+  3 read -p "Enter Your Answer(y/n): " ans
+  4
+  5 case $ans in
+  6 'y'|'Y'|'YES'|'Yes'|'yes') echo "Your answer is 'Yes'"
+  7         ;;
+  8 'n'|'N'|'NO'|'No'|'no') echo "Your answer is 'No'"
+  9         ;;
+ 10 *) echo "Invalid Answer"
+ 11 esac
+ 12
+ 13 echo "Program Over"
+ 
+ 
+  1 #case..esac
+  2 echo -e "Calculator\n"
+  3 echo -e "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit"
+  4 read choice
+  5 case $choice in
+  6 1) echo "Add"
+  7         ;;
+  8 2) echo "Subtract"
+  9         ;;
+ 10 3) echo "Multiply"
+ 11         ;;
+ 12 4) echo "Divide"
+ 13         ;;
+ 14 5) echo "Exit"
+ 15         exit
+ 16         ;;
+ 17 *) echo "Invalid Choice"
+ 18 esac
+
+  pracshellscr6
+  1    #case.....esac demo
+  2
+  3
+  4   clear
+  5    #accept filename
+  6
+  7    read -p "Enter filename : " fname
+  8     while true
+  9      do
+ 10         clear
+ 11    #Menu designing
+ 12
+ 13   echo -e "\n\t\t\tMenu\n\t\t1. Display Contents\n\t\t2. Count Lines\n\t\t3. Search Pattern\n\t\t4. Exit\n\t\tEnter choice"
+ 14
+ 15   read choice
+ 16
+ 17    case $choice in
+ 18    1) echo "Contents of $fname"
+ 19           cat $fname
+ 20           ;;
+ 21    2) echo "Total lines in $fname are : "
+ 22           wc -l < $fname
+ 23            ;;
+ 24    3) echo "Enter Search Pattern : "
+ 25           read pat
+ 26         egrep "$pat" $fname
+ 27           ;;
+ 28    4)exit
+ 29           ;;
+ 30    *)echo "Invalid Choice"
+ 31   esac
+ 32   read -p "Press Enter to continue...."
+ 33   done
+
+  pracshellscr5
+  1 #case..esac
+  2 while true
+  3 do
+  4 echo -e "Calculator\n"
+  5 echo -e "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit"
+  6 read choice
+  7 case $choice in
+  8 1) echo "Add"
+  9    read -p "Enter two numbers for addition: " a b
+ 10    c=`expr $a + $b`
+ 11    echo "Addition of $a and $b : $c"
+ 12         ;;
+ 13 2) echo "Subtract"
+ 14          read -p "Enter two numbers for substraction: " a b
+ 15         c=`expr $a - $b`
+ 16         echo "Substraction of $a and $b : $c"
+ 17         ;;
+ 18 3) echo "Multiply"
+ 19          read -p "Enter two numbers for multiplication: " a b
+ 20         c=`expr $a \* $b`
+ 21         echo "Multiplication of $a and $b : $c"
+ 22         ;;
+ 23 4) echo "Divide"
+ 24          read -p "Enter two numbers for division: " a b
+ 25         c=`expr $a / $b`
+ 26         echo "Division of $a and $b : $c"
+ 27         ;;
+ 28 5) echo "Exit"
+ 29         exit
+ 30         ;;
+ 31 *) echo "Invalid Choice"
+ 32 esac
+ 33 read -p "Press Enter to continue...."
+ 34 done
+ 
+   
+  1 #while with condition demo  
+  2  
+  3 clear  
+  4  
+  5 i=1  
+  6  
+  7 while [ $i -lt l1 ]  
+  8 do  
+  9  
+ 10         echo "i=$i"  
+ 11         i=`expr $i + 1`  
+ 12 done  
+
+  pracshellscr7
+  1 clear
+  2 sum=0
+  3 count=0
+  4 while true
+  5 do
+  6 count=`expr $count + 1`
+  7         while true
+  8         do
+  9         read -p "Enter the number: " number
+ 10         if [ $number -gt 0 ]
+ 11         then
+ 12                 break
+ 13         fi
+ 14         echo "Number Should be greter than 0"
+ 15         done
+ 16 sum=`expr $sum + $number`
+ 17
+ 18 average=`expr $sum / $count`
+ 19 #read -p "Press enter to continue..!!"
+ 20 read -p "Do you want to continue(Y/N)" choice
+ 21
+ 22 if [ $choice = "N" -o $choice = "n" ]
+ 23 then
+ 24         break
+ 25 fi
+ 26 done
+ 27 echo "Sum = $sum"
+ 28 echo "Average = $average"
+
+ For loop
+  pracshellscr8
+  1 #for loop
+  2 clear
+  3 sum=0
+  4 for no in 1 2 3 4 5
+  5 do
+  6 echo "no=$no"
+  7 sum=`expr $sum + $no`
+  8 done
+  9 echo "Sum = $sum"
+ 10
+ 11 echo -e "\n"
+ 12
+ 13 for fname in shellscr shellscr2 pracshellscr1
+ 14 do
+ 15         echo "Content of fname"
+ 16         cat $fname
+ 17 done
+
+ pracshellscr9
+  1 clear
+  2 #for fname in `find . -maxdepth 1 -type f`
+  3 #cmd line arguments
+  4 if [ $# -eq 0 ]
+  5 then
+  6         echo "Argument Expected"
+  7         exit
+  8 fi
+  9 for fname in $@
+ 10 do
+ 11         echo -e "\nContents of $fname"
+ 12         cat $fname
+ 13 done
+
+  
+Write a script filecopy to accept directory name as 1st argument and filenames as remaining arguments.  
+Check for existence of the directory. If directory exists then it should copy all files one after the other to the  
+directory after checking for their existence.At the end,display the total number of files copied to the directory.  
+ 
+ filecopy
+  1 clear
+  2 dname=$1
+  3 count=0
+  4  if [ -d $1 ]
+  5  then
+  6         shift
+  7         for fname in $@
+  8         do
+  9                 cp $fname $dname
+ 10                 count=`expr $count + 1`
+ 11         done
+ 12         echo "Total Number of files copied: $count"
+ 13 else
+ 14         echo "Directory doesnot exists"
+ 15 fi
+ 
+
+
+
+
+

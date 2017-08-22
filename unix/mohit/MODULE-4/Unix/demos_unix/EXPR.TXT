@@ -1,0 +1,13 @@
+		#!/bin/ksh 
+     		A=500
+     		B=20
+     		echo "Two values are $A and $B"
+     		ADD=`expr $A + $B`
+    		 #ADD=$((A+B))
+    		echo "Addition is $ADD"
+     		SUB=`expr $A - $B`
+     		echo "Subtraction is $SUB"
+    	 	MULT=`expr $A \* $B`
+    	 	echo "Multiplication is $MULT"
+    		DIV=`expr $A / $B`
+    		echo "Addition is $DIV"

@@ -1,0 +1,14 @@
+NDAMSSQL\SQLILEARN
+
+sqluser
+
+create proc abcd
+as
+/*mane mc*/
+
+
+create proc abcd
+as
+/*mane mc*/
+
+sp_helptext abcd

@@ -1,0 +1,493 @@
+****************************************************
+QUE2:
+****************************************************
+2. Display the path to and name of your HOME directory.
+cd /
+pwd
+
+****************************************************
+QUE3:
+****************************************************
+3. Display the login name using which you have logged into the system
+cd/
+logname
+****************************************************
+QUE4
+****************************************************
+4. Display the hidden files of your current directory.
+cd/
+ls -a
+
+****************************************************
+QUE5
+****************************************************
+5. List the names of all the files in your home directory.
+cd home/
+ls
+
+****************************************************
+QUE6
+****************************************************
+6. Using the long listing format to display the files in your directory.
+cd/
+ls -l
+
+****************************************************
+QUE7
+****************************************************
+7. List the files beginning with chap followed by any number or any lower case alphabet.
+(Example, it should display all files whose names are like chap1, chap2, chap3 …….,
+chapa,ahapb,chapc,……..)
+-bash-3.2$ cat>file1.txt
+karishma
+-bash-3.2$ cat>file2.txt
+smsk
+-bash-3.2$ cat>file3.txt
+dubbi
+-bash-3.2$ ls -o
+total 40
+-rw-r--r-- 1 testuser73    9 May 31 16:29 file1.txt
+-rw-r--r-- 1 testuser73    5 May 31 16:29 file2.txt
+-rw-r--r-- 1 testuser73    6 May 31 16:29 file3.txt
+drwxr-xr-x 2 testuser73 4096 May 31 16:24 karishma
+drwxr-xr-x 2 testuser73 4096 May 31 15:53 tmp
+
+****************************************************
+QUE8
+****************************************************
+
+-bash-3.2$ mkdir C_prog
+-bash-3.2$ ls
+C_prog  file1.txt  file2.txt  file3.txt  karishma  tmp
+
+****************************************************
+QUE9
+****************************************************
+C_prog  file1.txt  file2.txt  file3.txt  karishma  tmp
+-bash-3.2$ mkdir newdir
+-bash-3.2$ mkdir newdirectory
+-bash-3.2$ ls
+C_prog  file1.txt  file2.txt  file3.txt  karishma  newdir  newdirectory  tmp
+
+
+****************************************************
+QUE10
+****************************************************
+
+-bash-3.2$ ls -R
+.:
+C_prog  file1.txt  file2.txt  file3.txt  karishma  temp  tmp
+
+./C_prog:
+
+./karishma:
+emp.txt
+
+./temp:
+directorynew
+
+./temp/directorynew:
+
+./tmp:
+
+****************************************************
+QUE11
+****************************************************
+-bash-3.2$ rm -r newdirectory
+-bash-3.2$ ls
+C_prog  file1.txt  file2.txt  file3.txt  karishma  newdir  tmp
+
+****************************************************
+QUE12
+****************************************************
+-bash-3.2$ cd
+-bash-3.2$ mkdir temp
+-bash-3.2$ ls
+
+
+****************************************************
+QUE13
+****************************************************
+
+-bash-3.2$ cd
+-bash-3.2$ rm -r newdir
+-bash-3.2$ ls
+C_prog  file1.txt  file2.txt  file3.txt  karishma  temp  tmp
+
+C_prog  file1.txt  file2.txt  file3.txt  karishma  newdir  temp  tmp
+
+****************************************************
+QUE14
+****************************************************
+
+-bash-3.2$ cd temp
+-bash-3.2$ mkdir directorynew
+-bash-3.2$ ls
+directorynew
+-bash-3.2$ pwd
+/home/testuser73/temp
+
+****************************************************
+QUE15
+****************************************************
+-bash-3.2$ cd /home
+-bash-3.2$ ls
+
+****************************************************
+QUE16
+****************************************************
+Absolute path:
+
+-bash-3.2$ cd /home/testuser73/temp/directorynew
+-bash-3.2$ pwd
+/home/testuser73/temp/directorynew
+
+Relative path:
+
+-bash-3.2$ cd ../directorynew
+-bash-3.2$ pwd
+/home/testuser73/temp/directorynew
+
+****************************************************
+QUE17
+****************************************************
+
+-bash-3.2$ rm -r C_prog
+-bash-3.2$ ls
+file1.txt  file2.txt  file3.txt  karishma  temp  tmp
+
+
+****************************************************
+QUE18
+****************************************************
+-bash-3.2$ cd
+-bash-3.2$ cd /etc
+-bash-3.2$ ls -f
+.                      cdrecord.conf            shells
+..                     adjtime                  ld.so.conf.d
+mke2fs.conf            profile.d                httpd
+logwatch               yum.conf                 changepass.sh
+anacrontab             yum                      smartd.conf
+multipath.conf         securetty                redhat-lsb
+gnome-vfs-2.0          fb.modes                 ntp.conf
+stunnel                passwd                   .java
+gshadow                kdump.conf               php.ini
+jvm                    scsi_id.config           modprobe.conf~
+rc.local               rc2.d                    wvdial.conf
+modprobe.conf          cron.weekly              pinforc
+gcrypt                 hal                      udev
+group                  mgetty+sendfax           syslog.conf
+prelink.cache          cron.d                   libuser.conf
+cron.daily             exports                  man.config
+Muttrc.local           prelink.conf             ntp
+xinetd.conf            minicom.users            cron.hourly
+setroubleshoot         .securetty.swp           asound.state
+firmware               openldap                 foomatic
+gre.d                  shadow                   csh.cshrc
+security               esd.conf                 hosts.allow
+sestatus.conf          sysctl.conf              sound
+profile                resolv.conf.predhclient  capi.conf
+gdm                    maven                    rc5.d
+auto.smb               .pwd.lock                rc0.d
+libaudit.conf          smrsh                    gnome-vfs-mime-magic
+rc4.d                  warnquota.conf           opt
+sysconfig              yp.conf                  resolv.conf
+logrotate.conf         samba                    rmt
+fonts                  fstab                    termcap
+NetworkManager         ld.so.conf               pango
+ltrace.conf            blkid                    rwtab
+gpm-root.conf          DIR_COLORS.xterm         bonobo-activation
+wpa_supplicant         cron.monthly             makedev.d
+default                scrollkeeper.conf        vimrc
+pam_smb.conf           virc                     wgetrc
+passwd.OLD             lftp.conf                motd
+php.d                  cups                     jvm-commmon
+setuptool.d            initlog.conf             hp
+tux.mime.types         pcmcia                   rc.sysinit
+environment            Muttrc                   gconf
+rhgb                   mailcap                  reader.conf
+ssh                    subversion               avahi
+quotagrpadmins         squid                    services
+gssapi_mech.conf       dhcp6c.conf              grub.conf
+updatedb.conf          rc                       netplug.d
+printcap               iproute2                 pki
+yum.repos.d            X11                      desktop-profiles
+protocols              .securetty.swo           auto.master
+pam.d                  aliases                  alchemist
+a2ps-site.cfg          rc1.d                    pam_pkcs11
+cipe                   modprobe.d               inputrc
+login.defs             depmod.d                 mail.rc
+bluetooth              xinetd.d                 selinux
+audisp                 slrn.rc                  init.d
+autofs_ldap_auth.conf  group-                   acpi
+inittab                mail                     rpc
+sgml                   issue.net                enscript.cfg
+rc.d                   xdg                      sudoers
+auto.net               quotatab                 krb5.conf
+pm                     nsswitch.conf            webalizer.conf
+reader.conf.d          java                     localtime
+mtools.conf            csh.login                a2ps.cfg
+dnsmasq.d              ldap.conf                xml
+alsa                   ld.so.cache              isdn
+logrotate.d            dev.d                    rc6.d
+rpm                    crontab                  rc3.d
+readahead.d            skel                     redhat-release
+racoon                 gshadow-                 shadow-
+cron.deny              hosts.deny               filesystems
+gtk-2.0                rwtab.d                  ghostscript
+issue                  bashrc                   dumpdates
+passwd-                auto.misc                sasl2
+dbus-1                 mime.types               conman.conf
+dnsmasq.conf           DIR_COLORS               mtab
+ppp                    at.deny                  lsb-release.d
+host.conf              sane.d                   audit
+idmapd.conf            lvm                      nscd.conf
+prelink.conf.d         jwhois.conf              alternatives
+aliases.db             netplug                  hosts
+-bash-3.2$
+
+
+****************************************************
+QUE19
+****************************************************
+
+-bash-3.2$ ls .*
+.bash_history  .karish
+
+.:
+file1.txt  file2.txt  file3.txt  karishma  temp  tmp
+
+
+
+****************************************************
+QUE20
+****************************************************
+-bash-3.2$ cat>file.unix
+Hi Good Morning everybody
+Welcome to the first exercise on Unix
+Hope you enjoy doing the assignments
+-bash-3.2$
+-bash-3.2$ cat file.unix
+Hi Good Morning everybody
+Welcome to the first exercise on Unix
+Hope you enjoy doing the assignments
+
+
+****************************************************
+QUE21
+****************************************************
+
+-bash-3.2$ cp file.unix first.unics
+-bash-3.2$ ls
+file1.txt  file2.txt  file3.txt  file.unix  first.unics  karishma  temp  tmp
+
+
+****************************************************
+QUE22
+****************************************************
+-bash-3.2$ cat first.unics file.unix
+
+Hi Good Morning everybody
+Welcome to the first exercise on Unix
+Hope you enjoy doing the assignments
+Hi Good Morning everybody
+Welcome to the first exercise on Unix
+Hope you enjoy doing the assignments
+
+****************************************************
+QUE23
+****************************************************
+
+-bash-3.2$ cd
+-bash-3.2$ cd temp
+-bash-3.2$ mkdir newdirectory
+-bash-3.2$ ls
+directorynew  newdirectory
+-bash-3.2$ pwd
+/home/testuser73/temp
+
+
+****************************************************
+QUE24
+****************************************************
+
+-bash-3.2$ cp * temp/newdirectory
+cp: omitting directory `karishma'
+cp: omitting directory `temp'
+cp: omitting directory `tmp'
+-bash-3.2$ cd temp/newdirectory
+-bash-3.2$ ls
+file1.txt  file2.txt  file3.txt  file.unix  first.unics
+-bash-3.2$
+
+
+****************************************************
+QUE25
+****************************************************
+-bash-3.2$ mv first.unics temp/second.txt
+-bash-3.2$ ls
+file1.txt  file2.txt  file3.txt  file.unix  karishma  temp  tmp
+-bash-3.2$ cd temp
+-bash-3.2$ ls
+directorynew  newdirectory  second.txt
+
+
+****************************************************
+QUE26
+****************************************************
+
+-bash-3.2$ rm file.unix
+-bash-3.2$ ls
+file1.txt  file2.txt  file3.txt  karishma  temp  tmp
+
+
+****************************************************
+QUE27
+****************************************************
+-bash-3.2$ rm *
+rm: cannot remove `directorynew': Is a directory
+rm: cannot remove `newdirectory': Is a directory
+
+
+****************************************************
+QUE28
+****************************************************
+-bash-3.2$ cd karishma
+-bash-3.2$ ls
+a     chapa  chapo     employee.txt  friends.txt  newfriend      user_info
+chap  chapc  date_man  emp.txt       loginshell   newfriend.txt  username
+
+-bash-3.2$ cd /home/testuser73/temp
+-bash-3.2$ ls
+a  chapa  chapc  chapo  directorynew  newdirectory  user_info
+
+
+****************************************************
+QUE29
+****************************************************
+-bash-3.2$ cp *unix ../
+-bash-3.2$ ls
+file1.txt  file2.txt  file3.txt  file.unix  first.unics
+-bash-3.2$ cd /home/testuser73/temp
+-bash-3.2$ ls
+a  chapa  chapc  chapo  directorynew  file.unix  newdirectory  user_info
+
+****************************************************
+QUE30
+****************************************************
+-bash-3.2$ cd /home/testuser73/temp;
+-bash-3.2$ pwd
+/home/testuser73/temp
+-bash-3.2$ rm -r ../temp
+-bash-3.2$ ls
+-bash-3.2$ cd /home/testuser73
+-bash-3.2$ ls
+command.txt  date_man  file1.txt  file2.txt  file3.txt  karishma  tmp
+
+****************************************************
+QUE31
+****************************************************
+-bash-3.2$ cp file1.txt file2.txt file3.txt
+cp: target `file3.txt' is not a directory
+-bash-3.2$ cp file1.txt file2.txt command.txt
+cp: target `command.txt' is not a directory
+-bash-3.2$ cp file1.txt
+cp: missing destination file operand after `file1.txt'
+Try `cp --help' for more information.
+-bash-3.2$ mv file1.txt
+mv: missing destination file operand after `file1.txt'
+Try `mv --help' for more information.
+-bash-3.2$
+
+****************************************************
+QUE32
+****************************************************
+
+-bash-3.2$ cat>friends.txt
+Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+****************************************************
+QUE33
+****************************************************
+
+-bash-3.2$ cat friends.txt
+Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+****************************************************
+QUE34
+****************************************************
+-bash-3.2$ cat  friends.txt > newfriend.txt
+-bash-3.2$ cat  newfriend.txt
+
+Madhu   6966456 09/07/68
+jamil   2345215 08/09/67
+Ajay    5546785 01/04/66
+Mano    7820022 09/07/68
+David   8281292 09/09/60
+Simmi   7864563 12/12/70
+Navin   2224311 30/05/68
+
+
+****************************************************
+QUE35
+****************************************************
+
+
+****************************************************
+QUE36
+****************************************************
+-bash-3.2$  cut -d ":" -f1 /etc/passwd > users
+-bash-3.2$ cat users
+
+
+****************************************************
+QUE37
+****************************************************
+
+****************************************************
+QUE38
+****************************************************
+-bash-3.2$ date
+Wed Jun  1 08:28:03 IST 2016
+
+****************************************************
+QUE39
+****************************************************
+-bash-3.2$ cal 3 1994
+     March 1994
+Su Mo Tu We Th Fr Sa
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+13 14 15 16 17 18 19
+20 21 22 23 24 25 26
+27 28 29 30 31
+
+****************************************************
+QUE40
+****************************************************
+-bash-3.2$ date "+%"
+%
+-bash-3.2$ date "+%m"
+06
+-bash-3.2$ date "+%D"
+06/01/16
+-bash-3.2$ date "+%% Training Activity"
+% Training Activity
+-bash-3.2$ date "+% Training Activity"
+% Training Activity
+-bash-3.2$ date "+%r"
+08:30:36 AM
+-bash-3.2$
+

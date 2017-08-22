@@ -1,0 +1,11 @@
+  	#!/bin/ksh 
+        echo -e "Enter filename : \c" ;  read filename
+        echo -e "Enter pattern :\c" ; read pattern
+        grep $pattern $filename
+        GREP_STATUS=$?
+        if [ $GREP_STATUS -eq 1 ] ; then
+                echo "Pattern not found"
+        fi 
+        if [ $GREP_STATUS -eq 2 ] ; then
+               echo "File not found"
+        fi

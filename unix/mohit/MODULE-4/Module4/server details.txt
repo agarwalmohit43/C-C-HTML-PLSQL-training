@@ -1,0 +1,5 @@
+Pune server IP - 10.125.6.91
+Mumbai server IP - 10.207.173.105
+
+User name :system1....system40
+password:same as username

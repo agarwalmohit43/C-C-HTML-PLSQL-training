@@ -1,0 +1,175 @@
+AWK
+$0			-> Record(whenever awk is executed the whole record get saved in $0)
+$1,$2,$3	-> 1st field value, 2nd value, 3 value
+NR			-> Relative record number
+NF			-> Field number
+FS			-> Field seperator
+FILENAME	-> Stores filename which is getting processed
+argc		-> Command line argument for count
+argv		-> Command line argument for array
+
+Section under AWK
+1.Begin	 -> header part
+2.Action -> action part
+3.End    -> footer part
+
+113.awk -F":" '{print $0}' emp					-> process records from emp line by line and display
+114.awk -F":" '{print $1,$2}' emp				-> first two columns gets displayed
+115.awk -F":" '{printf("\n%s\t%s",$1$2);}' emp  -> cformat of printing
+116.awk -F":" 'BEGIN{printf("\nEmpCode\tName");}{printf("\n%s\t%s",$1,$2);}' emp -> heading part(empcode,name)
+
+AWK Script(Instead of writing whole big commands we can use awk script)
+1.
+BEGIN{
+        totsal=0;
+		dis="";
+        system("clear");
+        printf("\n\t\t\tDate:");
+        system("date +'%d-%b-%Y'");
+        printf("\n\t\t\tEmployee Report");
+        printf("\nEmpCode\tName\t\tDepartment\t Salary");
+     }
+
+        {
+			printf("\n%s\t%s\t\t%10s\t %d",$1,$2,$3,$5);
+			totsal+=$5;
+			if(totsal>20000)
+			{
+				dis="Masti";
+			}else
+			{
+				dis="NO masti";
+			}
+        }
+END{
+        printf("\n\n\t\t\t  Total Salary: %d\n",totsal);
+        printf("\n\t\t\tCelebration:%s\n",dis);
+	}
+	
+2. NR->shows record of 3 line and 5th line
+BEGIN{
+        totsal=0;dis="";
+        system("clear");
+        printf("\n\t\t\tDate:");
+        system("date +'%d-%b-%Y'");
+        printf("\n\t\t\tEmployee Report");
+        printf("\nEmpCode\tName\t\tDepartment\t Salary");
+     }
+
+NR==3 || NR==5  { 
+
+        printf("\n%s\t%s\t\t%10s\t %d",$1,$2,$3,$5);
+        totsal+=$5;
+                if(totsal>20000)
+                {
+                        dis="Masti";
+                }else
+                {
+                        dis="NO masti";
+                }
+        }
+
+END{
+        printf("\n\n\t\t\t  Total Salary: %d\n",totsal);
+        printf("\n\t\t\tCelebration:%s\n",dis);
+   }
+3. NF->No. of fields in each line (better for finding data consistency) we can use it in place of $1,2,3... like if nf=5 then for $3=$(NF-2)
+BEGIN{
+        totsal=0;dis="";
+        system("clear");
+        printf("\n\t\t\tDate:");
+        system("date +'%d-%b-%Y'");
+        printf("\n\t\t\tEmployee Report");
+        printf("\nEmpCode\tName\t\tDepartment\t Salary");
+     }
+
+        {
+
+        printf("\n%s\t%s\t\t%10s\t %7d",$1,$2,$3,$5);
+        printf("\t%d",NF);
+        totsal+=$5;
+                if(totsal>20000)
+                {
+                        dis="Masti";
+                }else
+                {
+                        dis="NO masti";
+                }
+        }
+
+
+
+Process
+1.ps		-> process with pid
+2.ps -f		-> process with uid,pid
+3.ps -ef	-> shows entire process
+4.ps -l		-> shows the process long list
+5.nice filename priorityvalue	-> to change the priority value
+6.top		-> live running process
+7.pstree	-> process tree
+8.pgrep -u "system11" -> process list for the username system11
+9.bash test&	-> test filename shell script infinite loop process started need to stop manually
+to close process
+1.Foreground (fg %jobid)
+2.kill -9 processid
+
+JOb scheduling
+1.Using at
+[system11@NDAUnix ~]$ at 15:00
+at> cp mydata mydata23
+at> <EOT>
+job 32 at 2016-10-13 15:00
+
+to view job list
+ls /var/spool me jake then at me
+ls/var/spool/at
+
+2.batch
+[system11@NDAUnix ~]$ batch
+at> cp mydata23 mydata24
+at> <EOT>
+job 45 at 2016-10-13 15:02
+
+schedule file format
+crontab -e
+minutes hour dayofthemonth(*->any day) month(for more than 1month use ,) dayoftheweek(1-sunday)
+20 15 30/* 02,03/* 06 
+
+Shell Features
+1.Cmd interpretation
+2.Cmd piping(|)
+3.Cmd grouping(;,()) -> we cannot use 2 cmds together so (;) -> whole sperator ;
+4.Cmd Subsititution(``)
+5.Input/Output Redirection(<,>,>>)
+6.Programming
+
+ ex:4->
+ A.
+ [system11@NDAUnix ~]$ echo "Current Directory : `pwd`"
+Current Directory : /home/system11
+
+B.
+[system11@NDAUnix ~]$ a=45
+[system11@NDAUnix ~]$ b=15
+[system11@NDAUnix ~]$ expr $a + $b
+60
+
+C.
+[system11@NDAUnix ~]$ c=`expr $a + $b`
+[system11@NDAUnix ~]$ echo $c
+60
+
+D.
+[system11@NDAUnix ~]$ c=`expr $a \* $b`
+[system11@NDAUnix ~]$ echo $c
+675
+
+E.
+[system11@NDAUnix ~]$ expr $a / $b
+3
+
+F.(For floating number) we use bc ->binary calculation ->doesnot works with expr only echo
+[system11@NDAUnix ~]$ a=22.5
+[system11@NDAUnix ~]$ b=15
+[system11@NDAUnix ~]$ echo "$a + $b"|bc -l
+37.5

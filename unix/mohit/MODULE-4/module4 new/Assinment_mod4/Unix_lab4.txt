@@ -1,0 +1,924 @@
+1. Redirect the content of the help document is, into a file called lsdoc:
+
+
+-bash-3.2$ info ls>lsdoc
+info: Writing node (coreutils.info.gz)ls invocation...
+info: Writing node (coreutils.info.gz)Which files are listed...
+info: Writing node (coreutils.info.gz)What information is listed...
+info: Writing node (coreutils.info.gz)Sorting the output...
+info: Writing node (coreutils.info.gz)More details about version sort...
+info: Writing node (coreutils.info.gz)General output formatting...
+info: Writing node (coreutils.info.gz)Formatting file timestamps...
+info: Writing node (coreutils.info.gz)Formatting the file names...
+info: Done.
+
+________________________________________________________________________________________________________________________
+
+
+2. Display the content of the lsdoc page wise:
+
+
+-bash-3.2$ more lsdoc
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Directory listing
+
+10.1 `ls': List directory contents
+==================================
+
+The `ls' program lists information about files (of any type, including
+directories).  Options and file arguments can be intermixed
+arbitrarily, as usual.
+
+   For non-option command-line arguments that are directories, by
+default `ls' lists the contents of directories, not recursively, and
+omitting files with names beginning with `.'.  For other non-option
+arguments, by default `ls' lists just the file name.  If no non-option
+argument is specified, `ls' operates on the current directory, acting
+as if it had been invoked with a single argument of `.'.
+
+   By default, the output is sorted alphabetically, according to the
+locale settings in effect.(1) If standard output is a terminal, the
+output is in columns (sorted vertically) and control characters are
+output as question marks; otherwise, the output is listed one per line
+and control characters are output as-is.
+
+________________________________________________________________________________________________________________________
+
+3. Display only the first 4 lines of lsdoc file:
+
+
+-bash-3.2$ head -n 4 lsdoc
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Directory listing
+
+10.1 `ls': List directory contents
+==================================
+
+________________________________________________________________________________________________________________________
+
+
+4. Display only the last 7 lines of the file lsdoc:
+
+-bash-3.2$ tail -n 7 lsdoc
+     default may change to `shell' in a future version of this package.
+
+`--show-control-chars'
+     Print nongraphic characters as-is in file names.  This is the
+     default unless the output is a terminal and the program is `ls'.
+
+
+
+________________________________________________________________________________________________________________________
+
+
+5. Remove the file lsdoc:
+
+
+-bash-3.2$ rm lsdoc
+-bash-3.2$ ls
+aa.c  add.c  chap2  chap4  chapb  date_man  empdate  file1.txt  friends   kk.c    nato    newfriend  users
+a.c   chap1  chap3  chapa  chapc  emp1.txt  emp.txt  file2.txt  grepdemo  myfile  newemp  user_info
+
+
+________________________________________________________________________________________________________________________
+
+
+6. There will be B'day celeberation from the friends file, find how many B'day parties will be held. 
+If two of the friends have the B'date on the same day, then we will be having one party on that day.
+
+
+-bash-3.2$ cut -f3 friends | sort -t"/" -n -k3|uniq| wc -l
+6
+
+________________________________________________________________________________________________________________________
+
+
+7. Display the lines starting with Ma, in the file friends:
+
+
+-bash-3.2$ grep Ma friends
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+
+________________________________________________________________________________________________________________________
+
+
+8.Display the lines starting with Ma, ending with i or ending with id, in the file friends:
+
+
+-bash-3.2$ grep "^Ma" friends
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+
+-bash-3.2$ cut -f1 friends | grep "id$"
+David
+-bash-3.2$ cut -f1 friends | grep "i$"
+Simmi
+
+________________________________________________________________________________________________________________________
+
+9. Print all the files and the directory files from the current directory across all the sub directories, along with its path:
+
+
+-bash-3.2$ ls -R -l
+.:
+total 152
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 08:15 aa.c
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 a.c
+---x--x--x 1 testuser68 testuser68    0 Jun  1 08:10 add.c
+-rwxr--r-- 1 testuser68 testuser68    3 May 31 16:05 chap1
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap2
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap3
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap4
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapa
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapb
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapc
+-rw-r--r-- 1 testuser68 testuser68   75 Jun  1 13:55 charclass
+-rw-r--r-- 1 testuser68 testuser68 5704 Jun  1 09:01 date_man
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 09:32 emp1.txt
+-rw-r--r-- 1 testuser68 testuser68   93 Jun  1 11:10 empdate
+-rwxrwxrwx 1 testuser68 testuser68  181 Jun  1 11:08 emp.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file1.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file2.txt
+-rw-r--r-- 1 testuser68 testuser68  158 May 31 18:14 friends
+-rw-r--r-- 1 testuser68 testuser68   30 Jun  1 11:40 grepdemo
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 kk.c
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 myfile
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 nato
+-rw-r--r-- 1 testuser68 testuser68   93 Jun  1 11:29 newemp
+-rw-r--r-- 1 testuser68 testuser68  158 May 31 18:21 newfriend
+-rw-r--r-- 1 testuser68 testuser68 1433 Jun  1 09:57 user_info
+-rw-r--r-- 1 testuser68 testuser68 2069 May 31 18:31 users
+
+
+________________________________________________________________________________________________________________________
+
+10. Print only the directory files:
+
+
+-bash-3.2$ ls * | grep "d*"
+aa.c
+a.c
+add.c
+chap1
+chap2
+chap3
+chap4
+chapa
+chapb
+chapc
+charclass
+date_man
+emp1.txt
+empdate
+emp.txt
+file1.txt
+file2.txt
+friends
+grepdemo
+kk.c
+myfile
+nato
+newemp
+newfriend
+user_info
+users
+
+________________________________________________________________________________________________________________________
+
+11. Display the files starting with chap, along with its path:
+
+
+-bash-3.2$ ls -l | grep chap
+-rwxr--r-- 1 testuser68 testuser68    3 May 31 16:05 chap1
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap2
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap3
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap4
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapa
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapb
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapc
+
+________________________________________________________________________________________________________________________
+
+
+12. Sort the file friendsin ascending order of names:
+
+
+-bash-3.2$ sort friends
+Ajay    5546785 01/04/66
+David   8281292 09/09/60
+Jamil   2345215 08/09/67
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+Navin   2224311 30/05/68
+Simmi   7864563 12/12/70
+
+________________________________________________________________________________________________________________________
+
+
+13. Display the content of the file friends in uppercase letter:
+
+
+-bash-3.2$ tr "[a-z]" "[A-Z]" < friends
+MADHU   6966456 09/07/68
+JAMIL   2345215 08/09/67
+AJAY    5546785 01/04/66
+MANO    7820022 09/07/68
+DAVID   8281292 09/09/60
+SIMMI   7864563 12/12/70
+NAVIN   2224311 30/05/68
+
+________________________________________________________________________________________________________________________
+
+14. Store the contents of your home directory in a file called dir:
+
+
+-bash-3.2$ ls -l>dir
+-bash-3.2$ cat dir
+total 156
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 08:15 aa.c
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 a.c
+---x--x--x 1 testuser68 testuser68    0 Jun  1 08:10 add.c
+-rwxr--r-- 1 testuser68 testuser68    3 May 31 16:05 chap1
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap2
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap3
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap4
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapa
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapb
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapc
+-rw-r--r-- 1 testuser68 testuser68   75 Jun  1 13:55 charclass
+-rw-r--r-- 1 testuser68 testuser68 5704 Jun  1 09:01 date_man
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 14:54 dir
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 09:32 emp1.txt
+-rw-r--r-- 1 testuser68 testuser68   93 Jun  1 11:10 empdate
+-rwxrwxrwx 1 testuser68 testuser68  181 Jun  1 11:08 emp.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file1.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file2.txt
+-rw-r--r-- 1 testuser68 testuser68  158 May 31 18:14 friends
+-rw-r--r-- 1 testuser68 testuser68   30 Jun  1 11:40 grepdemo
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 kk.c
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 myfile
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 nato
+-rw-r--r-- 1 testuser68 testuser68   93 Jun  1 11:29 newemp
+-rw-r--r-- 1 testuser68 testuser68  158 May 31 18:21 newfriend
+-rw-r--r-- 1 testuser68 testuser68 1433 Jun  1 09:57 user_info
+-rw-r--r-- 1 testuser68 testuser68 2069 May 31 18:31 users
+
+________________________________________________________________________________________________________________________
+
+15. From the above file dir, display the file permissions and the name of the file only:
+
+
+-bash-3.2$ cut -c1-10,53-60 dir
+total 156
+-rw-r--r-- aa.c
+-rwxr--r-- a.c
+---x--x--x add.c
+-rwxr--r-- chap1
+-rw-r--r-- chap2
+-rw-r--r-- chap3
+-rw-r--r-- chap4
+-rw-r--r-- chapa
+-rw-r--r-- chapb
+-rw-r--r-- chapc
+-rw-r--r-- charcla
+-rw-r--r-- date_ma
+-rw-r--r-- dir
+-rw-r--r-- emp1.tx
+-rw-r--r-- empdate
+-rwxrwxrwx emp.txt
+-rw-r--r-- file1.t
+-rw-r--r-- file2.t
+-rw-r--r-- friends
+-rw-r--r-- grepdem
+-rwxr--r-- kk.c
+-rwxr--r-- myfile
+-rwxr--r-- nato
+-rw-r--r-- newemp
+-rw-r--r-- newfrie
+-rw-r--r-- user_in
+-rw-r--r-- users
+
+________________________________________________________________________________________________________________________
+
+16. From the same dir file, store only the file names in a file called files:
+
+
+-bash-3.2$ cut -c54-60 dir > files
+-bash-3.2$ cat files
+
+aa.c
+a.c
+add.c
+chap1
+chap2
+chap3
+chap4
+chapa
+chapb
+chapc
+charcla
+date_ma
+dir
+emp1.tx
+empdate
+emp.txt
+file1.t
+file2.t
+friends
+grepdem
+kk.c
+myfile
+nato
+newemp
+newfrie
+user_in
+users
+
+________________________________________________________________________________________________________________________
+
+
+17. From the same dir file, store only the permissions of files in a files called perms.
+
+
+-bash-3.2$ cut -c-10 dir > perms
+-bash-3.2$ cat perms
+total 156
+-rw-r--r--
+-rwxr--r--
+---x--x--x
+-rwxr--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rwxrwxrwx
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rwxr--r--
+-rwxr--r--
+-rwxr--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+
+________________________________________________________________________________________________________________________
+
+
+18. From the same dir file, store only the file sizes in a file called sizes:
+
+-bash-3.2$ cut -c36-39 dir>sizes
+-bash-3.2$ cat sizes
+
+   0
+   0
+   0
+   3
+   0
+   0
+   0
+   0
+   0
+   0
+  75
+5704
+   0
+   0
+  93
+ 181
+   0
+   0
+ 158
+  30
+   0
+   0
+   0
+  93
+ 158
+1433
+2069
+
+________________________________________________________________________________________________________________________
+
+19. Display the file names, sizes and permissions from your directory in that order: 
+
+-bash-3.2$ cat files perms sizes
+
+aa.c
+a.c
+add.c
+chap1
+chap2
+chap3
+chap4
+chapa
+chapb
+chapc
+charcla
+date_ma
+dir
+emp1.tx
+empdate
+emp.txt
+file1.t
+file2.t
+friends
+grepdem
+kk.c
+myfile
+nato
+newemp
+newfrie
+user_in
+users
+total 156
+-rw-r--r--
+-rwxr--r--
+---x--x--x
+-rwxr--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rwxrwxrwx
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rwxr--r--
+-rwxr--r--
+-rwxr--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+
+   0
+   0
+   0
+   3
+   0
+   0
+   0
+   0
+   0
+   0
+  75
+5704
+   0
+   0
+  93
+ 181
+   0
+   0
+ 158
+  30
+   0
+   0
+   0
+  93
+ 158
+1433
+2069
+
+________________________________________________________________________________________________________________________
+
+
+20. Display the number of users working on the system:
+
+
+-bash-3.2$ who | wc -l
+31
+
+________________________________________________________________________________________________________________________
+
+
+21. Find out the smallest file in our directory:
+
+
+-bash-3.2$ ls -lSr | head -n 16
+total 184
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 nato
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 myfile
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 kk.c
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file2.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 15:56 file1.txt
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 09:32 emp1.txt
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapc
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chapb
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 17:32 chapa
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap4
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap3
+-rw-r--r-- 1 testuser68 testuser68    0 May 31 16:05 chap2
+---x--x--x 1 testuser68 testuser68    0 Jun  1 08:10 add.c
+-rwxr--r-- 1 testuser68 testuser68    0 Jun  1 08:20 a.c
+-rw-r--r-- 1 testuser68 testuser68    0 Jun  1 08:15 aa.c
+
+________________________________________________________________________________________________________________________
+
+
+22. Display the total number of lines present in the file friends: 
+
+
+-bash-3.2$ wc -l friends
+6 friends
+
+________________________________________________________________________________________________________________________
+
+
+23. 
+
+1. File emp.lst:
+
+-bash-3.2$ cat>emp.lst
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1003|James|G.M|System|12-08-87|90000
+1004|Williams|Manager|Testing|24-07-89|55000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+-bash-3.2$
+-bash-3.2$ cat emp.lst
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1003|James|G.M|System|12-08-87|90000
+1004|Williams|Manager|Testing|24-07-89|55000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+
+
+2. File dept.lst:
+
+-bash-3.2$ cat>dept.lst
+20|James|1002
+20|Allen|1003
+30|Williams|1003
+40|Jenary|1001
+50|John|1004
+-bash-3.2$ cat dept.lst
+20|James|1002
+20|Allen|1003
+30|Williams|1003
+40|Jenary|1001
+50|John|1004
+
+
+3. File desig.lst:
+
+
+-bash-3.2$ cat>desig.lst
+HR|Madhu
+GM|Kenery
+-bash-3.2$ cat desig.lst
+HR|Madhu
+GM|Kenery
+
+________________________________________________________________________________________________________________________
+
+
+23.1. Find the record lengths of each file:
+
+-bash-3.2$ wc -c emp.lst dept.lst desig.lst
+208 emp.lst
+ 73 dept.lst
+ 19 desig.lst
+300 total
+
+________________________________________________________________________________________________________________________
+
+23.2. Display only the date of birth and salary of the last employee record:
+
+
+-bash-3.2$ cut -d "|" -f5,6 emp.lst | tail -1
+18-04-90|40000
+
+________________________________________________________________________________________________________________________
+
+
+23.3. Extract only employee names and designations:
+
+
+-bash-3.2$ cut -d "|" -f2,3 emp.lst > cfile1
+-bash-3.2$ cat cfile1
+Allen|Manager
+John|Director
+James|G.M
+Williams|Manager
+Jenary|Engineer
+
+________________________________________________________________________________________________________________________
+
+23.4. Extract empid, dept, dob, and salary, and save output as cfile2:
+
+
+-bash-3.2$ cut -d "|" -f1,4,5,6 emp.lst > cfile2
+-bash-3.2$ cat cfile2
+1001|System|10-06-88|60000
+1002|Java|22-03-89|80000
+1003|System|12-08-87|90000
+1004|Testing|24-07-89|55000
+1005|Mainframe|18-04-90|40000
+
+________________________________________________________________________________________________________________________
+
+23.5. Fix the files cfile1 and cfile2 laterally, along with delimiter:
+
+
+-bash-3.2$ paste -d "|" cfile1 cfile2
+Allen|Manager|1001|System|10-06-88|60000
+John|Director|1002|Java|22-03-89|80000
+James|G.M|1003|System|12-08-87|90000
+Williams|Manager|1004|Testing|24-07-89|55000
+Jenary|Engineer|1005|Mainframe|18-04-90|40000
+
+________________________________________________________________________________________________________________________
+
+23.6. Sort the emp.lst file in reverse order of Emp.names:
+
+
+-bash-3.2$ sort -r -t "|" -k2,2 emp.lst
+1004|Williams|Manager|Testing|24-07-89|55000
+1002|John|Director|Java|22-03-89|80000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+1003|James|G.M|System|12-08-87|90000
+1001|Allen|Manager|System|10-06-88|60000
+
+________________________________________________________________________________________________________________________
+
+23.7. Sort the emp.lst file on the salary field, and store the result in file srtf:
+
+-bash-3.2$ sort -n -t "|" -k6,6 emp.lst>srtf
+-bash-3.2$ cat srtf
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+1004|Williams|Manager|Testing|24-07-89|55000
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1003|James|G.M|System|12-08-87|90000
+
+________________________________________________________________________________________________________________________
+
+23.8. Sort the emp.lst file on designation followed by name:
+
+
+-bash-3.2$ sort -t "|" -k3,3 emp.lst
+1002|John|Director|Java|22-03-89|80000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+1003|James|G.M|System|12-08-87|90000
+1001|Allen|Manager|System|10-06-88|60000
+1004|Williams|Manager|Testing|24-07-89|55000
+
+________________________________________________________________________________________________________________________
+
+23.9. Sort the emp.lst file on the year of birth:
+
+-bash-3.2$ sort -n -t "|" -k5.7,5.8 emp.lst
+1003|James|G.M|System|12-08-87|90000
+1001|Allen|Manager|System|10-06-88|60000
+1002|John|Director|Java|22-03-89|80000
+1004|Williams|Manager|Testing|24-07-89|55000
+1005|Jenary|Engineer|Mainframe|18-04-90|40000
+
+________________________________________________________________________________________________________________________
+
+23.10. Find out the various designations in the employee file. Eliminate duplicate listing of designations:
+
+-bash-3.2$ cut -d "|" -f3 emp.lst | sort -u
+Director
+Engineer
+G.M
+Manager
+
+________________________________________________________________________________________________________________________
+
+23.11. Find the non-repeated designation in the employee file:
+
+-bash-3.2$ cut -d "|" -f3 emp.lst | sort | uniq -u
+Director
+Engineer
+G.M
+
+________________________________________________________________________________________________________________________
+
+23.12. Find the number of employees with various designations in the employee file:
+
+-bash-3.2$ cut -d "|" -f3 emp.lst | sort | uniq -c
+      1 Director
+      1 Engineer
+      1 G.M
+      2 Manager
+
+________________________________________________________________________________________________________________________
+
+23.13. Create a listing of the year in which employee were born in, along with number of employees born in that year:
+
+-bash-3.2$ cut -d "|" -f5 emp.lst | sort | uniq -c
+      1 10-06-88
+      1 12-08-87
+      1 18-04-90
+      1 22-03-89
+      1 24-07-89
+
+________________________________________________________________________________________________________________________
+
+23.14. Use nl command to create a code table for designations to include designation code:
+
+-bash-3.2$ nl -w3 -v 100 -i5 emp.lst
+100     1001|Allen|Manager|System|10-06-88|60000
+105     1002|John|Director|Java|22-03-89|80000
+110     1003|James|G.M|System|12-08-87|90000
+115     1004|Williams|Manager|Testing|24-07-89|55000
+120     1005|Jenary|Engineer|Mainframe|18-04-90|40000
+
+________________________________________________________________________________________________________________________ 
+
+24. 
+
+
+1. File pune office:
+
+-bash-3.2$ cat>puneoffice
+2000|Dwivedi|HR|11-02-87|60000
+4001|Trivedi|Admin|14-03-85|80000
+2004|Chaturvedi|Director|16-11-83|90000
+2067|Devgupta|Manager|30-08-89|40000
+2089|Sengupta|G.M|20-08-88|55000
+
+
+2. File mumbai office:
+
+________________________________________________________________________________________________________________________ 
+
+
+25. Write a command sequence that prints out date information in this order: time , day of week, day number, month, year.
+
+-bash-3.2$ date "+%T %a %d %b %Y"
+14:28:33 Thu 02 Jun 2016
+
+
+________________________________________________________________________________________________________________________ 
+
+
+26. Write a command sequence that prints the names of the files in the current directory in the descending order of number of links: 
+
+
+-bash-3.2$ ls -l | cut -c12-13,50-63 | sort -r -t " " -k1,1
+1  videmo
+1  users
+1  user_in
+1  srtf
+1  sizes
+1  puneoff
+1  perms
+1  newfriend
+1  newemp
+1  nato
+1  myfile
+1  mumbaioffice
+1  kk.c
+1  grepdemo
+1  friends
+1  files
+1  file2.txt
+1  file1.txt
+1  emp.txt
+1  emp.lst
+1  empdate
+1  emp1.txt
+1  dir
+1  desig.lst
+1  dept.lst
+1  date_ma
+1  charclass
+1  chapc
+1  chapb
+1  chapa
+1  chap4
+1  chap3
+1  chap2
+1  chap1
+1  cfile2
+1  cfile1
+1  add.c
+1  a.c
+1  aa.c
+
+
+
+________________________________________________________________________________________________________________________ 
+
+
+27. Write a command sequence that prints only names of files in current working directory in alphabetical order:
+
+
+-bash-3.2$ ls -l | cut -c53-65 | sort -t " " -k1,1
+
+aa.c
+a.c
+add.c
+cfile1
+cfile2
+chap1
+chap2
+chap3
+chap4
+chapa
+chapb
+chapc
+charclass
+date_man
+dept.lst
+desig.lst
+dir
+emp1.txt
+empdate
+emp.lst
+emp.txt
+file1.txt
+file2.txt
+files
+friends
+grepdemo
+kk.c
+mumbaioffice
+myfile
+nato
+newemp
+newfriend
+perms
+puneoff
+sizes
+srtf
+user_in
+users
+videmo
+
+________________________________________________________________________________________________________________________ 
+
+
+28. Write a command sequence to print names and sizes of all the files in current working directory in order of size:
+
+-bash-3.2$ ls -lS | grep -v '^d' |cut -c53-65,36-39
+
+5704 date_man
+2069 users
+1633 dir
+1433 user_in
+ 307 perms
+ 208 emp.lst
+ 208 srtf
+ 183 videmo
+ 181 emp.txt
+ 180 files
+ 175 puneoffice
+ 158 friends
+ 158 newfriend
+ 137 cfile2
+ 136 sizes
+  93 empdate
+  93 newemp
+  75 charclass
+  73 dept.lst
+  71 cfile1
+  30 grepdemo
+  19 desig.lst
+   3 chap1
+   0 aa.c
+   0 a.c
+   0 add.c
+   0 chap2
+   0 chap3
+   0 chap4
+   0 chapa
+   0 chapb
+   0 chapc
+   0 emp1.txt
+   0 file1.txt
+   0 file2.txt
+   0 kk.c
+   0 mumbaioffice
+   0 myfile
+   0 nato
+
+
+________________________________________________________________________________________________________________________ 
+
+29. Determine the latest file updated by the user:
+
+
+-bash-3.2$ ls -l -t | head -n 2 | tail -n 1
+-rw-r--r-- 1 testuser68 testuser68  183 Jun  2 09:12 videmo
+
+________________________________________________________________________________________________________________________ 

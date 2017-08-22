@@ -1,0 +1,457 @@
+****************************************************
+QUE1:
+****************************************************
+-bash-3.2$ info ls>lsdoc
+
+
+****************************************************
+QUE2:
+****************************************************\
+-bash-3.2$ more lsdoc
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Director
+y listing
+
+10.1 `ls': List directory contents
+==================================
+
+The `ls' program lists information about files (of any type, including
+directories).  Options and file arguments can be intermixed
+arbitrarily, as usual.
+
+
+****************************************************
+QUE3:
+****************************************************
+-bash-3.2$ head -n 4 lsdoc
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Directory listing
+
+10.1 `ls': List directory contents
+==================================
+
+****************************************************
+QUE4:
+****************************************************
+-bash-3.2$ tail -n 7 lsdoc
+     default may change to `shell' in a future version of this package.
+
+`--show-control-chars'
+     Print nongraphic characters as-is in file names.  This is the
+     default unless the output is a terminal and the program is `ls'.
+
+
+****************************************************
+QUE5:
+****************************************************
+-bash-3.2$ rm lsdoc
+-bash-3.2$ pwd
+/home/testuser73
+-bash-3.2$ ls
+command.txt  date_man  file1.txt  file2.txt  file3.txt  karishma  tmp
+-bash-3.2$
+
+****************************************************
+QUE6:
+****************************************************
+-bash-3.2$ cut -f3 friends.txt |sort -t"/" -n -k3|uniq|wc -l
+
+****************************************************
+QUE7:
+****************************************************
+-bash-3.2$ grep "Ma" friends.txt
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+
+****************************************************
+QUE8:
+****************************************************
+
+****************************************************
+QUE9:
+****************************************************
+-bash-3.2$ ls -R -l
+.:
+total 208
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 12:12 aa.c
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:22 a.c
+---x--x--x 1 testuser73 testuser73    0 Jun  1 12:11 add.c
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 08:34 chap
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 12:10 chap1
+-rw-r--r-- 1 testuser73 testuser73   79 Jun  1 13:56 charclass
+-rw-r--r-- 1 testuser73 testuser73 5704 Jun  1 09:01 date_man
+-rw-r--r-- 1 testuser73 testuser73  124 Jun  1 11:10 empdate
+-rw-r--r-- 1 testuser73 testuser73  676 Jun  1 09:28 employee.txt
+-rw-r--r-- 1 testuser73 testuser73  225 Jun  1 10:55 empl.txt
+-rwxrwxrwx 1 testuser73 testuser73  226 Jun  1 09:28 emp.txt
+-rw-r--r-- 1 testuser73 testuser73   39 Jun  1 14:32 ext
+-rw-r--r-- 1 testuser73 testuser73   18 Jun  1 14:20 file2
+-rw-r--r-- 1 testuser73 testuser73   96 Jun  1 14:18 file3
+-rw-r--r-- 1 testuser73 testuser73   60 Jun  1 14:16 file4
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 08:24 friends.txt
+-rw-r--r-- 1 testuser73 testuser73   51 Jun  1 11:42 grepdemo
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:31 kk.c
+-rw-r--r-- 1 testuser73 testuser73 1648 Jun  1 10:09 loginshell
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:31 myfile
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:31 nato
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 11:30 newemp
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 08:19 newfriend
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 08:24 newfriend.txt
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 10:32 new.txt
+-rw-r--r-- 1 testuser73 testuser73  117 Jun  1 14:28 pat
+-rw-r--r-- 1 testuser73 testuser73   17 Jun  1 14:23 pattern
+-rw-r--r-- 1 testuser73 testuser73    9 Jun  1 14:24 pattern1
+-rw-r--r-- 1 testuser73 testuser73 1433 Jun  1 13:44 username
+-rw-r--r-- 1 testuser73 testuser73 1433 Jun  1 13:44 users
+-bash-3.2$
+
+****************************************************
+QUE10:
+****************************************************
+-bash-3.2$ ls -l |grep d*
+-rw-r--r-- 1 testuser73 testuser73 5704 Jun  1 09:01 date_man
+
+****************************************************
+QUE11:
+****************************************************
+-bash-3.2$ ls file* -l
+-rw-r--r-- 1 testuser73 testuser73 18 Jun  1 14:20 file2
+-rw-r--r-- 1 testuser73 testuser73 96 Jun  1 14:18 file3
+-rw-r--r-- 1 testuser73 testuser73 60 Jun  1 14:16 file4
+
+****************************************************
+QUE12:
+****************************************************
+
+-bash-3.2$ sort -k1 friends.txt
+
+Ajay    5546785 01/04/66
+David   8281292 09/09/60
+jamil   2345215 08/09/67
+Madhu   6966456 09/07/68
+Mano    7820022 09/07/68
+Navin   2224311 30/05/68
+Simmi   7864563 12/12/70
+
+****************************************************
+QUE13:
+****************************************************
+-bash-3.2$ tr "[a-z]" "[A-Z]" <friends.txt
+
+MADHU   6966456 09/07/68
+JAMIL   2345215 08/09/67
+AJAY    5546785 01/04/66
+MANO    7820022 09/07/68
+DAVID   8281292 09/09/60
+SIMMI   7864563 12/12/70
+NAVIN   2224311 30/05/68
+
+****************************************************
+QUE14:
+****************************************************
+-bash-3.2$ ls -l >dir
+-bash-3.2$ cat dir
+total 212
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 12:12 aa.c
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:22 a.c
+---x--x--x 1 testuser73 testuser73    0 Jun  1 12:11 add.c
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 08:34 chap
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 12:10 chap1
+-rw-r--r-- 1 testuser73 testuser73   79 Jun  1 13:56 charclass
+-rw-r--r-- 1 testuser73 testuser73 5704 Jun  1 09:01 date_man
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 18:36 dir
+-rw-r--r-- 1 testuser73 testuser73  124 Jun  1 11:10 empdate
+-rw-r--r-- 1 testuser73 testuser73  676 Jun  1 09:28 employee.txt
+-rw-r--r-- 1 testuser73 testuser73  225 Jun  1 10:55 empl.txt
+-rwxrwxrwx 1 testuser73 testuser73  226 Jun  1 09:28 emp.txt
+-rw-r--r-- 1 testuser73 testuser73   39 Jun  1 14:32 ext
+-rw-r--r-- 1 testuser73 testuser73   18 Jun  1 14:20 file2
+-rw-r--r-- 1 testuser73 testuser73   96 Jun  1 14:18 file3
+-rw-r--r-- 1 testuser73 testuser73   60 Jun  1 14:16 file4
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 08:24 friends.txt
+-rw-r--r-- 1 testuser73 testuser73   51 Jun  1 11:42 grepdemo
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:31 kk.c
+-rw-r--r-- 1 testuser73 testuser73 1648 Jun  1 10:09 loginshell
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:31 myfile
+---xr--r-- 1 testuser73 testuser73    0 Jun  1 15:31 nato
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 11:30 newemp
+-rw-r--r-- 1 testuser73 testuser73    0 Jun  1 08:19 newfriend
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 08:24 newfriend.txt
+-rw-r--r-- 1 testuser73 testuser73  176 Jun  1 10:32 new.txt
+-rw-r--r-- 1 testuser73 testuser73  117 Jun  1 14:28 pat
+-rw-r--r-- 1 testuser73 testuser73   17 Jun  1 14:23 pattern
+-rw-r--r-- 1 testuser73 testuser73    9 Jun  1 14:24 pattern1
+-rw-r--r-- 1 testuser73 testuser73 1433 Jun  1 13:44 username
+-rw-r--r-- 1 testuser73 testuser73 1433 Jun  1 13:44 users
+-bash-3.2$
+
+****************************************************
+QUE15:
+****************************************************
+-bash-3.2$ cut -c1-10,44-55 dir
+total 212
+-rw-r--r--  1 12:12 aa
+---xr--r--  1 15:22 a.
+---x--x--x  1 12:11 ad
+-rw-r--r--  1 08:34 ch
+---xr--r--  1 12:10 ch
+-rw-r--r--  1 13:56 ch
+-rw-r--r--  1 09:01 da
+-rw-r--r--  1 18:36 di
+-rw-r--r--  1 11:10 em
+-rw-r--r--  1 09:28 em
+-rw-r--r--  1 10:55 em
+-rwxrwxrwx  1 09:28 em
+-rw-r--r--  1 14:32 ex
+-rw-r--r--  1 14:20 fi
+-rw-r--r--  1 14:18 fi
+-rw-r--r--  1 14:16 fi
+-rw-r--r--  1 08:24 fr
+-rw-r--r--  1 11:42 gr
+---xr--r--  1 15:31 kk
+-rw-r--r--  1 10:09 lo
+---xr--r--  1 15:31 my
+---xr--r--  1 15:31 na
+-rw-r--r--  1 11:30 ne
+-rw-r--r--  1 08:19 ne
+-rw-r--r--  1 08:24 ne
+-rw-r--r--  1 10:32 ne
+-rw-r--r--  1 14:28 pa
+-rw-r--r--  1 14:23 pa
+-rw-r--r--  1 14:24 pa
+-rw-r--r--  1 13:44 us
+-rw-r--r--  1 13:44 us
+-bash-3.2$
+
+****************************************************
+QUE16:
+****************************************************
+-bash-3.2$ cut -c44-55 dir>files
+-bash-3.2$ cat files
+
+  1 12:12 aa
+  1 15:22 a.
+  1 12:11 ad
+  1 08:34 ch
+  1 12:10 ch
+  1 13:56 ch
+  1 09:01 da
+  1 18:36 di
+  1 11:10 em
+  1 09:28 em
+  1 10:55 em
+  1 09:28 em
+  1 14:32 ex
+  1 14:20 fi
+  1 14:18 fi
+  1 14:16 fi
+  1 08:24 fr
+  1 11:42 gr
+  1 15:31 kk
+  1 10:09 lo
+  1 15:31 my
+  1 15:31 na
+  1 11:30 ne
+  1 08:19 ne
+  1 08:24 ne
+  1 10:32 ne
+  1 14:28 pa
+  1 14:23 pa
+  1 14:24 pa
+  1 13:44 us
+  1 13:44 us
+-
+
+****************************************************
+QUE17:
+****************************************************
+-bash-3.2$ cut -c1-10 dir>permi
+-bash-3.2$ cat permi
+total 212
+-rw-r--r--
+---xr--r--
+---x--x--x
+-rw-r--r--
+---xr--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rwxrwxrwx
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+---xr--r--
+-rw-r--r--
+---xr--r--
+---xr--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-bash-3.2$
+
+****************************************************
+QUE18:
+****************************************************
+
+****************************************************
+QUE19:
+****************************************************
+-bash-3.2$ cat files permi sizes
+
+****************************************************
+QUE20:
+****************************************************
+-bash-3.2$ who | wc -l
+10
+
+****************************************************
+QUE21:
+****************************************************
+
+****************************************************
+QUE22:
+****************************************************
+-bash-3.2$ wc -l friends.txt
+8 friends.txt
+
+****************************************************
+QUE23.1:
+****************************************************
+-bash-3.2$ wc emp.lst dept.lst design.lst -c
+351 emp.lst
+112 dept.lst
+ 51 design.lst
+514 total
+-bash-3.2$
+
+****************************************************
+QUE23.2:
+****************************************************
+-bash-3.2$ tail -1 emp.lst|cut -c50-72
+27/06/1992       20000
+
+****************************************************
+QUE23.3:
+****************************************************
+-bash-3.2$ cut -c12-35 emp.lst>cfile1
+-bash-3.2$ cat cfile1
+Name(18)   Designation(9
+karishma    softwareEng
+sahana      softwareEng
+Ooshma      softwareEng
+pushpa      softwareEng
+
+****************************************************
+QUE23.4:
+****************************************************
+-bash-3.2$ cut -d "|" -f1,4,5,6 emp.lst>cfile2
+-bash-3.2$ cat cfile2
+Empid(4)|Dept(10)|Dateofbirth(8)|salary(5)
+1111|1|24/03/1994|20000
+2222|2|25/04/199
+3333|3|26/05/1993|20000
+4444|4|27/06/1992|20000
+
+****************************************************
+QUE23.5:
+****************************************************
+-bash-3.2$ paste -d"|" cfile1 cfile2
+Name(18)   Designation(9|Empid(4)|Dept(10)|Dateofbirth(8)|salary(5)
+karishma    softwareEng |1111|1|24/03/1994|20000
+sahana      softwareEng |2222|2|25/04/199
+Ooshma      softwareEng |3333|3|26/05/1993|20000
+pushpa      softwareEng |4444|4|27/06/1992|20000
+
+
+****************************************************
+QUE23.6:
+****************************************************
+-bash-3.2$ sort -t "|" -k2,2 -r emp.lst
+2222|sahana|softwareEng|2|25/04/199
+4444|pushpa|softwareEng|4|27/06/1992|20000
+3333|ooshma|softwareEng|3|26/05/1993|20000
+Empid(4)|name(18)|designation(9)|dept(10)|dateofbirth(8)|salary(5)
+1111|karishma|softwareEng|1|24/03/1994|20000
+
+****************************************************
+QUE23.7:
+****************************************************
+-bash-3.2$ sort -t "|" -k6,6 emp.lst>srtf
+-bash-3.2$ cat srtf
+2222|sahana|softwareEng|2|25/04/199
+1111|karishma|softwareEng|1|24/03/1994|20000
+3333|ooshma|softwareEng|3|26/05/1993|20000
+4444|pushpa|softwareEng|4|27/06/1992|20000
+Empid(4)|name(18)|designation(9)|dept(10)|dateofbirth(8)|salary(5)
+
+****************************************************
+QUE23.8:
+****************************************************
+-bash-3.2$ sort -t "|" -k3,3 emp.lst
+Empid(4)|name(18)|designation(9)|dept(10)|dateofbirth(8)|salary(5)
+4444|pushpa|mainframes|4|27/06/1992|20000
+1111|karishma|SoftwareEng|1|24/03/1994|20000
+2222|sahana|systemEng|2|25/04/199
+3333|ooshma|tester|3|26/05/1993|20000
+
+****************************************************
+QUE23.9:
+****************************************************
+-bash-3.2$ cut -d "|" -f5 emp.lst|sort -t "/" -k2.7
+25/04/199
+27/06/1992
+26/05/1993
+24/03/1994
+
+****************************************************
+QUE23.10:
+****************************************************
+-bash-3.2$ cut -d "|" -f3 emp.lst|sort -t "|" -k3,3|uniq
+designation(9)
+mainframes
+SoftwareEng
+systemEng
+tester
+
+****************************************************
+QUE23.11:
+****************************************************
+-bash-3.2$ cut -d "|" -f3 emp.lst|uniq -u
+SoftwareEng
+systemEng
+tester
+mainframes
+
+****************************************************
+QUE23.12:
+****************************************************
+-bash-3.2$ wc -l emp.lst|uniq -u
+4 emp.lst
+
+****************************************************
+QUE23.13:
+****************************************************
+-bash-3.2$ cut -d"|" -f5 emp.lst|cut -d"/" -f3|sort|uniq -c
+      1 199
+      1 1992
+      1 1993
+      1 1994
+
+****************************************************
+QUE23.14:
+****************************************************
+-bash-3.2$ nl -v 100 -i5 emp.lst
+   100  1111|karishma|SoftwareEng|1|24/03/1994|20000
+   105  2222|sahana|systemEng|2|25/04/199
+   110  3333|ooshma|tester|3|26/05/1993|20000
+   115  4444|pushpa|mainframes|4|27/06/1992|20000

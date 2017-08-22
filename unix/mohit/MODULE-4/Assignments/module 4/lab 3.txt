@@ -1,0 +1,80 @@
+1. Give the execute permission for the user for a file chap1:
+
+[system11@NDAUnix ~]$ chmod u+x users
+[system11@NDAUnix ~]$ ls -l
+total 32
+----r--r-- 1 user6 user6   12 Jul  8 18:50 file1
+drwxrwxrwx 2 user6 user6 4096 Jul  4 12:05 file3
+-rw-rw-r-- 1 user6 user6   36 Jul 10 10:55 friends
+drwxrwxr-x 2 user6 user6 4096 Jul  8 16:07 shellprogramming
+drwxrwxr-x 4 user6 user6 4096 Jul  9 09:59 temp
+drwxrwxr-x 2 user6 user6 4096 Jul  9 09:19 trg1
+drwxrwxr-x 2 user6 user6 4096 Jul  9 10:56 user6
+-rwxrw-r-- 1 user6 user6   36 Jul 11 08:52 users
+
+______________________________________________________________
+2. Give the execute permission for user, group and others for a add.c:
+
+[system11@NDAUnix ~]$ chmod ugo=x add.c
+[system11@NDAUnix ~]$ ls -l add.c
+---x--x--x 1 user6 user6 42 Jul 11 09:01 add.c
+
+____________________________________________________________________
+
+3. Remove the execute permission from user, give read permission to group and others for file aa.c
+
+[system11@NDAUnix ~]$ chmod u-x aa.c
+[system11@NDAUnix ~]$ ls -l aa.c
+-rw-rw-r-- 1 user6 user6 44 Jul 11 09:02 aa.c
+____________________________________________________________________
+
+4. Give execute permission for user for a.c, kk.c, nato and my file using single command:
+
+[system11@NDAUnix ~]$ touch a.c kk.c nato myfile
+[system11@NDAUnix ~]$ ls
+aa.c  add.c  file3    kk.c    nato              temp  user6
+a.c   file1  friends  myfile  shellprogramming  trg1  users
+
+_____________________________________________________________________
+5. Change the directory to root directory. Check the system directories, like bin, etc, usr etc:
+
+[system11@NDAUnix ~]$ cd /
+[user6@NDAUnix /]$ ls
+bin     home                                 media  proc              srv
+boot    initramfs-2.6.32-431.el6.x86_64.img  misc   root              sys
+cgroup  lib                                  mnt    sbin              tmp
+dev     lib64                                net    scvmmagent_linux  usr
+etc     lost+found                           opt    selinux           var
+[user6@NDAUnix /]$ cd /bin
+[user6@NDAUnix bin]$ ls
+alsaunmute            domainname          lsblk            sed
+arch                  dumpkeys            lscgroup         setfont
+awk                   echo                lssubsys         setserial
+basename              ed                  mail             sh
+bash                  egrep               mailx            sleep
+cat                   env                 mkdir            sort
+cgclassify            ex                  mknod            stty
+cgcreate              false               mktemp           su
+cgdelete              fgrep               more             sync
+cgexec                find                mount            tar
+cgget                 findmnt             mountpoint       taskset
+cgset                 fusermount          mv               tcsh
+cgsnapshot            gawk                nano             touch
+chgrp                 gettext             netstat          tracepath
+chmod                 grep                nice             tracepath6
+chown                 gtar                nisdomainname    traceroute
+cp                    gunzip              ping             traceroute6
+cpio                  gzip                ping6            true
+csh                   hostname            plymouth         ulockmgr_server
+cut                   ipcalc              ps               umount
+dash                  iptables-xml        pwd              uname
+date                  iptables-xml-1.4.7  raw              unicode_start
+dbus-cleanup-sockets  kbd_mode            readlink         unicode_stop
+dbus-daemon           keyctl              red              unlink
+dbus-monitor          kill                redhat_lsb_init  usleep
+dbus-send             link                rm               vi
+dbus-uuidgen          ln                  rmdir            view
+dd                    loadkeys            rnano            ypdomainname
+df                    logger              rpm              zcat
+dmesg                 login               rvi
+dnsdomainname         ls                  rview

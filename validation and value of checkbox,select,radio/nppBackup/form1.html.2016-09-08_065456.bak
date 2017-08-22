@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+		function check()
+		{
+		flag=false;
+		//var name=document.getElementById('name').value;
+		//var address=document.getElementById('address').value;
+		//var gender=document.getElementById('gender').value;
+		var x=document.getElementsByName('proof');
+		for(i=0;i<x.length;i++)
+		{
+			if(x[i].checked==true){
+			flag=true;}
+		}
+		if(flag==true)
+		{
+			var a="";
+		for(i=0;i<form1.proof.length;i++)
+		{
+		if(form1.proof[i].checked==true)
+		{
+			if(a=="")
+			{
+				a+=form1.proof[i].value;
+			}else
+			{
+				a+=","+form1.proof[i].value;
+			}
+		}
+			
+		}
+		alert(a);
+		}
+		else
+		{
+		alert("Please select atleast one");
+		}
+		flags=false;
+		var gender=form1.genders.length;
+		for(i=0;i<gender;i++)
+		{
+			if(form1.genders[i].checked==true){
+			flags=true;
+			break;
+			
+			}
+		}
+		if(flags==true)
+		{
+			var a="";
+		for(i=0;i<form1.genders.length;i++)
+		{
+		if(form1.genders[i].checked==true)
+		{
+			if(a=="")
+			{
+				a+=form1.genders[i].value;
+			}else
+			{
+				a+=","+form1.genders[i].value;
+			}
+		}
+			
+		}
+		alert(a);
+		}
+		else
+		{
+		alert("Please select Your Gender");
+		}
+		}
+		
+		
+		
+		</script>
+	</head>
+	<body>
+		<form id="form1" onsubmit="check();">
+		Name:	<input type="text" id="name" required/><br>
+		Address: <input type="text" id="address" required/><br>
+		Gender: <input type="radio" id="gender" name="genders" value="Male">Male</input><input name="genders" value="Female" type="radio" id="gender"/>Female</input><br>
+		Proof:   <input type="checkbox" id="pan" value="Pan" name="proof">Pan</input> <input name="proof" id="passport" value="Passport" type="checkbox">Passport</input> <input value="lin" name="proof" id="lin" type="checkbox">LIN</input>	
+		<br><input type="Submit" ></input>
+		</form>
+		
+	</body>
+</html>

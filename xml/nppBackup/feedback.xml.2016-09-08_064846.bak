@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<feedback xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="feedback.xsd">
+	<customer>
+		<names>
+			<sal>Mrs.</sal>
+			<name1>Amit</name1>
+		</names>
+		<address1>Hinjewadi</address1>
+		<address2>Phase 3</address2>
+		<state>Maharashtra</state>
+		<city>Pune</city>
+		<pincode>411057</pincode>
+		<mobileno>+918981431176</mobileno>
+		<email>amitkumar.bgp@gmail.com</email>
+		<carmodel>Maruti Zen Estilo</carmodel>
+		<typeservice>
+			<paint>No</paint>
+			<enginerepair>Yes</enginerepair>
+			<bodyrepair>No</bodyrepair>
+			<freeservice>Yes</freeservice>
+			<paidservice>No</paidservice>
+		</typeservice>
+		<distance>2100</distance>
+		<feed>7</feed>
+	</customer>
+</feedback>

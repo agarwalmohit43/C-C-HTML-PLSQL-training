@@ -1,0 +1,9 @@
+	#!/bin/bash
+	add(){
+                echo "Enter num1:"
+                read num1
+                echo "Enter num2:"
+                read num2
+                echo "Addtion is `expr $num1 + $num2`"
+        }
+        add

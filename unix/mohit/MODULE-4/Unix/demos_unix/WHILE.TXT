@@ -1,0 +1,18 @@
+      #!/bin/ksh 
+      PATTERN_NOT_FOUND=10
+      FILE_NOT_FOUND=20
+      ch='y'
+      while [ $ch = 'y' -o $ch = 'Y' ]
+      do
+              echo -e "Enter filename : \c" ;  read filename
+              echo -e "Enter pattern :\c" ; read pattern
+              grep $pattern $filename 2>/dev/null
+              GREP_STATUS=$?
+              if [ $GREP_STATUS -eq 1 ] ; then
+                      echo "Pattern not found...."
+              fi 
+              if [ $GREP_STATUS -eq 2 ]; then
+                      echo "File not found..."
+              fi 
+              echo "Do you want to continue [y/n]?" ; read ch 
+      done

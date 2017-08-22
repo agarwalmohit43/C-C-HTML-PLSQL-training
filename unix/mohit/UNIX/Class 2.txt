@@ -1,0 +1,144 @@
+
+Class 2
+Vi works in 3 Modes:-
+1.edit
+2.insert
+3.ex/last line mode
+
+#		-> used to write comment
+l		-> character by character towards right
+h		-> character by character towards left
+j/k		-> move line by line upward/downward
+x 		-> cut the words
+u		-> undo
+.		-> redo
+yy		-> copy
+p		-> paste below
+P		-> paste above
+dd		-> delte/move the line
+pp		-> paste/insert the line
+r		-> single character replacement
+cw		-> replaces the word
+/words	-> search operation in forward(by default case senstive) to remove case sensitive(:set ignorecase) (n->to move  to next)
+?words	-> search operation in backward(by default case senstive) to remove case sensitive(:set ignorecase) (n->to move  to next)
+
+Last line commands(commands written in (: ..) are called last line command)
+:s/search/replace	 -> substitute command substitues the words
+:s/search/replace/g	 -> substitute command substitues the words on current line replacement will occur in whole line(g:global)
+:%s/search/replace/g -> substitute command substitues the words in whole file
+:w		-> save and resume
+:q		-> quit/abandonend
+:q!		-> forcefull quit abandonend(! -> forcefull)
+:set ignorecase	-> removes case sensitive
+:set number/nonumber		 -> display/removes line number
+:set autoindent/noautoindent -> for indentation/no indentation in programming language (ex: if condition block)
+:set showmatch	-> brackets match
+:nohl	-> remove highlights
+:10,13w newfile	-> copies from line 10 to 13 and paste to new file
+:e filename	 -> navigates to file without going to terminal
+:e#		-> after navigating coming back 
+
+/*
+.exrc	-> is the vi configure file which is hidden,to make changes using last line command we need to add last line commands
+
+grep family -> grep(bre supported), egrep(bre supported,ere supported), fgrep
+
+Basic Regular Expression
+^   -> begins with
+$   -> ends with
+[-] -> range
+[]	-> selection
+\	-> Negotiation of special character
+.	-> any one character
+*	-> Occurence of prev character 0 or more times
+
+-i	-> ignore case
+-c	-> count
+-w	-> whole word
+-n	-> relative line number
+-v	-> Neglects of pattern or not operator
+-l	-> list of files
+
+ERE Mechanics(supported by egrep or (grep -E))
++	-> Occurence of prev character 1 or more times
+?	-> Occurence of prev character 0 or 1 time
+{}	-> Excat occurence
+|	-> or operation
+*/
+
+ex:
+  1		  2		  3
+Gargi, Gaargi, Gaaaargi
+egrep "Ga*rgi" o/p:1,2,3
+egrep "Ga+rgi" o/p:2,3
+egrep "Ga?rgi" o/p:1,2
+
+egrep "[0-9]{1,5}"  -> accept number with length min 1 max 5
+egrep "[0-9]{,5}"	-> accept number with length min 0 max 5
+egrep "[0-9]{0,}"	-> accept number with length min 0 max ntimes
+
+egrep "computer|accounts" emp -> searches whose dept is computer or accounts
+
+86.grep "vi" files1      	 -> searches vi in files (grep use to search word in a file by terminal and if the word found then that line is printed)
+87.grep -i "vi" files1   	 -> -i for ignore casesensitive
+88.grep -iw "vi" files1   	 -> -iw for whole word search(vi) not partial search(vi.., ..vi.., ..vi)
+89.grep -iw "^vi" files1 	 -> start line with word then use (^)
+90.grep "^[A-Z]" files1	 	 -> search letter starting with capital letters
+91.grep "^[0-9]" files1  	 -> lines which begin with number
+92.grep "^[0-9][0-9]" files1 -> lines which begin with 2 digit number
+93.grep "\?$" files1	     -> lines which has ?  
+94.grep "\.$" files1	   	 -> lines which has .  
+95.grep "\-$" files1	   	 -> lines which has - 
+96.grep "\.$" files1	     -> lines which ends with (.)
+97.grep -l -iw "?$" files1   -> if any line ends with ? then it will dispaly filename
+
+98.find ~ -type f -name "lsdoc" -> find file with lsdoc name
+99.find ~ -type d -name "lab4"  -> find directory with lab4 name
+100.find ~ -type f -size 328c	-> find file with size 328
+
+[system11@NDAUnix shelld]$ find . -maxdepth 1 -type f
+./shellscr2
+./pracshellscr5
+./pracshellscr4
+./pracshellscr9
+./pracshellscr8
+./pracshellscr2
+./pracshellscr6
+./shellscr
+./pracshellscr7
+./pracshellscr
+./pracshellscr3
+
+
+chmod user(s)+-perm(s) file(s)  -> permission to file grant or not perm(r-read, w-write, x-execute), user(u-user, g-group, o-others, a-all)
+
+Octal method(0-7 -> octal, multiple of two i.e rwx)
+4 -> read
+2 -> write
+1 -> execute
+ex 
+1.rwx for user, rw for group,wx for others
+chmod 763 file(s)
+2.chmod 6 files(s) i.e 006 by default
+
+Sed -> Stream editor 
+
+101.sed “5p” emp     		->  will display it twice, once for default and once for print.
+102.sed -n “5p” emp  		->  will only display it once using print
+103.sed –n “/accts/p” emp 	->  
+104.sed “3q” emp  			->  process data till third record, after that quit  
+105.sed "ihello" emp  		->   will print hello before every record  
+106.sed "3ihello" emp  		->  will print hello only before third record  
+107.sed "ahello" emp  		->  hello will be appended with every record  
+108.sed "3ahello" emp  		->  hello will be appended only after third record
+109.sed “6ae012:aaa:mkth:mgr:6000” emp ->  
+110.sed - I “6ae012:aaa:mkth:mgr:6000” emp ->  
+111.sed “s/comp/COMPUTER/” emp   -> for replacing only 1 occurrence  
+112.sed “s/comp/COMPUTER/g” emp  -> for replacing the word globally  
+  
+
+
+
+
+
+ 

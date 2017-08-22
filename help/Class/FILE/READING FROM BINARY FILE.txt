@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct
+{
+    int empId;
+    char empName[20];
+    float empSalary;
+}employeeDetails;
+
+int main()
+{   employeeDetails *p;
+    int abcd=1;
+    FILE *fp;
+    char ch,buffer[100];
+    
+    p=(employeeDetails *)malloc(sizeof(employeeDetails));
+    fp=fopen("employee.bin","rb");
+    if(fp==NULL)
+    {
+        printf("\nFILE DOES NOT EXISTS..!!");
+        exit(0);
+    }
+    
+    while(abcd!=0)
+    {
+        abcd=fread(p,sizeof(employeeDetails),1,fp);
+        if(abcd!=0)
+        {
+        printf("%s\t",p->empName);
+        printf("%d\t",p->empId);
+        }
+    }
+ 
+    fclose(fp);
+   
+    printf("\n");
+    return 0;
+}

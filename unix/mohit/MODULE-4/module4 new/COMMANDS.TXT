@@ -1,0 +1,532 @@
+
+
+ 49  mv emp.txt .
+   50  ls
+   51  cd 
+   52  ls
+   53  cd home
+   54  ls
+   55  cd ..
+   56  ls
+   57  cd ..
+   58  ls
+   59  cd /
+   60  ls
+   61  cd home
+   62  ls
+   63  ls -1
+   64  clear
+   65  ls -l
+   66  cd home
+   67  cd home
+d ..
+   69  cd home
+   70  ls
+   71  cd
+   72  cat>file1.txt
+   73  cat>file2.txt
+   74  cat>file3.txt
+   75  ls
+   76  ls -o file1.txt file2.txt file3.txt ls -o file1.txt file2.txt file3.txt
+   77  ls -o
+   78  cd 
+   79  ls
+   80  cd
+   81  cd ..
+   82  mkdir C_prog
+   83  cd
+   84  mkdir C_prog
+   85  ls
+   86  mkdir newdir
+   87  mkdir newdirectory
+   88  ls
+   89  rm -r newdirectory
+   90  ls
+   91  cd
+   92  mkdir temp
+   93  ls
+   94  cd
+   95  rm -r newdir
+   96  ls
+   97  cd temp
+   98  mkdir directorynew
+   99  ls
+  100  pwd
+  101  cd
+  102  pwd
+  103  cd home/
+  104  cd ..
+  105  pwd
+  106  ls
+  107  cd /home
+  108  ls
+  109  cd
+  110  ls -R
+  111  cd..
+  112  pwd
+  113  ls -R
+  114  cd
+  115  cd /home/testuser73/temp/directorynew
+  116  pwd
+  117  cd ../
+  118  pwd
+  119  cd ../directorynew
+  120  cd /directorynew
+  121  cd
+  122  pwd
+  123  cd temp
+  124  cd
+  125  pwd
+  126  cd /home/testuser73/temp
+  127  pwd
+  128  -bash-3.2$ ls -R
+  129  .:
+  130  C_prog  file1.txt  file2.txt  file3.txt  k  temp  tmp
+  131  ./C_prog:
+  132  ./k:
+  133  emp.txt
+  134  ./temp:
+  135  directorynew
+  136  ./temp/directorynew:
+  137  ./tmp:
+  138  cd /home/testuser73/temp/directorynew
+  139  pwd
+  140  cd ../directorynew
+  141  pwd
+  142  cd
+  143  rm -r C_prog
+  144  ls
+  145  cd
+  146  cd /etc
+  147  ls -f
+  148  cd
+  149  ls .*
+  150  pwd
+  151  cat>file.unix
+  152  cat file.unix
+  153  cd temp
+  154  pwd
+  155  cd k
+  156  cd /home
+  157  ls
+  158  cd
+  159  cd/k
+  160  cd/k
+  161  cd
+  162  pwd
+  163  mkdir 
+  164  cp first.unix first.unics
+  165  ls
+  166  pwd
+  167  cp file.unix first.unics
+  168  ls
+  169  cd
+  170  cat first.unics
+  171  cat first.unics,file.unix
+  172  cat first.unics file.unix
+  173  cd
+  174  cd temp
+  175  mkdir newdirectory
+  176  ls
+  177  pwd
+  178  cd
+  179  cp * temp/newdirectory
+  180  cd temp/newdirectory
+  181  ls\
+  182  cd
+  183  cp * temp/newdirectory
+  184  cd temp/newdirectory
+  185  ls
+  186  mv file.unix temp/second.txt
+  187  cd
+  188  pwd
+  189  mv first.unics temp/second.txt
+  190  ls
+  191  cd temp
+  192  ls
+  193  cd
+  194  rm -r first.unics
+  195  cd
+  196  pwd
+  197  rm first.unics
+  198  ls
+  199  rm file.unix
+  200  ls
+  201  cd
+  202  cd /home/temp
+  203  cd /home/testuser73/temp
+  204  pwd
+  205  rm *.
+  206  rm *
+  207  cd /home
+  208  cd home/
+  209  cd /home/temp
+  210  cd /homels
+  211  cd /home
+  212  ls
+  213  cd /home/testuser73
+  214  ls
+  215  cd 
+  216  pwd
+  217  cat>friends.txt
+  218  cat friends.txt
+  219  pwd
+  220  ls
+  221  cd home/
+  222  cd home
+  223  cd /home
+  224  pwd
+  225  cd testuser73
+  226  pwd
+  227  cd 
+  228  cp friends.txt home/friends.txt
+  229  pwd
+  230  friends.txt > newfriend
+  231  friends.txt > newfriend.txt
+  232  ls
+  233  cat newfriend
+  234  ls
+  235  cat newfriend.txt
+  236  cat newfriend.txt friends.txt
+  237  date
+  238  cat newfriend
+  239  cat newfriend.txt
+  240  cat > friends.txt
+  241  cat  friends.txt > newfriend.txt
+  242  cat newfriend.txt
+  243  cat friends.txt
+  244  cat>friends.txt
+  245  cat  friends.txt > newfriend.txt
+  246  cat  newfriend.txt
+  247  date
+  248  cal 3 1994
+  249  date "+%"
+  250  date "+%m"
+  251  date "+%D"
+  252  date "+%% Training Activity"
+  253  date "+% Training Activity"
+  254  date "+%r"
+  255  touch chap a
+  256  pwd
+  257  touch chapa
+  258  touch chapc
+  259  touch chapo
+  260  ls
+  261  pwd
+  262  mv *a,*c,*o home/testuser73
+  263  pwd
+  264  man date>date_man
+  265  cat date_man
+  266  more date_man
+  267  man date>date_man
+  268  cat date_man
+  269  less date_man
+  270  history>command.txt
+271  cat command.txt
+  272  clear
+  273  echo "$home"
+  274  echo "$HOME"
+  275  clear
+  276  clear\
+  277  clear
+  278  echo "$PS1"
+  279  PS1="~"
+  280  ls
+  281  pwd
+  282  PS1=\s-\v\$
+  283  echo "$PS2"
+  284  PS2="$"
+  285  echo "this"
+  286  echo "this
+
+
+ 287  cd .
+  288  pwd
+  289  cd 
+  290  pwd
+  291  ls
+  292  cat emp.txt
+  293  cd ..
+  294  pwd
+  295  cd 
+  296  cat>employee.txt
+  297  cat>employee.txt
+  298  cat employee.txt
+  299  cat>emp.txt
+  300  head emp.txt
+  301  head -n 2 emp.txt
+  302  tail -n 2 emp.txt
+  303  tail -5c emp.txt
+  304  tail -15c emp.txt
+  305  date ; cal
+  306  who | wc -l
+  307  who
+  308  who | wc -l
+  309  tail -n 2 emp.txt |head -n 1
+  310  cut -d "|" -f2,4 emp.txt
+  311  cat emp.txt
+  312  cut -d "|" -f2,4 emp.txt
+  313  cut -d "|" -f2,4 emp.txt|head -n 2
+  314  cut -d "|" -f2,4 emp.txt|head -n 3
+  315  tail -n 1/etc/passwd
+  316  cut -d ":" -f1 /etc/passwd > user_info
+  317  cat user_info
+ 319  cut -d ":" -f1 /etc/passwd > user_info
+  320  cat user_info
+  321  cut -c1-5,10-15 emp.txt
+  322  cd 
+  323  pwd
+  324  head -5 username
+  325  head -5 username
+  326  cut -d ":" -f1 /etc/passwd > username
+  327  head -5 username
+  328  cut -d ":" -f1 /etc/passwd > loginshell
+  329  head -5 loginshell
+  330  cut -d ":" -f7 /etc/passwd > loginshell
+  331  head -5 loginshell
+  332  paste -d "|" username loginshell
+  333  history
+
+390  sort -t "|" -k4,4 emp.txt
+  391  cat employee.txt
+  392  sort -t "|" -k4,4 employee.txt
+  393  cat>empl.txt
+  394  cat>empl.txt
+  395  cat empl.txt
+  396  sort -t "|" -k4,4 empl.txt
+  397  sort -t "|" -n -k4,4 empl.txt
+  398  clear
+  399  sort -t "|" -n -k4,4 empl.txt
+  400  sort -t "|" -n -k1,4 empl.txt
+  401  sort -t "|" -k 4 empl.txt
+  402  sort -t "|" -k 2 empl.txt
+  403  sort -t "|" -n -k 4 empl.txt
+  404  sort -t "|" -n -k 1 empl.txt
+  405  sort -t "|" -n -k 4,4 empl.txt
+ 613  ls
+  614  cut -f3 friends |sort -t"/" -n -k3|uniq|wc -l
+  615  cut -f3 friends.txt |sort -t"/" -n -k3|uniq|wc -l
+  616  cut -f3 friends.txt |sort -t"/" -n -k3
+  617  cut -f3 friends.txt |sort -t"/" -n -k3|uniq|wc -l
+  618  ls file* -l
+  619  sort -f1 friends.txt
+  620  sort -k1 friends.txt
+  621  tr "[a-z] [A-Z]"<friends.txt
+  622  tr '[a-z] [A-Z]'<friends.txt
+  623  tr '[a-z] [A-Z]' friends.txt
+  624  tr "[a-z]" "[A-Z]" <friends.txt
+  625  ls -l >dir
+  626  cat dir
+  627  ls -l dir
+  628  cut -c1-10,44-55 dir
+  629  cut -c44-55 dir>files
+  630  cat files
+  631  cut -c1-10 dir>permi
+  632  cat permi
+  633  cut -c26-31 dir>sizes
+  634  cat sizes
+  635  cat files permi sizes
+  636  cat files permi sizes
+  637  cd /home/testuser73/karishma
+  638  cat files permi
+  639  cat files permi sizes
+  640  who | wc -l
+  641  wc -l friends.txt
+  642  cat>emp.lst
+  643  cat emp.lst
+  644  cat>dept.lst
+  645  cat dept.lst
+  646  cat>design.lst
+  647  cat design.lst
+  648  -wc e-wc emp.lst
+  649  -wc emp.lst
+  650  wc emp.lst dept.lst design.lst
+  651  wc emp.lst dept.lst design.lst -c
+  652  cut -f5 emp.lst
+  653  cut -c20-36 emp.lst
+  654  cut -c40-56 emp.lst
+  655  cut -c50-60 emp.lst
+  656  cut -c50-70 emp.lst
+  657  cut -c50-72 emp.lst
+  658  cut -c50-72 emp.lst | tail -n 1 emp.lst
+  659  tail -1 emp.lst | cut -c50-72 emp.lst
+  660  tail -n 1 emp.lst | cut -c50-72 emp.lst
+  661  cut -c50-72 emp.lst | tail -n 1 emp.lst
+  662  tail -1 emp.lst|cut -c20-36
+  663  tail -1 emp.lst|cut -c50-72
+  664  cut -c15-30 emp.lst
+  665  cut -c10-35 emp.lst
+  666  cut -c12-35 emp.lst
+  667  cut -c12-35 emp.lst>cfile1
+  668  cat cfile1
+  669  cut -d "|" -f1,4,5,6 emp.lst
+  670  cut -d"|" -f1,3,5,6 emp.lst
+  671  cut -d"|" -f1,3,5,6 emp.lst
+  672  cut -d"|" -f1,3,5,6 emp.lst
+  673  cut -d"|" -f1,3,5,6 emp.lst>cfile2
+  674  paste -d"|" cfile1,cfile2
+  675  paste -d"|" cfile1 cfile2
+  676  sort -t "|" -k2,2 -r emp.lst
+  677  sort -t -k2,2 -r emp.lst
+  678  sort -k2,2 -r emp.lst
+  679  vi emp.lst
+  680  cat emp.lst
+  681  cd /home/testuser73/k
+  682  cat emp.lst
+  683  cut -d "|" -f1 emp.lst
+  684  cut -d "|" -f1,4,5,6 emp.lst
+  685  cut -d "|" -f1,4,5,6 emp.lst>cfile2
+  686  cat cfile2
+  687  cat cfile1
+  688  paste -d"|" cfile1 cfile2
+  689  cut -d "|" -f2 emp.lst|sort -t -k2,2 -r emp.lst
+  690  cut -d "|" -f2 emp.lst|sort -t "|" -k2,2 -r emp.lst
+  691  vi emp.lst
+  692  cat emp.lst
+  693  cut -d "|" -f2 emp.lst|sort -t "|" -k2,2 -r emp.lst
+  694  sort -t "|" -k2,2 -r emp.lst
+  695  sort -t "|" -k6,6 emp.lst>srtf
+  696  cat srtf
+  697  sort -t "|" -k3,3 emp.lst
+  698  vi emp.lst
+  699  cd /home
+  700  cd /testuser71
+  701  cd testuser71
+  702  cd Harish
+  703  cat>
+  704  cat emp.lst
+  705  cd /home
+  706  cd /home/testuser73/
+  707  cat emp.lst
+  708  sort -t "|" -k3,3 emp.lst
+  709  cut -c35,39 emp.lst
+  710  cut -c30,39 emp.lst
+  711  cut -c20,39 emp.lst
+  712  cut -d "|" -f5 emp.lst
+  713  vi emp.lst
+  714  cd /home/testuser73/
+  715  cat emp.lst
+  716  vi emp.lst
+  717  cd /home/testuser73/
+  718  vi emp.lst
+  719  vi emp.lst
+  720  vim -r emp.lst
+  721  cut -d "|" -f5 emp.lst
+  722  cut -d "|" -f5 emp.lst|cut -c7 emp.lst
+  723  cut -d "|" -f5 emp.lst|cut -c1,2 emp.lst
+  724  cat emp.lst
+  725  cut -d "|" -f5 emp.lst|cut -c34,39 emp.lst
+  726  cut -d "|" -f5 emp.lst|cut -c30,39 emp.lst
+  727  cut -d "|" -f5 emp.lst|cut -c25,39 emp.lst
+  728  cut -d "|" -f5 emp.lst
+  729  cut -d "|" -f5 emp.lst|sort -t "/" -k2.7 emp.lst
+  730  cut -d "|" -f5 emp.lst|sort -t "/" -k2.7
+  731  cut -d "|" -f3 emp.lst
+  732  cut -d "|" -f3 emp.lst|sort -t "|" k3,3
+  733  cut -d "|" -f3 emp.lst|sort -t "|" -k3,3
+  734  cut -d "|" -f3 emp.lst|sort -t "|" -k3,3|unoq
+  735  cut -d "|" -f3 emp.lst|sort -t "|" -k3,3|uniq
+  736  cut -d "|" -f3 emp.lst|sort -t "|" -k3,3|uniq
+  737  cat dir
+  738  cut -c38,47 dir
+  739  cut -c30,47 dir
+  740  cat dir
+  741  cut -c35,40 dir
+  742  cut -c20,40 dir
+  743  cut -d "" -f4 dir
+  744  vi newfile
+  745  cat newfile
+  746  vi newfile
+  747  vi newfile
+  748  cat empl.txt
+  749  sed '3q' empl.txt
+  750  cat empl.txt
+  751  sed -n '2,4p' empl.txt
+  752  sed -n '3,4p' empl.txt
+  753  cat empl.txt
+  754  sed -n '4p' empl.txt
+  755  sed -n '5p' empl.txt
+  756  sed -n '1p' empl.txt
+  757  sed -n '2p' empl.txt
+  758  sed -n '3p' empl.txt
+  759  sed -n '4p' empl.txt
+  760  sed -n '3,4p' empl.txt
+  761  sed -n '2,4p' empl.txt
+  762  sed -n '2,3p' empl.txt
+  763  vi emp.lst
+  764  ls -l emp.lst
+  765  chmod u=x emp.lst
+  766  vi emp.lst
+  767  cat emp.lst
+  768  cp emp.lst emp
+  769  ls -l
+  770  chmod u+rw emp.lst
+  771  ls -l
+  772  ls -l emp.lst
+  773  cat emp.lst
+  774  vi emp.lst
+  775  vi emp.lst
+  776  cat emp.lst
+  777  cut -d "|" -f5 emp.lst
+  778  sort -t "/" -k2.7 emp.lst
+  779  sort -t "/" -k2.7 emp.lst|cut -d "|" -f5
+  780  sed '$p' empl.txt
+  781  sed '$p' empl.txt
+  782  cd /home/testuser73/
+  783  cat>sub
+  784  sed -f sub empl.txt
+  785  vi sub
+  786  sed -f sub empl.txt
+  787  cat friends.txt
+  788  cut -f3,3 friends.txt
+  789  cut -f3 friends.txt
+  790  cut -t" " -f3 friends.txt
+  791  cut -d" " -f3 friends.txt
+  792  cut -d" " -f4 friends.txt
+  793  cut -d" " -f3,3 friends.txt
+  794  cut -d" " -f4,4 friends.txt
+  795  cut -d"" -f4,4 friends.txt
+  796  cut -d"" -f3,3 friends.txt
+  797  cut -d " " -f3,3 friends.txt
+  798  cut -d " " -f3 friends.txt
+  799  cut -d "" -f3 friends.txt
+  800  cut -d"" -f3 friends.txt
+  801  cut -d" " -f3 friends.txt
+  802  cut -d" " -f4 friends.txt
+  803  vi friends.txt
+  804  cut -d" " -f3 friends.txt
+  805  cat friends.txt
+  806  vi friends.txt
+  807  cut -d" " -f3 friends.txt
+  808  cut  -f3 friends.txt
+  809  cut -f3 friends.txt
+  810  cat friends.txt
+  811  cat >friend
+  812  cut -f3 friends.txt
+  813  cut -f3 friend
+  814  cut -d" " -f3 friend
+  815  cut -f3 friend
+  816  cut -f3,3 friend
+  817  cut -f2,3 friend
+  818  cut -f2 friend
+  819  cut -n -f2 friend
+  820  cut -k -f2 friend
+  821  cut -d -f2 friend
+  822  cut -d"" -f2 friend
+  823  cut -d" " -f2 friend
+  824  cut -f2 friend
+  825  vi friend
+  826  cut -f2 friend
+  827  cut -f3 friend
+  828  cat friend>friends
+  829  sed -i 's/|/:/g' friend
+  830  cat friend
+  831  cat empl.txt>employee
+  832  sed -i 's/|/:/g' emp.txt
+  833  sed -i 's/|/:/g' empl.txt
+  834  cat empl.txt
+  835  history
+-bash-3.2$
+
+
+

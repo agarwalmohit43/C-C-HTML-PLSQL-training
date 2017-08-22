@@ -1,0 +1,154 @@
+
+1.
+bash-3.2$ echo $PS1
+\s-\v$
+bash-3.2$ echo $PS2
+>
+bash-3.2$ PS1="Jarvis$ "
+Jarvis$ echo $PS1
+Jarvis$
+
+
+
+2.
+
+
+
+3.
+
+Jarvis$ echo $SHELL
+/bin/bash
+
+
+4.
+
+-bash-3.2$ continent="Africa"
+-bash-3.2$ echo $continent
+Africa
+-bash-3.2$ sh
+sh-3.2$ echo $continent
+	#No Response
+sh-3.2$ continent="Asia"
+sh-3.2$ echo $continent
+Asia
+sh-3.2$ exit
+-bash-3.2$ echo $continent
+Africa
+-bash-3.2$ sh
+sh-3.2$ $continent
+sh-3.2$ echo $continent
+	#No Response
+sh-3.2$ exit
+-bash-3.2$
+
+
+5.
+
+-bash-3.2$ continent="Africa"
+-bash-3.2$ export continent
+-bash-3.2$ echo $continent
+Africa
+-bash-3.2$ sh
+sh-3.2$ echo $continent
+Africa
+sh-3.2$ continent="Asia"
+sh-3.2$ echo $continent
+Asia
+sh-3.2$ exit
+-bash-3.2$ echo $continent
+Africa
+
+
+6.
+-bash-3.2$ cat problem6.sh
+echo "Enter user name"
+read name
+if grep "$name" /etc/passwd 2> /dev/null
+then
+ echo "User logged in"
+else
+ echo "User not logged in"
+fi
+-bash-3.2$ sh problem6.sh
+Enter user name
+testuser82
+testuser82:x:661:663::/home/testuser82:/bin/bash
+User logged in
+
+7.
+-bash-3.2$ cat problem7.sh
+for var in `ls`;
+do
+echo "File Name: $var"
+echo "Contents"
+cat $var
+done
+
+
+8.
+-bash-3.2$ cat fileread.sh
+echo "Enter File Name: "
+read fname
+if [ -z "$fname" ]
+then
+ echo "You have not entered file name"
+else
+ echo "File permissions of $fname"
+ echo `ls -l $fname|cut -d" " -f1`
+fi
+
+-bash-3.2$ sh fileread.sh
+Enter File Name:
+problem6.sh
+File permissions of problem6.sh
+-rw-r--r--
+
+
+9.
+-bash-3.2$ cat bigger.sh
+if [ $# -eq 3 ]
+then
+ num1=$1
+ num2=$2
+ num3=$3
+ if test $num1 -gt $num2 -a $num1 -gt $num3
+  then
+   echo "$num1 is greatest"
+ elif test $num2 -gt $num1 -a $num2 -gt $num3
+  then
+   echo "$num2 is greatest"
+ else
+  echo "$num3 is greatest"
+ fi
+else
+ echo "Enter three numbers only"
+fi
+
+-bash-3.2$ sh bigger.sh
+Enter three numbers only
+-bash-3.2$ sh bigger.sh 3 4 5
+5 is greatest
+-bash-3.2$
+
+10.
+-bash-3.2$ cat patternsearch.sh
+if [ $# -eq 2 ]
+then
+ patt=$1
+ fname=$2
+ if [ -f "$fname" ]
+ then
+  echo `grep "$patt" $fname`
+ else
+  echo "File does not exit or not readable"
+ fi
+else
+ echo "please enter pattern and file name only"
+fi
+
+-bash-3.2$ sh patternsearch.sh read problem6.sh
+read name
+
+-bash-3.2$ sh patternsearch.sh read
+please enter pattern and file name only
+

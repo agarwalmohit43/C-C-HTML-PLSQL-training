@@ -1,0 +1,227 @@
+Function
+function in shell doesnot need parenthesis to be called like in other msg
+every variable in shell is global by default
+
+ex:schellfunc
+ 1 dispMsg(){
+  2  echo "Within Function"
+  3 }
+  4 #main script
+  5
+  6 clear
+  7 echo "Calling Function"
+  8
+  9 dispMsg #function call
+ 10
+ 11 echo "Function Over"
+
+ o/p:
+ Calling Function
+ Within Function
+ Function Over
+ 
+ ex 2:shellfunc
+  1 dispMsg(){
+  2 echo "Your msg is: $msg"
+  3 }
+  4 clear
+  5 read -p "Enter Message To Display: " msg
+  6 dispMsg
+
+ ex3:shellfunc2
+  1 dispMsg(){
+  2 echo "Your msg is: $msg"
+  3 msg2="Your message from function"
+  4 }
+  5 clear
+  6 read -p "Enter Message To Display: " msg
+  7 dispMsg
+  8 echo "$msg2"
+
+  ex4:shellfunc3
+  1 dispMsg(){
+  2   echo "Your msg is: $msg"
+  3   msg2="Your message from function"
+  4  local msg3="Hello local"
+  5    }
+  6 calc(){
+  7
+  8 echo "$msg2"
+  9 }
+ 10    clear
+ 11    read -p "Enter Message To Display: " msg
+ 12    dispMsg
+ 13    echo "$msg3"
+ 14   calc
+ 
+ o/p:
+ Enter Message To Display: MOhit
+Your msg is: MOhit
+
+Your message from function
+
+
+ ex:shellfunc4 -> shell cmd 
+  1 dispMsg(){
+  2 echo "Your msg from cmd: $1"
+  3 }
+  4
+  5 cal(){
+  6 expr $1 + $2
+  7 }
+  8
+  9 dispMsg $1
+ 10 cal $2 $3
+
+ o/p:
+ [system11@NDAUnix shelld]$ ./shellfunc4 hello 100 200 #another way of executing bash filename cmdvalues
+ Your msg from cmd: hello
+ 300
+ 
+ function use from external file
+ ex:shellfunc5
+  1 dispMsg(){
+  2 echo "Your msg from cmd: $1"
+  3 }
+  4
+  5 cal(){
+  6 expr $1 + $2
+  7 }
+
+  shellfunc6
+  1 . ./shellfunc5  #invoking of function
+  2
+  3 dispMsg $1
+  4 cal $2 $3
+
+  [system11@NDAUnix shelld]$ ./shellfunc6 hello 100 200
+  Your msg from cmd: hello
+  300
+
+  Menu Driven Calculator
+  pracshellscr10
+   1 Add(){
+  2 read -p "Enter two numbers for addition: " a b
+  3    c=`expr $a + $b`
+  4    echo "Addition of $a and $b : $c"
+  5 }
+  6
+  7 Sub(){
+  8 read -p "Enter two numbers for substraction: " a b
+  9 c=`expr $a - $b`
+ 10 echo "Substraction of $a and $b : $c"
+ 11 }
+ 12
+ 13 Mul(){
+ 14 read -p "Enter two numbers for multiplication: " a b
+ 15 c=`expr $a \* $b`
+ 16  echo "Multiplication of $a and $b : $c"
+ 17 }
+ 18
+ 19 Div(){
+ 20  read -p "Enter two numbers for division: " a b
+ 21 c=`expr $a / $b`
+ 22 echo "Division of $a and $b : $c"
+ 23 }
+
+  pracshellscr11
+  1 #function call
+  2 . ./pracshellscr10
+  3 while true
+  4 do
+  5 echo -e "Calculator\n"
+  6 echo -e "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit"
+  7 read choice
+  8 case $choice in
+  9 1) Add
+ 10         ;;
+ 11 2)Sub
+ 12         ;;
+ 13 3)Mul
+ 14         ;;
+ 15 4)Div
+ 16         ;;
+ 17 5) echo "Exit"
+ 18         exit
+ 19         ;;
+ 20 *) echo "Invalid Choice"
+ 21 esac
+ 22 read -p "Press Enter to continue...."
+ 23 done
+
+ o/p:
+ [system11@NDAUnix shelld]$ ./pracshellscr11
+Calculator
+
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+1
+Enter two numbers for addition: 4 5
+Addition of 4 and 5 : 9
+Press Enter to continue....
+
+SCM	 -> Software configuration management
+user -> local machine
+project
+1.analysis
+2.design
+3.testing
+4.codes
+
+when we copy data from server machine to user machine we say checkout
+when we copy data from user machine to server machine we say checkin
+
+which everver document is changed after commit it create new document and save new one
+
+create
+svnadmin create --fs-type fsfs /home/demo_project_repository
+
+to see
+chmod 777 /home/demo_project_repository
+ls /home/demo_project_repository
+
+svn ls file:///home/demo_project_repository
+ls /home/demo_project_repository
+
+[system11@NDAUnix demo_project_repository5]$ mkdir project1
+[system11@NDAUnix demo_project_repository5]$ cd project1
+[system11@NDAUnix project1]$ mkdir analysis design testing
+[system11@NDAUnix project1]$ ls
+analysis  design  testing
+[system11@NDAUnix project1]$ cd analysis
+[system11@NDAUnix analysis]$ touch mydoc1
+[system11@NDAUnix analysis]$ cat >mydoc2
+this is my second document
+[system11@NDAUnix analysis]$ cd ..
+[system11@NDAUnix project1]$ cd design
+[system11@NDAUnix design]$ touch doc1 doc2
+[system11@NDAUnix design]$ cd ..
+[system11@NDAUnix project1]$ cd testing
+[system11@NDAUnix testing]$ touch testdoc1 testdoc2
+[system11@NDAUnix testing]$ cd ..
+[system11@NDAUnix project1]$ ls -R
+.:
+analysis  design  testing
+
+./analysis:
+mydoc1  mydoc2
+
+./design:
+doc1  doc2
+
+./testing:
+testdoc1  testdoc2
+[system11@NDAUnix demo_project_repository5]$ mv project1 mohit
+[system11@NDAUnix demo_project_repository5]$ ls mohit
+analysis  design  testing
+
+
+
+
+  
+  
+ 
+

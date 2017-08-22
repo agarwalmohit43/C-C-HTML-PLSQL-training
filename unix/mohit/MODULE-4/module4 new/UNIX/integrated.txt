@@ -1,0 +1,307 @@
+***************************************************
+Que1.1
+***************************************************
+
+-bash-3.2$ sort -t "|" -k3,3 moviesdb.txt | head -n 1
+1006|AfterEarth|100|English|3|50
+
+***************************************************
+Que1.2
+***************************************************
+
+-bash-3.2$ cat eng.awk
+BEGIN{
+}
+{
+if($4~"English")
+   {
+        count++;
+        sum = sum+$5;
+   }
+}
+
+END{
+        printf"average is %f\n",sum/count
+}
+
+
+awk -F "|" -f eng.awk moviesdb.txt
+
+***************************************************
+Que1.3
+***************************************************
+
+-bash-3.2$ awk -F "|" '$5<=3
+{
+$5="NE";
+print
+}' moviesdb.txt
+
+ANS:
+
+1006 AfterEarth 100 English NE 50
+
+***************************************************
+Que1.4
+***************************************************
+
+-bash-3.2$ awk -F "|" '$6>150 && $6<200
+{
+print
+}' moviesdb.txt
+1001|Shelock Holmes|128|English|5|155
+
+***************************************************
+Que1.5
+***************************************************
+-bash-3.2$ cut -d "|" -f2 moviesdb.txt |awk "NF==2"
+Shelock Holmes
+Despicable me
+Jai Ho
+3 Idiots
+Jurasic Park
+
+
+****************************************************
+Que2.1
+*****************************************************
+-bash-3.2$ cat integ2
+echo "--------------------"
+echo "1.searching"
+echo "2.updating"
+echo "3.deleting"
+echo "4.exit"
+echo "--------------------"
+echo "enter the choice"
+read choice
+case $choice in
+  1)echo "---------------------------------"
+    echo "1.search based on movie name"
+    echo "2.search based on language"
+    echo "3.search based on rating"
+    echo "------------------------------------"
+       echo "enter your choice"
+       read choice
+       case $choice in
+           1)echo -e "enter the movie name"
+             read name
+             awk -v movie_name="$name" -F "|" '
+             {
+               if ($2~movie_name)
+              {
+                 print
+              }
+             }' moviesdb.txt;;
+           2)echo -e "enter the language"
+             read lan
+             awk -v language="$lan" -F "|" '
+             {
+		if($4~language)
+		{
+		  print
+		}
+	     }' moviesdb.txt;;
+	   3)echo -e "enter the rating"
+	     read rate
+	     awk -v rating="$rate" -F "|" '
+	    {
+	      if($5~rating)
+		{
+		print
+		}
+	    }' moviesdb.txt;;
+	esac;;
+2)echo -e "enter the movie name to update "
+read name
+echo -e "enter the new name "
+read newname
+sed -i "s/$name/$newname/"  moviesdb.txt
+cat moviesdb.txt
+;;
+
+3)echo -e "enter the movie name to delete the rating"
+  read name
+       awk -v movie_name="$name" -F "|" '
+	{
+	  if($2~movie_name)
+	  {
+	    sed -i d $0
+	    print
+          }
+	}' moviesdb.txt;;
+4)exit;;
+esac
+
+
+
+-------------------------------------------------------------
+Que2.2
+-------------------------------------------------------------
+-bash-3.2$ cat file_handling
+filename=$1;
+sline=$2;
+eline=$3;
+
+if [ -f $filename ]
+then
+tail -n+$sline $filename | head -$eline > updated.txt
+else
+echo "not a valid file"
+fi
+
+---------
+to execute
+---------
+sh file_handling moviesdb.txt 1 2
+cat updated.txt
+
+
+------------------------------------------------------------------
+Que3
+------------------------------------------------------------------
+************
+function.h
+************
+
+-bash-3.2$ cat function.h
+#include<stdio.h>
+void addemp();
+void deleteemp();
+void updateemp();
+void displayemp();
+void calsalary();
+
+*************
+addemp.c
+*************
+-bash-3.2$ cat addemp.c
+#include<stdio.h>
+#include "global.h"
+#include "function.h"
+void addemp()
+{
+printf("addition is performed now\n");
+}
+
+
+*************
+deleteemp.c
+*************
+-bash-3.2$ cat deleteemp.c
+#include<stdio.h>
+#include "global.h"
+#include "function.h"
+void deleteemp()
+{
+printf("delete is called\n");
+}
+-bash-3.2$
+
+
+***************
+updateemp.c
+***************
+-bash-3.2$ cat updateemp.c
+#include<stdio.h>
+#include "global.h"
+#include "function.h"
+void updateemp()
+{
+printf("updation is called\n");
+}
+
+
+****************
+displayemp.c
+****************
+-bash-3.2$ cat displayemp.c
+#include<stdio.h>
+#include "global.h"
+#include "function.h"
+void displayemp()
+{
+printf("display is called\n");
+}
+
+
+***************
+calsalary.c
+***************
+-bash-3.2$ cat calsalary.c
+#include<stdio.h>
+#include "global.h"
+#include "function.h"
+void calsalary()
+{
+printf("calculation of salary is called\n");
+}
+
+
+****************
+menu.c
+****************
+-bash-3.2$ cat menu.c
+#include<stdio.h>
+#include "global.h"
+#include "function.h"
+void menu()
+{
+printf("addition is called\n");
+addemp();
+printf("delete is called\n");
+deleteemp();
+printf("display is called\n");
+displayemp();
+printf("cal salary is called\n");
+calsalary();
+}
+
+
+*****************
+global.h
+*****************
+-bash-3.2$ cat global.h
+#include<stdio.h>
+int empid;
+float salary;
+
+
+***************
+execute the files 
+*****************
+
+-bash-3.2$ gcc main.c menu.c addemp.c deleteemp.c updateemp.c displayemp.c calsalary.c -o menu
+-bash-3.2$ ./menu
+updation is now called
+addition is called
+addition is performed now
+delete is called
+delete is called
+display is called
+display is now called
+cal salary is called
+calculation of salary is called
+
+
+
+******************
+makefile
+/*****************
+-bash-3.2$ cat makefile
+menu:main.o menu.o addemp.o deleteemp.o updateemp.o displayemp.o calsalary.o
+        gcc -o menu main.c menu.c addemp.c deleteemp.c updateemp.c displayemp.c calsalary.c
+main.o:main.c function.h global.h
+        gcc -c main.c
+menu.o:menu.c function.h global.h
+        gcc -c menu.c
+addemp.o:addemp.c function.h global.h
+        gcc -c addemp.c
+deleteemp.o:deleteemp.c function.h global.h
+        gcc -c deleteemp.c
+updateemp.o:updateemp.c function.h global.h
+        gcc -c updateemp.c
+displayemp.o:displayemp.c function.h global.h
+        gcc -c displayemp.c
+calsalary.o:calsalary.c function.h global.h
+        gcc -c calsalary.c
+

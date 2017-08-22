@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="feedback">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="customer">
+					<xs:complexType>
+					<xs:sequence>
+						<xs:element name="names">
+							<xs:complexType>
+							<xs:sequence>
+								<xs:element name="sal">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Mr."/>
+											<xs:enumeration value="Mrs."/>
+											<xs:enumeration value="Ms."/>
+										</xs:restriction>
+									</xs:simpleType>	
+								</xs:element>
+								<xs:element name="name1">
+									<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[A-Za-z]{3,15}"></xs:pattern>
+									</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					
+						<xs:element name="address1" type="xs:string"></xs:element>
+						<xs:element name="address2" type="xs:string"></xs:element>
+						<xs:element name="state" type="xs:string"></xs:element>
+						<xs:element name="city" type="xs:string"></xs:element>
+					
+						<xs:element name="pincode">
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:pattern value="[0-9]{6}"></xs:pattern>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					
+						<xs:element name="mobileno">
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:pattern value="[\+]?[0-9]{12}"></xs:pattern>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+								
+						<xs:element name="email">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="[a-zA-Z0-9\._]+@[a-z]+\.[a-zA-Z]{3}"></xs:pattern>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+				
+						<xs:element name="carmodel" type="xs:string"></xs:element>
+						
+							<xs:element name="typeservice">
+							<xs:complexType>
+							<xs:sequence>
+								<xs:element name="paint">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="No"/>
+											<xs:enumeration value="Yes"/>
+										</xs:restriction>
+									</xs:simpleType>
+						</xs:element>
+						
+						<xs:element name="enginerepair">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="No"/>
+									<xs:enumeration value="Yes"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="bodyrepair">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="No"/>
+									<xs:enumeration value="Yes"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="freeservice">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="No"/>
+									<xs:enumeration value="Yes"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="paidservice">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="No"/>
+									<xs:enumeration value="Yes"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						</xs:sequence>
+						</xs:complexType>
+						</xs:element>
+					
+						<xs:element name="distance" type="xs:positiveInteger"></xs:element>
+				
+						<xs:element name="feed" type="xs:positiveInteger"></xs:element>
+					</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+		</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+	</xs:schema>

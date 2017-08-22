@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1461490239 source:c:\codeblocks\files\reverseanou\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,6 @@
+		#!/bin/bash
+		echo -e "Enter filename : \c"
+		read filename
+    	 	echo -e "Enter pattern :\c"
+    	 	read pattern
+    	 	grep $pattern $filename

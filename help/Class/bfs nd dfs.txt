@@ -1,0 +1,7 @@
+dfs-stack
+pre-nlr
+in-lnr
+po-lrn
+
+leve wise 
+bfs-queue

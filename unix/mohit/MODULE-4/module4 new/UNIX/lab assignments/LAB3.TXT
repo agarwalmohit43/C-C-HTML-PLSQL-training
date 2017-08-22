@@ -1,0 +1,41 @@
+****************************************************
+QUE1:
+****************************************************
+
+-bash-3.2$ chmod u=x chap1
+-bash-3.2$ ls -l chap1
+---xr--r-- 1 testuser73 testuser73 0 Jun  1 12:10 chap1
+
+****************************************************
+QUE2:
+****************************************************
+-bash-3.2$ touch add.c
+-bash-3.2$ ls
+add.c  date_man      empl.txt     grepdemo    newfriend      username
+chap   empdate       emp.txt      loginshell  newfriend.txt
+chap1  employee.txt  friends.txt  newemp      new.txt
+-bash-3.2$ chmod 111 add.c
+-bash-3.2$ ls -l add.c
+---x--x--x 1 testuser73 testuser73 0 Jun  1 12:11 add.c
+
+****************************************************
+QUE3:
+****************************************************
+-bash-3.2$ chmod go=r aa.c
+-bash-3.2$ ls -l aa.c
+-rw-r--r-- 1 testuser73 testuser73 0 Jun  1 12:12 aa.c
+
+****************************************************
+QUE4:
+****************************************************
+-bash-3.2$ chmod u=x a.c kk.c nato myfile
+-bash-3.2$ ls -l a.c myfile kk.c nato
+---xr--r-- 1 testuser73 testuser73 0 Jun  1 15:22 a.c
+---xr--r-- 1 testuser73 testuser73 0 Jun  1 15:31 kk.c
+---xr--r-- 1 testuser73 testuser73 0 Jun  1 15:31 myfile
+---xr--r-- 1 testuser73 testuser73 0 Jun  1 15:31 nato
+-bash-3.2$
+
+****************************************************
+QUE5:
+****************************************************

@@ -1,0 +1,43 @@
+[user6@NDAUnix lab]$ vi friends.txt
+VEN|846539|19/01/1993
+ben|846532|01/08/1994
+len|846533|02/02/1997
+gwen|846534|01/08/1994
+ten|846535|05/07/1999
+wen|846536|06/08/1998
+vVEN|846537|04/05/1991
+bben|846538|03/08/1992
+gwen|846539|02/08/1996
+tten|846530|01/08/1997
+
+
+[user6@NDAUnix lab]$ vi students.txt
+Venkat/846539/C/77/100/pass
+Sudhakar/846538/C/74/100/pass
+partap/846531/C/75/100/pass
+Harsha/846532/C/76/100/pass
+ven/846356/C/35/100/fail
+Venkat/846537/C++/77/100/pass
+Sudhakar/846587/C++/71/100/pass
+Harsha/846787/C++/85/100/pass
+Pratap/846576/C++/70/100/pass
+ven/846767/C++/35/100/fail
+Venkat/846532/UNIX/87/100/pass
+Pratap/846598/UNIX/76/100/pass
+Harsha/857463/UNIX/80/100/pass
+Sudhakar/985432/UNIX/88/100/pass
+ven/846735/UNIX/35/100/fail
+
+[user6@NDAUnix lab]$ vi new_friends.txt
+VEN  846539  01/08/1994 VEN
+ben  846539  01/08/1994
+len  846539  01/08/1994
+gwen 846539  01/08/1994
+ten  846539  01/08/1994
+wen  846539  01/08/1994
+vVEN  846539  01/08/1994
+bben  846539  01/08/1994
+gwen  846539  01/08/1994
+tten  846539  01/08/1994
+
+

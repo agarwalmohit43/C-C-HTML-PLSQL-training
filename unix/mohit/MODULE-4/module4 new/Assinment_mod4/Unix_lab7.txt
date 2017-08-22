@@ -1,0 +1,38 @@
+1. Find out the PID of the processes that are activated by you:
+
+
+-bash-3.2$ ps
+  PID TTY          TIME CMD
+ 3804 pts/1    00:00:00 bash
+ 4955 pts/1    00:00:00 ps
+
+________________________________________________________________________________________________________________________________
+
+
+2. Find out the information about all the processes that are currently active:
+
+
+-bash-3.2$ ps -F
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+644       3804  3803  0  1188  1488   0 07:47 pts/1    00:00:00 -bash
+644       4963  3804  0  1088   952   3 08:37 pts/1    00:00:00 ps -F
+
+________________________________________________________________________________________________________________________________
+
+
+3. Start a different process in the background. Find out the status of the background process using the PID of the same:
+
+
+-bash-3.2$ cat > f2&
+[2] 5112
+-bash-3.2$
+
+[2]+  Stopped                 cat > f2
+-bash-3.2$ ps -P
+  PID PSR TTY          TIME CMD
+ 3804   3 pts/1    00:00:00 bash
+ 5008   0 pts/1    00:00:00 cat
+ 5112   0 pts/1    00:00:00 cat
+ 5114   0 pts/1    00:00:00 ps
+
+________________________________________________________________________________________________________________________________

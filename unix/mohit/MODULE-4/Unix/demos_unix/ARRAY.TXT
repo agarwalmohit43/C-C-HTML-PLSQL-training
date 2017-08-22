@@ -1,0 +1,10 @@
+	#!/bin/bash
+        declare -a arr 
+        for((i=0;i<10;i++))
+        do
+                arr[$i]=$i 
+        done
+        for((i=0;i<10;i++))
+        do
+                echo ${arr[$i]}
+        done

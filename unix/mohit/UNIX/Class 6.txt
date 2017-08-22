@@ -1,0 +1,399 @@
+gcc/g++ -c/-o  -> (-o: will link + compile)(-c:will only compile)
+
+C Program
+1.vi filename.c		-> creation
+2.gcc filename.c    -> compile (gcc -o test test.c calc.c)
+3../a.out			-> run
+
+ex:prog1.c
+  1 #include<stdio.h>
+  2 int main()
+  3 {
+  4 system("tput clear");
+  5 char ch='a';
+  6 short s=1;
+  7 int no=10;
+  8 printf("\n\t\tHello");
+  9 printf("\nSize of char : %d",sizeof(ch));
+ 10  printf("\nSize of short : %d",sizeof(s));
+ 11  printf("\nSize of int : %d",sizeof(no));
+ 12 return 1;
+ 13
+ 14 }
+
+
+ o/p
+ 
+ [system11@NDAUnix cporg]$ gcc prog1.c
+ [system11@NDAUnix cporg]$ ./a.out
+                Hello
+Size of char : 1
+Size of short : 2
+Size of int : 4
+
+ex:prog3.c
+  1 #include<stdio.h>
+  2 void findmax()
+  3 {
+  4 int a,b;
+  5 printf("\nEnter Two numbers: ");
+  6 scanf("%d%d",&a,&b);
+  7  if(a>b)
+  8 {
+  9  printf("%d is the Max",a);
+ 10 }else{
+ 11 printf("%d is the Max",b);
+ 12 }
+ 13 }
+ 14 void calculate()
+ 15 {
+ 16  int choice;
+ 17 int a,b;
+ 18 printf("\nCalculator\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
+ 19 scanf("%d",&choice);
+ 20 switch(choice)
+ 21 {
+ 22 case 1:
+ 23        printf("\n Enter Two Numbers: ");
+ 24        scanf("%d%d",&a,&b);
+ 25         printf("Addition Of %d %d is:%d ",a,b,(a+b));
+ 26         break;
+ 27 case 2:
+ 28          printf("\n Enter Two Numbers: ");
+ 29        scanf("%d%d",&a,&b);
+ 30         printf("Subtraction Of %d %d is:%d ",a,b,(a-b));
+ 31         break;
+ 32 case 3:
+ 33          printf("\n Enter Two Numbers: ");
+ 34        scanf("%d%d",&a,&b);
+ 35         printf("Multiplication Of %d %d is:%d ",a,b,(a*b));
+ 36         break;
+ 37 case 4:
+ 38          printf("\n Enter Two Numbers: ");
+ 39        scanf("%d%d",&a,&b);
+ 40         printf("Division Of %d %d is:%d ",a,b,(a/b));
+ 41         break;
+ 42
+ 43 case 5: exit(0);
+ 44 default:printf("Invalid Choice");
+ 45 }
+ 46 }
+ 47 void main()
+ 48 {
+ 49 system("tput clear");
+ 50 int choice;
+ 51 printf("\n1.Calculate\n2.Find Max\n3.Exit\n");
+ 52 scanf("%d",&choice);
+ 53 switch(choice)
+ 54 {
+ 55 case 1:calculate(); break;
+ 56 case 2:findmax();break;
+ 57 case 3:exit(0);
+ 58 default: printf("Invalid Choice");
+ 59 }
+ 60 }
+ 
+ 
+//External file without external main
+  prog4.c
+  1 #include<stdio.h>
+  2 #include "calc.c"
+  3 #include "max.c"
+  4
+  5
+  6 void main()
+  7 {
+  8 system("tput clear");
+  9 int choice;
+ 10 printf("\n1.Calculate\n2.Find Max\n3.Exit\n");
+ 11 scanf("%d",&choice);
+ 12 switch(choice)
+ 13 {
+ 14 case 1:calculate(); break;
+ 15 case 2:findmax();break;
+ 16 case 3:exit(0);
+ 17 default: printf("Invalid Choice");
+ 18 }
+ 19 }
+
+ calc.c
+ 1 #include<stdio.h>
+  2 void calculate()
+  3 {
+  4  int choice;
+  5 int a,b;
+  6 printf("\nCalculator\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
+  7 scanf("%d",&choice);
+  8 switch(choice)
+  9 {
+ 10 case 1:
+ 11        printf("\n Enter Two Numbers: ");
+ 12        scanf("%d%d",&a,&b);
+ 13         printf("Addition Of %d %d is:%d ",a,b,(a+b));
+ 14         break;
+ 15 case 2:
+ 16          printf("\n Enter Two Numbers: ");
+ 17        scanf("%d%d",&a,&b);
+ 18         printf("Subtraction Of %d %d is:%d ",a,b,(a-b));
+ 19         break;
+ 20 case 3:
+ 21          printf("\n Enter Two Numbers: ");
+ 22        scanf("%d%d",&a,&b);
+ 23         printf("Multiplication Of %d %d is:%d ",a,b,(a*b));
+ 24         break;
+ 25 case 4:
+ 26          printf("\n Enter Two Numbers: ");
+ 27        scanf("%d%d",&a,&b);
+ 28         printf("Division Of %d %d is:%d ",a,b,(a/b));
+ 29         break;
+ 30
+ 31 case 5: exit(0);
+ 32 default:printf("Invalid Choice");
+ 33 }
+ 34 }
+
+ max.c
+  1 #include<stdio.h>
+  2 void findmax()
+  3 {
+  4 int a,b;
+  5 printf("\nEnter Two numbers: ");
+  6 scanf("%d%d",&a,&b);
+  7  if(a>b)
+  8 {
+  9  printf("%d is the Max",a);
+ 10 }else{
+ 11 printf("%d is the Max",b);
+ 12 }
+ 13 }
+ 
+ //External file with external main
+
+ ex:prog5.c
+  1 #include<stdio.h>
+  2
+  3 void main()
+  4 {
+  5 system("tput clear");
+  6 int choice;
+  7 printf("\n1.Calculate\n2.Find Max\n3.Exit\n");
+  8 scanf("%d",&choice);
+  9 switch(choice)
+ 10 {
+ 11 case 1:system("./calculate"); break;
+ 12 case 2:system("./findmax");break;
+ 13 case 3:exit(0);
+ 14 default: printf("Invalid Choice");
+ 15 }
+ 16 }
+
+ findmax.c
+  1 #include<stdio.h>
+  2 void findmax()
+  3 {
+  4 int a,b;
+  5 printf("\nEnter Two numbers: ");
+  6 scanf("%d%d",&a,&b);
+  7  if(a>b)
+  8 {
+  9  printf("%d is the Max",a);
+ 10 }else{
+ 11 printf("%d is the Max",b);
+ 12 }
+ 13 }
+ 14
+ 15 void main()
+ 16 {
+ 17 findmax();
+ 18 }
+
+ calculate.c
+  1 #include<stdio.h>
+  2 void calculate()
+  3 {
+  4  int choice;
+  5 int a,b;
+  6 printf("\nCalculator\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
+  7 scanf("%d",&choice);
+  8 switch(choice)
+  9 {
+ 10 case 1:
+ 11        printf("\n Enter Two Numbers: ");
+ 12        scanf("%d%d",&a,&b);
+ 13         printf("Addition Of %d %d is:%d ",a,b,(a+b));
+ 14         break;
+ 15 case 2:
+ 16          printf("\n Enter Two Numbers: ");
+ 17        scanf("%d%d",&a,&b);
+ 18         printf("Subtraction Of %d %d is:%d ",a,b,(a-b));
+ 19         break;
+ 20 case 3:
+ 21          printf("\n Enter Two Numbers: ");
+ 22        scanf("%d%d",&a,&b);
+ 23         printf("Multiplication Of %d %d is:%d ",a,b,(a*b));
+ 24         break;
+ 25 case 4:
+ 26          printf("\n Enter Two Numbers: ");
+ 27        scanf("%d%d",&a,&b);
+ 28         printf("Division Of %d %d is:%d ",a,b,(a/b));
+ 29         break;
+ 30
+ 31 case 5: exit(0);
+ 32 default:printf("Invalid Choice");
+ 33 }
+ 34 }
+ 35 void main()
+ 36 {
+ 37 calculate();
+ 38 }
+ 
+
+C++
+1. vi try.cpp,vi myclass.cpp
+2. g++ -o try try.cpp myclass.cpp
+3. ./try
+
+ try.cpp
+  1 #include "myclass.cpp"
+  2 #include "iostream"
+  3
+  4 using namespace std;
+  5
+  6 int main()
+  7 {
+  8 student s1;
+  9 s1.getdata();
+ 10 s1.dispdata();
+ 11 return 0;
+ 12 }
+
+ myclass.cpp
+  1 #include "iostream"
+  2 using namespace std;
+  3
+  4 class student{
+  5 int rno;
+  6 char name[21];
+  7
+  8 public:
+  9 void getdata(){
+ 10 cout<<"\nEnter data:";
+ 11 cin>>rno;
+ 12 cin>>name;}
+ 13
+ 14 void dispdata(){
+ 15 cout<<"\nRoll No: "<<rno<<"\nName: "<<name<<endl;}
+ 16 };
+
+ MAKEFILE
+ 
+ Makefiles main element is called a rule
+ target : dependencies
+ TAB commands	#shell commands
+ Example:
+ my_prog : eval.o main.o
+  g++ -o mu_prog eval.o main.o
+ 
+ eval.o : eval.c eval.h
+  g++ -c eval.c
+ main.o : main.c eval.h
+  g++ -c main.c
+ 
+--------------------------------------------
+# -o to specify executable filename
+# -c to complete only (no linking)
+
+ex: c++
+[system11@NDAUnix cppprog]$ vi makefile
+  makefile
+  1 try : try.o
+  2         g++ -o try try.o
+  3 try.o : try.cpp
+  4         g++ -c try.cpp
+
+[system11@NDAUnix cppprog]$ make
+g++ -c try.cpp
+g++ -o try try.o
+
+ex: c
+[system11@NDAUnix cporg]$ vi makefile
+makefile
+  1 abc : abc.o
+  2         gcc -o abc abc.o
+  3 abc.o : abc.c
+  4         gcc -c abc.c
+
+[system11@NDAUnix cporg]$ make
+gcc -c abc.c
+gcc -o abc abc.o
+
+Debuuger in shell and simple file
+set -vx  -> v-workable x-executable
+set +vx	 -> use to unset
+
+ex:shellscr2
+  1 #case....esac
+  2 set -vx
+  3 clear
+  4 read -p "Enter Your Answer(y/n): " ans
+  5
+  6 case $ans in
+  7 'y'|'Y'|'YES'|'Yes'|'yes') echo "Your answer is 'Yes'"
+  8         ;;
+  9 'n'|'N'|'NO'|'No'|'no') echo "Your answer is 'No'"
+ 10         ;;
+ 11 *) echo "Invalid Answer"
+ 12 esac
+ 13
+ 14 echo "Program Over"
+ 15
+ 16 set +vx
+
+ o/p:
+ [system11@NDAUnix shelld]$ ./shellscr2
+ read -p "Enter Your Answer(y/n): " ans
+ ++ read -p 'Enter Your Answer(y/n): ' ans
+ Enter Your Answer(y/n): y
+
+ case $ans in
+ 'y'|'Y'|'YES'|'Yes'|'yes') echo "Your answer is 'Yes'"
+        ;;
+ 'n'|'N'|'NO'|'No'|'no') echo "Your answer is 'No'"
+        ;;
+ *) echo "Invalid Answer"
+ esac
+ ++ case $ans in
+ ++ echo 'Your answer is '\''Yes'\'''
+ Your answer is 'Yes'
+
+ echo "Program Over"
+ ++ echo 'Program Over'
+ Program Over
+
+ set +vx
+ ++ set +vx
+
+Debugger in c/c++
+gdb ./a.out
+n->next
+c->continue
+run->run the program
+break 5->breakpoint at line number
+p variable name -> prints the value of variable
+l		-> shows program like use of cat
+s -> step into,step over
+
+
+ls -i -> inode
+ln mydata mydataln
+ls -i mydata* -> shows same inode no. for mydata mydataln
+
+
+line by line read
+ 1 while read line
+  2 do
+  3         echo $line
+  4         code=`echo $line|cut -d":" -f1`
+  5         echo $code
+  6 done < emp
+ 
